@@ -24,6 +24,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "node-sass": "^7.0.1",
-    "sass-loader": "^12.6.0"
+    "sass-loader": "^12.6.0",
+    "swiper": "^8.1.0"
   }
 }
