@@ -1,80 +1,10 @@
 <template>
   <div class="wrapper">
     <img class="background_img" src="@/assets/background_img.png" alt=""/>
-    <header>
-      <div class="header_top">
-        <button id="mobile_toggle">
-          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                  d="M4 7h22M4 15h22M4 23h22"></path>
-          </svg>
-        </button>
-        <div id="site_title">
-          <div class="logo1">
-            <div>22清陵祭</div>
-            <div>横浜国立大学 大学祭</div>
-          </div>
-          <div class="logo2">花笑み</div>
-        </div>
-      </div>
-      <nav>
-        <ul class="header_menu">
-          <li>
-            <router-link to="/" class="hover-underline-animation">トップ</router-link>
-          </li>
-          <li>
-            <router-link to="/About" class="hover-underline-animation">清陵祭とは</router-link>
-          </li>
-          <li>
-            <router-link to="/EventList" class="hover-underline-animation">企画を見る</router-link>
-          </li>
-          <li>
-            <router-link to="/pamphlet" class="hover-underline-animation">パンフレット</router-link>
-          </li>
-          <li>
-            <router-link to="/qa" class="hover-underline-animation">Q&A</router-link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Header/>
     <div class="body-frame">
       <router-view/>
-      <footer>
-        <div class="footer_wrapper">
-          <nav class="sitemap">
-            <ul>
-              <li><a>清陵祭について</a></li>
-              <li><a>更新情報</a></li>
-              <li><a>企画を探す</a></li>
-              <li><a>ご協賛について</a></li>
-              <li><a>Q&A</a></li>
-              <li><a>相互リンク</a></li>
-            </ul>
-          </nav>
-          <div class="footer_org">
-            <div class="logos_area">
-              <img src="https://ynu-fes.yokohama/wp-content/uploads/2020/02/cropped-YNUFES-%E3%83%AD%E3%82%B4.jpg"
-                   alt="YNUFES logo"/>
-              <div class="sns">
-                <a><img class="hover-to-shrink" src="@/assets/sns/twitter_logo.png" alt="twitter"/></a>
-                <a><img class="hover-to-shrink" src="@/assets/sns/instagram_logo.png" alt="instagram"/></a>
-                <a><img class="hover-to-shrink" src="@/assets/sns/facebook_logo.png" alt="facebook"/></a>
-              </div>
-            </div>
-            <div class="organ_area">
-              <div>
-                <h3>横浜国立大学<br>大学祭実行委員会</h3>
-                〒240-0067<br>神奈川県横浜市保土ヶ谷区常盤台79-1
-                <br>文化サークル棟1F
-                <br>大学祭実行委員会室
-                <br> ynu.fes.c☆gmail.com
-                <br> ※☆を＠に変えてメールをお送りください。
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="font-size: 0.8rem; padding-top:1rem">Copyright &#169;2022 横浜国立大学 大学祭実行委員会</div>
-      </footer>
+      <Footer/>
     </div>
   </div>
 </template>
@@ -417,3 +347,11 @@ footer {
   }
 }
 </style>
+<script>
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export default {
+  components: {Header, Footer}
+}
+</script>
