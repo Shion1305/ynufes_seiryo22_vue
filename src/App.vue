@@ -84,6 +84,39 @@
   }
 }
 </style>
+<!--style below applies to all components-->
+<style>
+.hover-to-shrink {
+  transition: all 0.1s linear;
+}
+
+.hover-to-shrink:hover {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 20%;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+</style>
 <script>
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
