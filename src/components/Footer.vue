@@ -16,9 +16,9 @@
           <img src="https://ynu-fes.yokohama/wp-content/uploads/2020/02/cropped-YNUFES-%E3%83%AD%E3%82%B4.jpg"
                alt="YNUFES logo"/>
           <div class="sns">
-            <a><img class="hover-to-shrink" src="@/assets/sns/twitter_logo.png" alt="twitter"/></a>
-            <a><img class="hover-to-shrink" src="@/assets/sns/instagram_logo.png" alt="instagram"/></a>
-            <a><img class="hover-to-shrink" src="@/assets/sns/facebook_logo.png" alt="facebook"/></a>
+            <a href="https://twitter.com/ynu_fes" target="_blank"><img class="hover-to-shrink" src="@/assets/sns/twitter_logo.png" alt="twitter"/></a>
+            <a href="https://www.instagram.com/ynu_fes"  target="_blank"><img class="hover-to-shrink" src="@/assets/sns/instagram_logo.png" alt="instagram"/></a>
+            <a href="https://www.facebook.com/ynufes"  target="_blank"><img class="hover-to-shrink" src="@/assets/sns/facebook_logo.png" alt="facebook"/></a>
           </div>
         </div>
         <div class="organ_area">
