@@ -39,17 +39,12 @@
           </div>
         </div>
         <hr class="border_in_events">
-        <div class="events_by_category">
-          <div>Web展示</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="pamphlet_block">
-      <div class="home_pamphlet"><img class="hover-to-shrink" src="@/assets/home/pamphlet_here.png" alt="パンフレット"/></div>
-      <div class="home_poster"><img class="hover-to-shrink" src="@/assets/home/pamphlet_here.png" alt="パンフレット"/>
-        <div>ポスター展覧会</div>
+        <router-link to="/pamphlet" class="pamphlet_block">
+          <img src="@/assets/home/pamphlet_here.jpg"/>
+          <div>
+            <div>デジタル<br>パンフレットは<br>こちらから</div>
+          </div>
+        </router-link>
       </div>
     </div>
     <div class="update_block">
@@ -83,43 +78,6 @@
 
 .content-slider {
   width: 100%;
-}
-
-.pamphlet_block {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 70rem;
-
-.home_pamphlet, .home_poster {
-  position: relative;
-  flex-basis: 50%;
-  padding: 10px;
-  box-sizing: border-box;
-
-> img {
-  box-sizing: border-box;
-  width: 100%;
-}
-
-> div {
-  margin: auto 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: #de31aa;
-  position: absolute;
-  z-index: 50;
-}
-}
-
-.home_poster {
-  background: #de31aa;
-  padding: 10px;
-  text-align: center;
-  font-size: 3rem;
-}
 }
 
 .events_search_block {
@@ -380,18 +338,37 @@ a > div {
 }
 }
 
-.events_by_category {
-  flex-basis: 50%;
-  display: flex;
-  flex-wrap: wrap;
+    .pamphlet_block {
+      position: relative;
+      flex-basis: 50%;
+      display: flex;
+      box-sizing: border-box;
 
-div {
-  flex-basis: 50%;
-  background: black;
-  height: 100px;
-}
-}
-}
+      > img {
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 2rem;
+      }
+
+      > div {
+        box-sizing: border-box;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        > div {
+          line-height: 1;
+          text-align: center;
+          margin: auto;
+          font-size: 3rem;
+        }
+      }
+    }
+  }
 }
 
 
