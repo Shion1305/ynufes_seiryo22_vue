@@ -44,6 +44,138 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  color: white;
+  background: #131516;
+  width: 100%;
+  z-index: 50;
 
+  .footer_wrapper {
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sitemap {
+    flex-basis: 30%;
+    font-size: 1.2rem;
+    margin: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > ul {
+      margin: auto;
+    }
+  }
+
+  .footer_org {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+    .logos_area {
+      margin: 1rem 0 0 2rem;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+
+      > img {
+        margin-left: 0.3rem;
+        width: 10rem;
+        border-radius: 10px;
+      }
+
+      .sns {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+
+        img {
+          height: 3rem;
+          @media screen and (max-width: 470px) {
+            height: 2rem;
+          }
+        }
+      }
+
+
+      @media screen and (max-width: 470px) {
+        flex-direction: column;
+        margin-left: 0;
+        .sns {
+          flex-direction: row;
+        }
+        > img {
+          width: 9rem;
+        }
+      }
+      @media screen and (max-width: 470px) {
+        > img {
+          margin-bottom: 1rem;
+          width: 7rem;
+        }
+      }
+    }
+
+    .organ_area {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      margin-left: 3rem;
+
+      h3 {
+        padding: 0;
+        margin: 0;
+        font-size: 1.2rem;
+        line-height: 1.1;
+      }
+
+      @media screen and (max-width: 70rem) {
+        margin-left: 1rem;
+        font-size: 0.7rem;
+      }
+      @media screen and (max-width: 400px) {
+
+        h3 {
+          font-size: 18px;
+        }
+        margin-left: 0.5rem;
+        font-size: 10px;
+        line-height: 1.2;
+      }
+    }
+  }
+}
+@media screen and (max-width: 670px) {
+  .footer_org {
+    flex-basis: auto;
+  }
+
+  nav.sitemap {
+    display: none;
+  }
+
+  footer .footer_org {
+    flex-basis: auto;
+  }
+}
 </style>

@@ -44,6 +44,134 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+header {
+  padding-top: 1rem;
+  z-index: 50;
+  width: 100%;
+  position: fixed;
+  color: white;
+  //background: #e31bb1;
+  //background: linear-gradient(120deg, #e31bb1, #e810b2);
+  background: linear-gradient(120deg, #ff5ecc, #ff75a8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  * {
+    white-space: nowrap;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 70rem;
+
+    .header_menu {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      color: #aba499;
+
+      li {
+        line-height: 40px;
+        align-items: center;
+        height: 40px;
+        border-radius: 20px;
+        font-size: 20px;
+        padding: 5px 10px;
+        transition: background 0.5s ease-in-out;
+
+        a {
+          height: 100%;
+          margin: 0 auto;
+          text-decoration: none;
+          color: white;
+        }
+      }
+
+      li:hover {
+        background: #ff3b90;
+      }
+    }
+  }
+}
+
+.header_top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#mobile_toggle {
+  color: white;
+  background: none;
+  border: none;
+  display: none;
+  padding: 10px;
+}
+
+#site_title {
+  height: 70px;
+  font-family: 'Kaisei Decol', serif;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo1 {
+    > div:first-of-type {
+      padding: 0;
+      height: 35px;
+      line-height: 1;
+      font-size: 35px;
+      margin-bottom: 3px;
+      @media screen and (max-width: 400px) {
+        font-size: 28px;
+        height: 28px;
+      }
+    }
+
+    > div:nth-of-type(2) {
+      margin-top: 3px;
+      font-size: 15px;
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .logo2 {
+    margin-left: 40px;
+    font-size: 50px;
+
+    @media screen and (max-width: 400px) {
+      font-size: 40px;
+    }
+  }
+}
+@media screen and (max-width: 670px) {
+  #mobile_toggle {
+    display: inline;
+  }
+  #site_title .logo2 {
+    margin-left: 8px;
+  }
+  header {
+    padding-top: 0.3rem;
+  }
+  header nav {
+    display: none;
+  }
+}
 </style>
