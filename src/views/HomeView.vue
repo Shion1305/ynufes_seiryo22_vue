@@ -75,9 +75,11 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
-.content-slider {
-  width: 100%;
+.content-frame {
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .events_search_block {

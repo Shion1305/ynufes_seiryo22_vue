@@ -72,13 +72,6 @@
     z-index: 10;
   }
 
-  .content-frame {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   @media screen and (max-width: 670px) {
     padding-top: 80px;
   }
