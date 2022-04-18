@@ -56,8 +56,6 @@ export default {
 /*  position: relative;*/
 /*}*/
 .swiper {
-  max-height: 25rem;
-  height: 40vw;
 }
 
 .swiper-slide {
@@ -88,5 +86,7 @@ export default {
 .swiper-slide {
   max-width: 50rem;
   width: 80vw;
+  max-height: 25rem;
+  height: 40vw;
 }
 </style>

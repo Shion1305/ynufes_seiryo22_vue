@@ -475,7 +475,6 @@ export default {
 <style lang="scss" scoped>
 
 .carouselView {
-  height: 30rem;
   display: flex;
 
   CarouselView {
