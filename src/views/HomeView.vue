@@ -1,12 +1,31 @@
 <template>
-
-  <h1>test</h1>
+  <div class="content-frame">
+    <div class="carouselView">
+      <CarouselView id="carousel"/>
+    </div>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+
+import CarouselView from "@/components/CarouselView";
 
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  components: {
+    CarouselView,
+  }
 }
 </script>
+<style lang="scss" scoped>
+
+.carouselView {
+  height: 30rem;
+  display: flex;
+
+  CarouselView {
+    margin: 0 auto;
+  }
+
+}
+</style>
