@@ -67,43 +67,22 @@
       </div>
     </div>
     <div class="update_block">
-      <div class="twitter_embeds">
-        <a class="twitter-timeline" data-lang="ja" data-width="500" data-height="600"
-           href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
-      </div>
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
-          <div class="news">
+          <div v-for="update in updates" :key="update.id" class="news hover-to-shrink">
             <div class="date_field">
               <div class="date">2022.3.30</div>
               <div class="time">18:00</div>
             </div>
             <div class="label">
-              <div class="title">タイトル</div>
-              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
+              <div class="title">{{ update.title }}</div>
+              <div class="summary">{{ update.summary }}</div>
             </div>
           </div>
-          <div class="news">
-            <div class="date_field">
-              <div class="date">2022.3.30</div>
-              <div class="time">18:00</div>
-            </div>
-            <div class="label">
-              <div class="title">タイトル</div>
-              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
-            </div>
-          </div>
-          <div class="news">
-            <div class="date_field">
-              <div class="date">2022.3.30</div>
-              <div class="time">18:00</div>
-            </div>
-            <div class="label">
-              <div class="title">タイトル</div>
-              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
-            </div>
-          </div>
+          <router-link class="more_updates hover-to-shrink" to="/updates">
+            <div>更新情報をもっとみる</div>
+          </router-link>
         </div>
       </div>
       <!--                更新情報-->
@@ -470,25 +449,22 @@
 .update_block {
   margin-top: 30px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   width: 100%;
   max-width: 70rem;
-  color: black;
   box-sizing: border-box;
   gap: 1rem;
 
   .twitter_embeds {
     flex-basis: 40%;
-    height: 40rem;
   }
 
   .updates_area {
+    min-height: 10rem;
+    height: fit-content;
     border-radius: 30px;
-    bottom: 0;
     flex-basis: 60%;
     background: linear-gradient(90deg, #F06D87, #EF60A3);
-    left: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
 
@@ -505,9 +481,6 @@
       box-sizing: border-box;
       color: white;
       border-radius: 30px;
-      height: auto;
-      top: 0;
-      bottom: 0;
       margin: 1rem;
       display: flex;
       flex-direction: column;
@@ -553,12 +526,18 @@
           line-height: 1;
 
           .title {
+            line-height: 2rem;
             height: 2rem;
             font-size: 1.5rem;
             width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
           }
 
-          .content {
+          .summary {
             word-break: break-all;
             font-size: 1rem;
             height: 2rem;
@@ -595,7 +574,28 @@
         @media screen and (max-width: 430px) {
           .date_field {
             font-size: 1.1rem;
+
+            .date {
+              width: 5rem;
+            }
           }
+        }
+      }
+
+      .more_updates {
+        margin: 0.6rem auto 0 auto;
+        border-radius: 1.5rem;
+        height: 3rem;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #EF60A3;
+        text-decoration: none;
+        font-size: 1.6rem;
+
+        > div {
+          padding: 0 1.5rem;
         }
       }
     }
@@ -631,11 +631,35 @@
 <script>
 
 import CarouselView from "@/components/CarouselView";
+import {createClient} from 'microcms-js-sdk'; //ES6
+import TweetTimeline from "@/components/TweetTimeline";
+// Initialize Client SDK.
+const client = createClient({
+  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
+  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
+});
 
 export default {
   name: 'HomeView',
   components: {
     CarouselView,
+  },
+  data() {
+    return {updates: []}
+  },
+  methods: {
+    getLatestUpdate() {
+      client.get({
+        endpoint: 'updates',
+      }).then((data) => {
+        console.log(data.contents);
+        this.updates = data.contents.slice(0, 3);
+      });
+    },
+  },
+  mounted() {
+    console.log("mounted");
+    this.getLatestUpdate();
   }
 }
 </script>
@@ -648,6 +672,5 @@ export default {
   CarouselView {
     margin: 0 auto;
   }
-
 }
 </style>
