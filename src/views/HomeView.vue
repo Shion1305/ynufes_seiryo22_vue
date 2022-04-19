@@ -3,9 +3,13 @@
     <div class="carouselView">
       <CarouselView id="carousel"/>
     </div>
-    <div
-        style="width: 50%; height: 1rem;padding:1rem; text-align: center; background: linear-gradient(90deg,#ff7cd3,#ff6498)">
-      test
+    <div id="banner-area">
+      <div>
+        今年のテーマは<br>花笑み!
+      </div>
+      <div>
+        5/21,22に<br>オンライン開催
+      </div>
     </div>
     <div class="events_search_block">
       <div class="section_title">
@@ -40,12 +44,26 @@
           </div>
         </div>
         <hr class="border_in_events">
-        <router-link to="/pamphlet" class="pamphlet_block">
+        <router-link to="/pamphlet" class="pamphlet_block hover-to-shrink">
           <img src="@/assets/home/pamphlet_here.jpg"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
           </div>
         </router-link>
+      </div>
+    </div>
+    <div class="button_section_1">
+      <div>
+        <img/>
+        <div>
+          <div>ポスター展覧会</div>
+        </div>
+      </div>
+      <div>
+        <img/>
+        <div>
+          <div>浜フェス投票</div>
+        </div>
       </div>
     </div>
     <div class="update_block">
@@ -54,20 +72,37 @@
            href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
       </div>
       <div class="updates_area">
-        <h1 class="hover-underline-animation">更新情報</h1>
+        <h1>更新情報</h1>
         <div class="updates_frame">
           <div class="news">
-            <h3>2022.3.30</h3>
-            <div>2022.3.30</div>
+            <div class="date_field">
+              <div class="date">2022.3.30</div>
+              <div class="time">18:00</div>
+            </div>
+            <div class="label">
+              <div class="title">タイトル</div>
+              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
+            </div>
           </div>
           <div class="news">
-            <div>2022.3.30</div>
+            <div class="date_field">
+              <div class="date">2022.3.30</div>
+              <div class="time">18:00</div>
+            </div>
+            <div class="label">
+              <div class="title">タイトル</div>
+              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
+            </div>
           </div>
           <div class="news">
-            <div>2022.3.30</div>
-          </div>
-          <div class="news">
-            <div>2022.3.30</div>
+            <div class="date_field">
+              <div class="date">2022.3.30</div>
+              <div class="time">18:00</div>
+            </div>
+            <div class="label">
+              <div class="title">タイトル</div>
+              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
+            </div>
           </div>
         </div>
       </div>
@@ -76,6 +111,26 @@
   </div>
 </template>
 <style lang="scss" scoped>
+#banner-area {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  max-width: 70rem;
+
+  > div {
+    color: white;
+    flex-basis: 50%;
+    margin: auto;
+    padding: 1rem;
+    height: 6rem;
+    text-align: center;
+    background: linear-gradient(90deg, #ff7cd3, #ff6498);
+    font-size: 2rem;
+    border-radius: 1rem;
+  }
+}
+
+
 .content-frame {
   width: calc(100% - 2rem);
   display: flex;
@@ -89,7 +144,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ffffff88;
+  background: #ffffff44;
   margin: 20px 0;
   border-radius: 40px;
 
@@ -349,7 +404,7 @@
 
       > img {
         box-sizing: border-box;
-        padding: 1rem;
+        padding: 0.5rem;
         width: 100%;
         object-fit: cover;
         border-radius: 2rem;
@@ -370,6 +425,43 @@
           font-size: 3rem;
         }
       }
+
+      @media screen and (max-width: 500px) {
+        > div > div {
+          font-size: 33px;
+        }
+      }
+    }
+  }
+}
+
+.button_section_1 {
+  display: flex;
+  width: 100%;
+  max-width: 70rem;
+
+  > div {
+    flex-basis: 50%;
+    position: relative;
+
+    > img {
+      background: #e31bb1;
+      height: 10rem;
+      width: 100%;
+    }
+
+    > div {
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+      display: flex;
+      font-size: 3rem;
+
+      > div {
+        margin: auto;
+        text-align: center;
+      }
     }
   }
 }
@@ -383,7 +475,7 @@
   max-width: 70rem;
   color: black;
   box-sizing: border-box;
-  padding: 10px;
+  gap: 1rem;
 
   .twitter_embeds {
     flex-basis: 40%;
@@ -393,7 +485,6 @@
   .updates_area {
     border-radius: 30px;
     bottom: 0;
-    margin: 0 10px;
     flex-basis: 60%;
     background: linear-gradient(90deg, #F06D87, #EF60A3);
     left: 0;
@@ -411,28 +502,101 @@
     }
 
     .updates_frame {
+      box-sizing: border-box;
+      color: white;
       border-radius: 30px;
       height: auto;
       top: 0;
       bottom: 0;
-      margin: 20px;
-    }
-
-    .news {
+      margin: 1rem;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 4rem;
-      padding: 5px;
-      border-radius: 1.5rem;
-      //border: black 2px;
-      border-style: solid;
-      border-width: 2px;
-      border-color: white;
+      flex-direction: column;
+      gap: 0.3rem;
 
-      h3 {
-        height: 100%;
-        width: 100px;;
+      .news {
+        box-sizing: border-box;
+        display: flex;
+        height: 5rem;
+        padding: 5px;
+        border-radius: 1.5rem;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        width: 100%;
+        align-items: center;
+
+        .date_field {
+          display: flex;
+          flex-direction: row;
+          font-size: 1.5rem;
+
+          .date {
+            flex-shrink: 0;
+            text-align: center;
+            padding-left: 0.2rem;
+            width: 7rem;
+          }
+
+          .time {
+            flex-shrink: 0;
+            margin: 0 auto;
+            text-align: center;
+            width: 5rem;
+          }
+
+        }
+
+        .label {
+          display: flex;
+          flex-direction: column;
+          margin-left: 0.2rem;
+          line-height: 1;
+
+          .title {
+            height: 2rem;
+            font-size: 1.5rem;
+            width: 100%;
+          }
+
+          .content {
+            word-break: break-all;
+            font-size: 1rem;
+            height: 2rem;
+            width: 100%;
+            line-height: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+
+        @media screen and (max-width: 900px) {
+          .date_field {
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 0.3rem;
+          }
+        }
+
+        @media screen and (max-width: 700px) {
+          .date_field {
+            flex-direction: row;
+            padding-left: 0;
+          }
+        }
+        @media screen and (max-width: 500px) {
+          .date_field {
+            flex-direction: column;
+            padding-left: 0.3rem;
+          }
+        }
+        @media screen and (max-width: 430px) {
+          .date_field {
+            font-size: 1.1rem;
+          }
+        }
       }
     }
   }
@@ -456,6 +620,9 @@
   .events_search_block .content1-home {
     flex-direction: column;
   }
+  .border_in_events {
+    display: none;
+  }
   .home_events {
     flex-basis: auto;
   }
@@ -476,6 +643,7 @@ export default {
 
 .carouselView {
   display: flex;
+  margin-bottom: 1rem;
 
   CarouselView {
     margin: 0 auto;
