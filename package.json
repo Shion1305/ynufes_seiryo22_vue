@@ -12,6 +12,7 @@
     "microcms-js-sdk": "^2.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-tweet": "^1.2.1",
     "vuex": "^4.0.0",
     "webpack": "^5.0.0"
   },
