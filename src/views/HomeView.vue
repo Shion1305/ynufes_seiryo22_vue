@@ -3,6 +3,16 @@
     <div class="carouselView">
       <CarouselView id="carousel"/>
     </div>
+    <div class="ads-block">
+      <div class="ads-area">
+        <a></a>
+      </div>
+      <router-link to="/support_us">
+        <div>
+          ご協賛はこちら!
+        </div>
+      </router-link>
+    </div>
     <div id="banner-area">
       <div>
         今年のテーマは<br>花笑み!
@@ -85,6 +95,10 @@
           </router-link>
         </div>
       </div>
+      <div class="twitter_embeds">
+        <a class="twitter-timeline" data-lang="ja" data-width="350" data-height="450" href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
+      </div>
+<!--      <TweetTimeline class="twitter_embeds"/>-->
       <!--                更新情報-->
     </div>
   </div>
@@ -632,7 +646,6 @@
 
 import CarouselView from "@/components/CarouselView";
 import {createClient} from 'microcms-js-sdk'; //ES6
-import TweetTimeline from "@/components/TweetTimeline";
 // Initialize Client SDK.
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
