@@ -3,7 +3,7 @@
     <swiper
         :slidesPerView="'auto'"
         :centeredSlides="true"
-        :spaceBetween="30"
+        :spaceBetween="15"
         :loop="true"
         :autoplay="{
       delay: 4000,

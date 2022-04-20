@@ -65,7 +65,7 @@
   overflow: clip;
   min-height: 100vh;
   box-sizing: border-box;
-  padding-top: 136px;
+  padding-top: 170px;
   padding-bottom: 220px;
 
   * {
