@@ -1,17 +1,16 @@
 <template>
+  <div class="carouselView">
+    <CarouselView id="carousel"/>
+  </div>
   <div class="content-frame">
-    <div class="carouselView">
-      <CarouselView id="carousel"/>
-    </div>
-    <div class="ads-block">
-      <div class="ads-area">
-        <a></a>
-      </div>
+    <div class="ads-area">
       <router-link to="/support_us">
         <div>
-          ご協賛はこちら!
+          ご協賛について
         </div>
       </router-link>
+      <AdsBlock/>
+
     </div>
     <div id="banner-area">
       <div>
@@ -129,6 +128,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.ads-area {
+  width: fit-content;
+  margin: 0.5rem 0;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background: #e31bb1;
+    border-radius: 1rem;
+    line-height: 1;
+    font-size: 1.3rem;
+
+    div {
+      padding: 0 0.5rem;
+      white-space: nowrap;
+    }
+  }
 }
 
 .events_search_block {
@@ -645,7 +670,8 @@
 <script>
 
 import CarouselView from "@/components/CarouselView";
-import {createClient} from 'microcms-js-sdk'; //ES6
+import {createClient} from 'microcms-js-sdk';
+import AdsBlock from "@/components/AdsBlock"; //ES6
 // Initialize Client SDK.
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -655,6 +681,8 @@ const client = createClient({
 export default {
   name: 'HomeView',
   components: {
+    // eslint-disable-next-line vue/no-unused-components
+    AdsBlock,
     CarouselView,
   },
   data() {
