@@ -1,19 +1,19 @@
 <template>
   <div class="wrapper">
     <swiper
-        :slidesPerView="'auto'"
-        :centeredSlides="true"
-        :spaceBetween="15"
-        :loop="true"
         :autoplay="{
       delay: 4000,
       disableOnInteraction: false,
     }"
+        :centeredSlides="true"
+        :loop="true"
+        :modules="modules"
+        :navigation="true"
         :pagination="{
       clickable: true,
     }"
-        :navigation="true"
-        :modules="modules"
+        :slidesPerView="'auto'"
+        :spaceBetween="15"
         class="mySwiper"
     >
       <swiper-slide><img src="@/assets/imgs/test1.png"></swiper-slide>
@@ -34,9 +34,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 // import "./style.css";
-
 // import required modules
-import {Autoplay, Pagination, Navigation} from "swiper";
+import {Autoplay, Navigation, Pagination} from "swiper";
 
 export default {
   components: {

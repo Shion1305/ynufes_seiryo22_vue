@@ -1,12 +1,12 @@
 <template>
-  <swiper :slidesPerView="3" :spaceBetween="40" :pagination='{
-  "clickable": true
-}'
-          :loop="true"
-          :autoplay="{
+  <swiper :autoplay="{
   delay: 4000,
   disableOnInteraction: false,
-  }"
+  }" :loop="true" :pagination='{
+  "clickable": true
+}'
+          :slidesPerView="3"
+          :spaceBetween="40"
           class="mySwiper">
     <swiper-slide><img src="@/assets/ads/dummyAds.png"/></swiper-slide>
     <swiper-slide><img src="@/assets/ads/dummyAds.png"/></swiper-slide>

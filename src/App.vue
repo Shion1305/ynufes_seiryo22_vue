@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img class="background_img" src="@/assets/background_img.png" alt=""/>
+    <img alt="" class="background_img" src="@/assets/background_img.png"/>
     <Header/>
     <div class="body-frame">
       <router-view/>

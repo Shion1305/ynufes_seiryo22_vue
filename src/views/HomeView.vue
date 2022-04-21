@@ -31,14 +31,14 @@
       <div class="content1-home">
         <div class="home_events">
           <div class="button_events_all hover-to-shrink">
-            <img src="@/assets/home/event-button-1.png" alt="全ての企画を見る"/>
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1.png"/>
             <router-link to="/pamphlet">
               <div><p>全ての<br>企画</p></div>
             </router-link>
           </div>
           <div class="button_events_other">
             <div class="button_events_part hover-to-shrink">
-              <img src="@/assets/home/event-button-2.png" alt="本部企画"/>
+              <img alt="本部企画" src="@/assets/home/event-button-2.png"/>
               <a>
                 <div>
                   <p>本部企画</p>
@@ -46,7 +46,7 @@
               </a>
             </div>
             <div class="button_events_part hover-to-shrink">
-              <img src="@/assets/home/event-button-3.png" alt="団体企画"/>
+              <img alt="団体企画" src="@/assets/home/event-button-3.png"/>
               <a>
                 <div><p>団体企画</p></div>
               </a>
@@ -54,7 +54,7 @@
           </div>
         </div>
         <hr class="border_in_events">
-        <router-link to="/pamphlet" class="pamphlet_block hover-to-shrink">
+        <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
           <img src="@/assets/home/pamphlet_here.jpg"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
@@ -96,9 +96,10 @@
         </div>
       </div>
       <div class="twitter_embeds">
-        <a class="twitter-timeline" data-lang="ja" data-width="350" data-height="450" href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
+        <a class="twitter-timeline" data-height="450" data-lang="ja" data-width="350"
+           href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
       </div>
-<!--      <TweetTimeline class="twitter_embeds"/>-->
+      <!--      <TweetTimeline class="twitter_embeds"/>-->
       <!--                更新情報-->
     </div>
   </div>
