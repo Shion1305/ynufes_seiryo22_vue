@@ -12,7 +12,8 @@
       <AdsBlock/>
 
     </div>
-    <div id="banner-area">
+    <!--    一時的に非表示-->
+    <div id="banner-area" style="display: none">
       <div>
         今年のテーマは<br>花笑み!
       </div>
