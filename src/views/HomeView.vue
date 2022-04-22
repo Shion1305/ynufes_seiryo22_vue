@@ -3,15 +3,15 @@
     <CarouselView id="carousel"/>
   </div>
   <div class="content-frame">
-    <div class="ads-area">
-      <router-link to="/support_us">
-        <div>
-          ご協賛について
-        </div>
-      </router-link>
-      <AdsBlock/>
+<!--    <div class="ads-area">-->
+<!--      <router-link to="/support_us">-->
+<!--        <div>-->
+<!--          ご協賛について-->
+<!--        </div>-->
+<!--      </router-link>-->
+<!--      <AdsBlock/>-->
 
-    </div>
+<!--    </div>-->
     <!--    一時的に非表示-->
     <div id="banner-area" style="display: none">
       <div>
@@ -134,12 +134,9 @@
 
 .ads-area {
   width: fit-content;
-  margin: 0.5rem 0;
-  background: none;
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-
   a {
     display: flex;
     justify-content: center;
@@ -152,7 +149,6 @@
     font-size: 1.3rem;
 
     div {
-      padding: 0 0.5rem;
       white-space: nowrap;
     }
   }
