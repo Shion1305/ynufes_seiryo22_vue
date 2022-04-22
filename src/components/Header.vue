@@ -24,7 +24,10 @@
           <router-link class="hover-underline-animation" to="/About">清陵祭とは</router-link>
         </li>
         <li>
-          <router-link class="hover-underline-animation" to="/EventList">企画を見る</router-link>
+          <router-link class="hover-underline-animation" :to="{
+            name:'event_list'
+          }">企画を見る
+          </router-link>
         </li>
         <li>
           <router-link class="hover-underline-animation" to="/pamphlet">パンフレット</router-link>
