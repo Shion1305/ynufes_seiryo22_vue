@@ -1,6 +1,6 @@
 <template>
   <div class="carouselView">
-    <CarouselView id="carousel"/>
+    <CarouselView id="carousel" :slides="this.slides"/>
   </div>
   <div class="content-frame">
 <!--    <div class="ads-area">-->
@@ -682,10 +682,11 @@ export default {
     TwitterTimeline,
     // eslint-disable-next-line vue/no-unused-components
     AdsBlock,
+    // eslint-disable-next-line vue/no-unused-components
     CarouselView,
   },
   data() {
-    return {updates: []}
+    return {updates: [], slides: [], loading: true}
   },
   methods: {
     getLatestUpdate() {
@@ -695,9 +696,19 @@ export default {
         this.updates = data.contents.slice(0, 3);
       });
     },
+    getLatestSlides() {
+      client.get({
+        endpoint: 'slides'
+      }).then((data) => {
+            this.slides = data.contents;
+            this.loading = false;
+          }
+      );
+    }
   },
   mounted() {
     this.getLatestUpdate();
+    this.getLatestSlides();
   }
 }
 </script>

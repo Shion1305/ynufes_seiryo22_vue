@@ -16,11 +16,12 @@
         :spaceBetween="15"
         class="mainSwiper"
     >
-      <swiper-slide><img src="@/assets/imgs/test1.png"></swiper-slide>
-      <swiper-slide><img src="@/assets/imgs/test2.png"></swiper-slide>
-      <swiper-slide><img src="@/assets/imgs/test3.png"></swiper-slide>
-      <swiper-slide><img src="@/assets/imgs/test4.png"></swiper-slide>
-      <swiper-slide><img src="@/assets/imgs/test5.png"></swiper-slide>
+      <swiper-slide><img src="/loading.png"></swiper-slide>
+      <swiper-slide v-for="slide in slides" :key="slide.id"><img :src="slide.slide.url"></swiper-slide>
+      <!--            <swiper-slide><img src="@/assets/imgs/test2.png"></swiper-slide>-->
+      <!--      <swiper-slide><img src="@/assets/imgs/test3.png"></swiper-slide>-->
+      <!--      <swiper-slide><img src="@/assets/imgs/test4.png"></swiper-slide>-->
+      <!--      <swiper-slide><img src="@/assets/imgs/test5.png"></swiper-slide>-->
     </swiper>
   </div>
 </template>
@@ -47,6 +48,21 @@ export default {
       modules: [Autoplay, Pagination, Navigation],
     };
   },
+  computed: {
+    isLoading() {
+      return this.slides.length === 0;
+    }
+  },
+  props: {
+    slides: {
+      type: Object,
+      required: true,
+    },
+    loading: {
+      type: Boolean,
+      required: true
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -55,6 +71,7 @@ export default {
 /*}*/
 .mainSwiper {
   overflow: visible;
+
   .swiper-slide {
     text-align: center;
     font-size: 18px;
