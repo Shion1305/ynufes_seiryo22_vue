@@ -3,8 +3,24 @@
 </template>
 
 <script>
+
+import sourceData from "@/assets/data.json"
+
 export default {
-  name: "EventDetailView"
+  name: "EventDetailView",
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    }
+  },
+  computed: {
+    event() {
+      return sourceData.find(
+          (data) => data.id === this.id
+      );
+    }
+  }
 }
 </script>
 
