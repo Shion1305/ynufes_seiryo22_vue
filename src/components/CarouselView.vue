@@ -49,7 +49,11 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
+
+/*html {*/
+/*  position: relative;*/
+/*}*/
 .swiper {
   overflow: visible;
 }
