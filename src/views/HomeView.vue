@@ -710,9 +710,5 @@ export default {
 .carouselView {
   display: flex;
   margin-bottom: 1rem;
-
-  CarouselView {
-    margin: 0 auto;
-  }
 }
 </style>

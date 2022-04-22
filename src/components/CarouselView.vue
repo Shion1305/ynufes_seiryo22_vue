@@ -55,6 +55,7 @@ export default {
 /*  position: relative;*/
 /*}*/
 .swiper {
+  overflow: visible;
 }
 
 .swiper-slide {
