@@ -27,7 +27,6 @@ export default {
   components: {EventTile},
   computed: {
     eventData() {
-      console.log(data);
       return data;
     }
   }

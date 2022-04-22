@@ -692,7 +692,6 @@ export default {
       client.get({
         endpoint: 'updates',
       }).then((data) => {
-        console.log(data.contents);
         this.updates = data.contents.slice(0, 3);
       });
     },
