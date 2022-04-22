@@ -96,8 +96,7 @@
         </div>
       </div>
       <div class="twitter_embeds">
-        <a class="twitter-timeline" data-height="450" data-lang="ja" data-width="350"
-           href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
+        <TwitterTimeline/>
       </div>
       <!--      <TweetTimeline class="twitter_embeds"/>-->
       <!--                更新情報-->
@@ -669,7 +668,8 @@
 
 import CarouselView from "@/components/CarouselView";
 import {createClient} from 'microcms-js-sdk';
-import AdsBlock from "@/components/AdsBlock"; //ES6
+import AdsBlock from "@/components/AdsBlock";
+import TwitterTimeline from "@/components/TwitterTimeline"; //ES6
 // Initialize Client SDK.
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -679,6 +679,7 @@ const client = createClient({
 export default {
   name: 'HomeView',
   components: {
+    TwitterTimeline,
     // eslint-disable-next-line vue/no-unused-components
     AdsBlock,
     CarouselView,
