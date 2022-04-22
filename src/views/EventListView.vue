@@ -5,11 +5,13 @@
     </div>
     <div>
       <div class="events_block">
-        <!--        <router-link v-for="event in eventData" :key="event.key" :to="{name:'event_detail,',params:{id:event.id}}" }>-->
-        <div v-for="event in eventData" :key="event.key">
+        <router-link :key="event.key" v-for="event in eventData"
+                     :to="{
+          name: 'event_detail',
+          params: { id: event.id, },
+        }">
           <EventTile :event="event"></EventTile>
-          <!--        </router-link>-->
-        </div>
+        </router-link>
       </div>
       <!--      </router-link>-->
     </div>
