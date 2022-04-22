@@ -1,20 +1,20 @@
 <template>
   <div class="wrapper">
     <swiper
-        :slidesPerView="'auto'"
-        :centeredSlides="true"
-        :spaceBetween="30"
-        :loop="true"
         :autoplay="{
       delay: 4000,
       disableOnInteraction: false,
     }"
+        :centeredSlides="true"
+        :loop="true"
+        :modules="modules"
+        :navigation="true"
         :pagination="{
       clickable: true,
     }"
-        :navigation="true"
-        :modules="modules"
-        class="mySwiper"
+        :slidesPerView="'auto'"
+        :spaceBetween="15"
+        class="mainSwiper"
     >
       <swiper-slide><img src="@/assets/imgs/test1.png"></swiper-slide>
       <swiper-slide><img src="@/assets/imgs/test2.png"></swiper-slide>
@@ -34,9 +34,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 // import "./style.css";
-
 // import required modules
-import {Autoplay, Pagination, Navigation} from "swiper";
+import {Autoplay, Navigation, Pagination} from "swiper";
 
 export default {
   components: {
@@ -50,43 +49,43 @@ export default {
   },
 };
 </script>
-<style>
-
+<style lang="scss">
 /*html {*/
 /*  position: relative;*/
 /*}*/
-.swiper {
-}
+.mainSwiper {
+  overflow: visible;
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
+  .swiper-slide img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.swiper-slide img {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-}
+  .swiper-slide {
+    max-width: 50rem;
+    width: 80vw;
+    max-height: 25rem;
+    height: 40vw;
+  }
 
-.swiper-slide {
-  max-width: 50rem;
-  width: 80vw;
-  max-height: 25rem;
-  height: 40vw;
 }
 </style>

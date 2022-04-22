@@ -1,9 +1,19 @@
 <template>
+  <div class="carouselView">
+    <CarouselView id="carousel"/>
+  </div>
   <div class="content-frame">
-    <div class="carouselView">
-      <CarouselView id="carousel"/>
-    </div>
-    <div id="banner-area">
+<!--    <div class="ads-area">-->
+<!--      <router-link to="/support_us">-->
+<!--        <div>-->
+<!--          ご協賛について-->
+<!--        </div>-->
+<!--      </router-link>-->
+<!--      <AdsBlock/>-->
+
+<!--    </div>-->
+    <!--    一時的に非表示-->
+    <div id="banner-area" style="display: none">
       <div>
         今年のテーマは<br>花笑み!
       </div>
@@ -21,14 +31,14 @@
       <div class="content1-home">
         <div class="home_events">
           <div class="button_events_all hover-to-shrink">
-            <img src="@/assets/home/event-button-1.png" alt="全ての企画を見る"/>
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1.png"/>
             <router-link to="/pamphlet">
               <div><p>全ての<br>企画</p></div>
             </router-link>
           </div>
           <div class="button_events_other">
             <div class="button_events_part hover-to-shrink">
-              <img src="@/assets/home/event-button-2.png" alt="本部企画"/>
+              <img alt="本部企画" src="@/assets/home/event-button-2.png"/>
               <a>
                 <div>
                   <p>本部企画</p>
@@ -36,7 +46,7 @@
               </a>
             </div>
             <div class="button_events_part hover-to-shrink">
-              <img src="@/assets/home/event-button-3.png" alt="団体企画"/>
+              <img alt="団体企画" src="@/assets/home/event-button-3.png"/>
               <a>
                 <div><p>団体企画</p></div>
               </a>
@@ -44,7 +54,7 @@
           </div>
         </div>
         <hr class="border_in_events">
-        <router-link to="/pamphlet" class="pamphlet_block hover-to-shrink">
+        <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
           <img src="@/assets/home/pamphlet_here.jpg"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
@@ -67,45 +77,29 @@
       </div>
     </div>
     <div class="update_block">
-      <div class="twitter_embeds">
-        <a class="twitter-timeline" data-lang="ja" data-width="500" data-height="600"
-           href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
-      </div>
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
-          <div class="news">
+          <div v-for="update in updates" :key="update.id" class="news hover-to-shrink">
             <div class="date_field">
               <div class="date">2022.3.30</div>
               <div class="time">18:00</div>
             </div>
             <div class="label">
-              <div class="title">タイトル</div>
-              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
+              <div class="title">{{ update.title }}</div>
+              <div class="summary">{{ update.summary }}</div>
             </div>
           </div>
-          <div class="news">
-            <div class="date_field">
-              <div class="date">2022.3.30</div>
-              <div class="time">18:00</div>
-            </div>
-            <div class="label">
-              <div class="title">タイトル</div>
-              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
-            </div>
-          </div>
-          <div class="news">
-            <div class="date_field">
-              <div class="date">2022.3.30</div>
-              <div class="time">18:00</div>
-            </div>
-            <div class="label">
-              <div class="title">タイトル</div>
-              <div class="content">内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ内容ああああああ</div>
-            </div>
-          </div>
+          <router-link class="more_updates hover-to-shrink" to="/updates">
+            <div>更新情報をもっとみる</div>
+          </router-link>
         </div>
       </div>
+      <div class="twitter_embeds">
+        <a class="twitter-timeline" data-height="450" data-lang="ja" data-width="350"
+           href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
+      </div>
+      <!--      <TweetTimeline class="twitter_embeds"/>-->
       <!--                更新情報-->
     </div>
   </div>
@@ -138,6 +132,28 @@
   align-items: center;
 }
 
+.ads-area {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    background: #e31bb1;
+    border-radius: 1rem;
+    line-height: 1;
+    font-size: 1.3rem;
+
+    div {
+      white-space: nowrap;
+    }
+  }
+}
+
 .events_search_block {
   width: 100%;
   max-width: 70rem;
@@ -145,7 +161,7 @@
   flex-direction: column;
   align-items: center;
   background: #ffffff44;
-  margin: 20px 0;
+  margin: 40px 0;
   border-radius: 40px;
 
   .section_title {
@@ -470,25 +486,22 @@
 .update_block {
   margin-top: 30px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   width: 100%;
   max-width: 70rem;
-  color: black;
   box-sizing: border-box;
   gap: 1rem;
 
   .twitter_embeds {
     flex-basis: 40%;
-    height: 40rem;
   }
 
   .updates_area {
+    min-height: 10rem;
+    height: fit-content;
     border-radius: 30px;
-    bottom: 0;
     flex-basis: 60%;
     background: linear-gradient(90deg, #F06D87, #EF60A3);
-    left: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
 
@@ -505,9 +518,6 @@
       box-sizing: border-box;
       color: white;
       border-radius: 30px;
-      height: auto;
-      top: 0;
-      bottom: 0;
       margin: 1rem;
       display: flex;
       flex-direction: column;
@@ -553,12 +563,18 @@
           line-height: 1;
 
           .title {
+            line-height: 2rem;
             height: 2rem;
             font-size: 1.5rem;
             width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
           }
 
-          .content {
+          .summary {
             word-break: break-all;
             font-size: 1rem;
             height: 2rem;
@@ -595,7 +611,28 @@
         @media screen and (max-width: 430px) {
           .date_field {
             font-size: 1.1rem;
+
+            .date {
+              width: 5rem;
+            }
           }
+        }
+      }
+
+      .more_updates {
+        margin: 0.6rem auto 0 auto;
+        border-radius: 1.5rem;
+        height: 3rem;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #EF60A3;
+        text-decoration: none;
+        font-size: 1.6rem;
+
+        > div {
+          padding: 0 1.5rem;
         }
       }
     }
@@ -631,11 +668,36 @@
 <script>
 
 import CarouselView from "@/components/CarouselView";
+import {createClient} from 'microcms-js-sdk';
+import AdsBlock from "@/components/AdsBlock"; //ES6
+// Initialize Client SDK.
+const client = createClient({
+  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
+  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
+});
 
 export default {
   name: 'HomeView',
   components: {
+    // eslint-disable-next-line vue/no-unused-components
+    AdsBlock,
     CarouselView,
+  },
+  data() {
+    return {updates: []}
+  },
+  methods: {
+    getLatestUpdate() {
+      client.get({
+        endpoint: 'updates',
+      }).then((data) => {
+        console.log(data.contents);
+        this.updates = data.contents.slice(0, 3);
+      });
+    },
+  },
+  mounted() {
+    this.getLatestUpdate();
   }
 }
 </script>
@@ -644,10 +706,5 @@ export default {
 .carouselView {
   display: flex;
   margin-bottom: 1rem;
-
-  CarouselView {
-    margin: 0 auto;
-  }
-
 }
 </style>

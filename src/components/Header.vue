@@ -2,9 +2,9 @@
   <header>
     <div class="header_top">
       <button id="mobile_toggle">
-        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                d="M4 7h22M4 15h22M4 23h22"></path>
+        <svg aria-hidden="true" height="30" viewBox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 7h22M4 15h22M4 23h22" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
+                stroke-width="2"></path>
         </svg>
       </button>
       <div id="site_title">
@@ -18,19 +18,22 @@
     <nav>
       <ul class="header_menu">
         <li>
-          <router-link to="/" class="hover-underline-animation">トップ</router-link>
+          <router-link class="hover-underline-animation" to="/">トップ</router-link>
         </li>
         <li>
-          <router-link to="/About" class="hover-underline-animation">清陵祭とは</router-link>
+          <router-link class="hover-underline-animation" to="/About">清陵祭とは</router-link>
         </li>
         <li>
-          <router-link to="/EventList" class="hover-underline-animation">企画を見る</router-link>
+          <router-link class="hover-underline-animation" :to="{
+            name:'event_list'
+          }">企画を見る
+          </router-link>
         </li>
         <li>
-          <router-link to="/pamphlet" class="hover-underline-animation">パンフレット</router-link>
+          <router-link class="hover-underline-animation" to="/pamphlet">パンフレット</router-link>
         </li>
         <li>
-          <router-link to="/qa" class="hover-underline-animation">Q&A</router-link>
+          <router-link class="hover-underline-animation" to="/qa">Q&A</router-link>
         </li>
       </ul>
     </nav>
@@ -160,6 +163,7 @@ header {
     }
   }
 }
+
 @media screen and (max-width: 670px) {
   #mobile_toggle {
     display: inline;

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img class="background_img" src="@/assets/background_img.png" alt=""/>
+    <img alt="" class="background_img" src="@/assets/background_img.png"/>
     <Header/>
     <div class="body-frame">
       <router-view/>
@@ -65,7 +65,7 @@
   overflow: clip;
   min-height: 100vh;
   box-sizing: border-box;
-  padding-top: 140px;
+  padding-top: 170px;
   padding-bottom: 220px;
 
   * {
