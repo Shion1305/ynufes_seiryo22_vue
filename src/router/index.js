@@ -29,7 +29,7 @@ const routes = [
     {
         path: '/pamphlet',
         name: 'pamphlet',
-        component: () => import(/* webpackChunkName: "about" */ '../views/UnderConstruction.vue')
+        component: () => import(/* webpackChunkName: "about" */ '../views/PamphletView')
     },
     {
         path: '/preview',
