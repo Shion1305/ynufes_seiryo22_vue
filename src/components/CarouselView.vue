@@ -85,7 +85,6 @@ export default {
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
