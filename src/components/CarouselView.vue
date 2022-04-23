@@ -59,18 +59,11 @@ export default {
     };
   },
   computed: {
-    isLoading() {
-      return this.slides.length === 0;
-    }
   },
   props: {
     slides: {
       type: Object,
       required: true,
-    },
-    loading: {
-      type: Boolean,
-      required: true
     }
   }
 };
