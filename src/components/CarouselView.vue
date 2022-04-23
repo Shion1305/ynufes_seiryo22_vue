@@ -20,7 +20,7 @@
           <img src="@/assets/imgs/top_slide.jpg" alt="トップスライド">
         </router-link>
       </swiper-slide>
-      <swiper-slide v-for="slide in slides" :key="slide.id">
+      <swiper-slide v-for="slide in this.$store.state.slides" :key="slide.id">
         <router-link :to="slide.link" v-if="slide.isRouterLink">
           <img :src="slide.slide.url" alt="">
         </router-link>

@@ -575,7 +575,7 @@ export default {
     UpdateElement
   },
   data() {
-    return {updates: [], slides: [{slide: {url: "/loading.png"}}], loading: true}
+    return {updates: [], loading: true}
   },
   methods: {
     getLatestUpdate() {
@@ -589,7 +589,7 @@ export default {
       client.get({
         endpoint: 'slides'
       }).then((data) => {
-            this.slides = data.contents;
+        this.$store.commit('setSlide',data.contents)
             this.loading = false;
           }
       );
