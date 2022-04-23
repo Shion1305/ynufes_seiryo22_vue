@@ -60,12 +60,6 @@ export default {
   },
   computed: {
   },
-  props: {
-    slides: {
-      type: Object,
-      required: true,
-    }
-  }
 };
 </script>
 <style lang="scss">

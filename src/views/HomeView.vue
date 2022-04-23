@@ -1,6 +1,6 @@
 <template>
   <div class="carouselView">
-    <CarouselView id="carousel" :slides="this.slides"/>
+    <CarouselView id="carousel"/>
   </div>
   <div class="content-frame">
     <div class="ads-area">
