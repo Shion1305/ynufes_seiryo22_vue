@@ -410,6 +410,7 @@
         justify-content: center;
 
         > div {
+          white-space: nowrap;
           line-height: 1;
           text-align: center;
           margin: auto;
@@ -417,6 +418,11 @@
         }
       }
 
+      @media screen and (max-width: 800px) {
+        > div > div {
+          font-size: 2.5rem;
+        }
+      }
       @media screen and (max-width: 500px) {
         > div > div {
           font-size: 33px;
