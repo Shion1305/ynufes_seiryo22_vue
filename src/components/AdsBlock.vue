@@ -1,13 +1,22 @@
 <template>
-  <swiper :slidesPerView="3" :spaceBetween="40" :pagination='{
-  "clickable": true
-}'
+  <swiper :slidesPerView="2" :spaceBetween="20"
           :loop="true"
           :autoplay="{
   delay: 4000,
   disableOnInteraction: false,
   }"
-          class="mySwiper">
+          :breakpoints="{
+          430: {
+          slidesPerView: 3,
+          spaceBetween: 5,
+          },
+          800: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+          },
+
+          }"
+          class="adsSwiper">
     <swiper-slide><img src="@/assets/ads/dummyAds.png"/></swiper-slide>
     <swiper-slide><img src="@/assets/ads/dummyAds.png"/></swiper-slide>
     <swiper-slide><img src="@/assets/ads/dummyAds.png"/></swiper-slide>
@@ -23,8 +32,6 @@ import {Swiper, SwiperSlide} from 'swiper/vue';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/autoplay'
-import "swiper/css/pagination"
-
 
 // import Swiper core and required modules
 import SwiperCore, {Autoplay} from 'swiper';
@@ -45,10 +52,11 @@ export default {
 
 }
 </script>
-<style>
+<style lang="scss">
+
 .swiper {
   max-width: 50rem;
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 
