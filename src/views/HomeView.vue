@@ -1,12 +1,12 @@
 <template>
   <div class="carouselView">
-    <CarouselView id="carousel"/>
+    <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
   </div>
   <div class="content-frame">
-    <div class="ads-area">
+    <div class="ads-area fadeUp">
       <AdsBlock/>
     </div>
-    <div class="events_search_block">
+    <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
         <div>
@@ -16,7 +16,7 @@
       <div class="content1-home">
         <div class="home_events">
           <div class="button_events_all hover-to-shrink">
-            <img alt="全ての企画を見る" src="@/assets/home/event-button-1.png"/>
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
             <router-link to="/pamphlet">
               <div><p>全ての<br>企画</p></div>
             </router-link>
@@ -111,6 +111,7 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
+  animation-delay: 1.0s;
 
   a {
     display: flex;
@@ -138,6 +139,7 @@
   background: #ffffff44;
   margin: 20px 0;
   border-radius: 40px;
+  animation-delay: 1.2s;
 
   .section_title {
     display: flex;

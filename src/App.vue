@@ -11,7 +11,7 @@
       </div>
     </div>
     <img alt="" class="background_img" src="@/assets/background_img.jpg"/>
-    <Header/>
+    <Header v-show="loaded" class="fadeUp"/>
     <div id="body-frame" v-show="loaded">
       <router-view :loaded="loaded"/>
       <Footer/>
@@ -181,6 +181,27 @@
 </style>
 <!--style below applies to all components-->
 <style>
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .hover-to-shrink {
   transition: all 0.1s linear;
 }

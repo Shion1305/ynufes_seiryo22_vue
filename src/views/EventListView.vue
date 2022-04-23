@@ -4,7 +4,7 @@
       <!--Control area-->
     </div>
     <div>
-      <div class="events_block">
+      <div class="events_block fadeUp">
         <router-link :key="event.key" v-for="event in eventData"
                      :to="{
           name: 'event_detail',
@@ -34,6 +34,7 @@ export default {
 </script>
 <style scoped>
 .events_block {
+  animation-delay: 0.2s;
   box-sizing: border-box;
   justify-content: center;
   gap: 0.5rem;

@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="main" class="fadeUp">
     <img src="@/assets/imgs/image1.webp"/>
     <div>
       <div>Coming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Soon...
@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 #main {
+  animation-delay: 0.5s;
   width: min(100%, 80rem);
   margin-inline: auto;
   position: relative;
