@@ -3,16 +3,9 @@
     <CarouselView id="carousel" :slides="this.slides"/>
   </div>
   <div class="content-frame">
-<!--    <div class="ads-area">-->
-<!--      <router-link to="/support_us">-->
-<!--        <div>-->
-<!--          ご協賛について-->
-<!--        </div>-->
-<!--      </router-link>-->
-<!--      <AdsBlock/>-->
-
-<!--    </div>-->
-    <!--    一時的に非表示-->
+    <div class="ads-area">
+      <AdsBlock/>
+    </div>
     <div id="banner-area" style="display: none">
       <div>
         今年のテーマは<br>花笑み!
@@ -416,6 +409,7 @@
       flex-basis: 50%;
       display: flex;
       box-sizing: border-box;
+      color: #940168;
 
       > img {
         box-sizing: border-box;
