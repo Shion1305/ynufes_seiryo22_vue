@@ -45,7 +45,18 @@ const routes = [
         path: '/poster',
         name: 'posters',
         component: () => import('../views/PosterView'),
-    }
+    },
+    {
+        path: '/update',
+        name: 'updates',
+        component: ()=>import('../views/UpdatesView'),
+    },
+    // {
+    //     path:'/update/:id',
+    //     name: 'update_detail',
+    //     component: () => import(/* webpackChunkName: "update_detail" */ '../views/EventDetailView.vue'),
+    //     props: (route) => ({...route.params, id: parseInt(route.params.id)})
+    // }
 ]
 
 const router = createRouter({
