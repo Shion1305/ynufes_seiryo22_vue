@@ -6,14 +6,6 @@
     <div class="ads-area">
       <AdsBlock/>
     </div>
-    <div id="banner-area" style="display: none">
-      <div>
-        今年のテーマは<br>花笑み!
-      </div>
-      <div>
-        5/21,22に<br>オンライン開催
-      </div>
-    </div>
     <div class="events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_background.png">
@@ -129,6 +121,7 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
+
   a {
     display: flex;
     justify-content: center;
