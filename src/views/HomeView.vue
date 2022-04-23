@@ -591,13 +591,16 @@ export default {
       client.get({
         endpoint: 'slides'
       }).then((data) => {
-        this.$store.commit('setSlide',data.contents)
+            this.$store.commit('setSlide', data.contents)
             this.loading = false;
           }
       );
     }
   },
   mounted() {
+    if (this.loaded) {
+      this.getLatestSlides();
+    }
     this.getLatestUpdate();
   },
   props: {
