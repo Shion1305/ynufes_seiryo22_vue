@@ -8,7 +8,7 @@
     </div>
     <div class="events_search_block">
       <div class="section_title">
-        <img src="@/assets/home/section_min.webp">
+        <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
         <div>
           企画紹介
         </div>
@@ -40,7 +40,7 @@
         </div>
         <hr class="border_in_events">
         <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
-          <img src="@/assets/home/pamphlet_here.webp"/>
+          <img src="@/assets/home/pamphlet_here.webp" alt="デジタルパンフレット"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
           </div>
@@ -49,7 +49,7 @@
     </div>
     <div class="button_section_1">
       <div id="poster_button" class="hover-to-shrink">
-        <img src="@/assets/home/poster.jpg"/>
+        <img src="@/assets/home/poster.jpg" alt="ポスター展覧会"/>
         <router-link to="/poster">
           <!--          <div style="height: 50%"></div>-->
           <div>ポスター展覧会</div>
