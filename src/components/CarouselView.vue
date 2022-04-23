@@ -14,10 +14,20 @@
     }"
         :slidesPerView="'auto'"
         :spaceBetween="15"
-        class="mainSwiper"
-    >
-      <swiper-slide><img src="/loading.png"></swiper-slide>
-      <swiper-slide v-for="slide in slides" :key="slide.id"><img :src="slide.slide.url" alt=""></swiper-slide>
+        class="mainSwiper">
+      <swiper-slide>
+        <router-link :to="{name:'About'}">
+          <img src="@/assets/imgs/top_slide.jpg" alt="トップスライド">
+        </router-link>
+      </swiper-slide>
+      <swiper-slide v-for="slide in slides" :key="slide.id">
+        <router-link :to="slide.link" v-if="slide.isRouterLink">
+          <img :src="slide.slide.url" alt="">
+        </router-link>
+        <a v-else :href="slide.link">
+          <img :src="slide.slide.url" alt="">
+        </a>
+      </swiper-slide>
       <!--            <swiper-slide><img src="@/assets/imgs/test2.png"></swiper-slide>-->
       <!--      <swiper-slide><img src="@/assets/imgs/test3.png"></swiper-slide>-->
       <!--      <swiper-slide><img src="@/assets/imgs/test4.png"></swiper-slide>-->

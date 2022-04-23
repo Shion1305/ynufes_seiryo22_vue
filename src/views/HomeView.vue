@@ -680,7 +680,7 @@ export default {
     CarouselView,
   },
   data() {
-    return {updates: [], slides: [{slide:{url: "/loading.png"}}], loading: true}
+    return {updates: [], slides: [{slide: {url: "/loading.png"}}], loading: true}
   },
   methods: {
     getLatestUpdate() {
