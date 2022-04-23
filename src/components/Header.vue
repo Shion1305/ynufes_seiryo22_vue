@@ -50,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 header {
   padding-top: 1rem;
-  z-index: 50;
+  z-index: 100;
   width: 100%;
   position: fixed;
   color: white;
