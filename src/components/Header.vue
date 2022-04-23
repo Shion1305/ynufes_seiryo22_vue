@@ -33,7 +33,7 @@
           <router-link class="hover-underline-animation" to="/pamphlet">パンフレット</router-link>
         </li>
         <li>
-          <router-link class="hover-underline-animation" to="/qa">Q&A</router-link>
+          <router-link class="hover-underline-animation" to="/sponsors">ご協賛について</router-link>
         </li>
       </ul>
     </nav>

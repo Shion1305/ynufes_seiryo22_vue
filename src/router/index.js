@@ -35,6 +35,11 @@ const routes = [
         path: '/preview',
         name: 'preview_warning',
         component: () => import('../views/PreviewEndView'),
+    },
+    {
+        path: '/sponsors',
+        name: 'sponsors',
+        component: () => import('../views/SponsorsView'),
     }
 ]
 
