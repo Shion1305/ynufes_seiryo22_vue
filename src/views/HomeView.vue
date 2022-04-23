@@ -146,7 +146,7 @@
   flex-direction: column;
   align-items: center;
   background: #ffffff44;
-  margin: 40px 0;
+  margin: 20px 0;
   border-radius: 40px;
 
   .section_title {
