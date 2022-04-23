@@ -591,7 +591,18 @@ export default {
   },
   mounted() {
     this.getLatestUpdate();
-    this.getLatestSlides();
+  },
+  props: {
+    loaded: {
+      type: Boolean,
+      required: false
+    }
+  },
+  watch: {
+    loaded: function () {
+      //読み込み終了が検知された際にスライド取得操作を行う
+      this.getLatestSlides();
+    }
   }
 }
 </script>

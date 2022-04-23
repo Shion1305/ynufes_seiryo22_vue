@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper">
-    <div id="loader">
+    <div id="loader" style="color: white;font-family: 'Kaisei Decol', serif;">
+      <div style="font-size: 7rem;font-family: 'Kaisei Decol', serif;">花笑み</div>
+      <div style="font-size: 3rem; text-align: center;">22清陵祭</div>
+      <div style="font-size: 1.5rem; line-height: 1.1; text-align: center; padding-bottom: 2rem">横浜国立大学<br>オンライン大学祭
+      </div>
       <div class="spinner">
         <div class="cube1"></div>
         <div class="cube2"></div>
@@ -9,7 +13,7 @@
     <img alt="" class="background_img" src="@/assets/background_img.jpg"/>
     <Header/>
     <div id="body-frame" v-show="loaded">
-      <router-view/>
+      <router-view :loaded="loaded"/>
       <Footer/>
     </div>
   </div>
