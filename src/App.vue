@@ -36,8 +36,11 @@
   z-index: 110;
   position: absolute;
   width: 100%;
-  height: 100vh;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(120deg, #ff5ecc, #ff75a8);
 }
 
@@ -47,10 +50,9 @@
 
 .spinner {
   margin: 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   position: relative;
-  top: 50%;
 }
 
 .cube1, .cube2 {
