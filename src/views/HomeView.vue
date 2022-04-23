@@ -8,7 +8,7 @@
     </div>
     <div class="events_search_block">
       <div class="section_title">
-        <img src="@/assets/home/section_background.png">
+        <img src="@/assets/home/section_min.webp">
         <div>
           企画紹介
         </div>
@@ -23,7 +23,7 @@
           </div>
           <div class="button_events_other">
             <div class="button_events_part hover-to-shrink">
-              <img alt="本部企画" src="@/assets/home/event-button-2.png"/>
+              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
               <a>
                 <div>
                   <p>本部企画</p>
@@ -31,7 +31,7 @@
               </a>
             </div>
             <div class="button_events_part hover-to-shrink">
-              <img alt="団体企画" src="@/assets/home/event-button-3.png"/>
+              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
               <a>
                 <div><p>団体企画</p></div>
               </a>
@@ -40,7 +40,7 @@
         </div>
         <hr class="border_in_events">
         <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
-          <img src="@/assets/home/pamphlet_here.jpg"/>
+          <img src="@/assets/home/pamphlet_here.webp"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
           </div>

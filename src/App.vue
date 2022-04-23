@@ -6,7 +6,7 @@
         <div class="cube2"></div>
       </div>
     </div>
-    <img alt="" class="background_img" src="@/assets/background_img.png"/>
+    <img alt="" class="background_img" src="@/assets/background_img.jpg"/>
     <Header/>
     <div id="body-frame" v-show="loaded">
       <router-view/>
