@@ -50,4 +50,8 @@ export default {
   width: min(100% - 2rem, 70rem);
   margin-inline: auto;
 }
+
+a {
+  text-decoration: none;
+}
 </style>

@@ -51,15 +51,10 @@ export default {
   }
 
   > .meta_area {
-
     color: black;
-    text-decoration: none;
     margin: 1.2rem 1rem;
 
     h2 {
-      a{
-        text-decoration: none;
-      }
       display: -webkit-box;
       -webkit-line-clamp: 2;
       max-height: 2.8rem;
