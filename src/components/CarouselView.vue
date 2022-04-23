@@ -17,7 +17,7 @@
         class="mainSwiper"
     >
       <swiper-slide><img src="/loading.png"></swiper-slide>
-      <swiper-slide v-for="slide in slides" :key="slide.id"><img :src="slide.slide.url"></swiper-slide>
+      <swiper-slide v-for="slide in slides" :key="slide.id"><img :src="slide.slide.url" alt=""></swiper-slide>
       <!--            <swiper-slide><img src="@/assets/imgs/test2.png"></swiper-slide>-->
       <!--      <swiper-slide><img src="@/assets/imgs/test3.png"></swiper-slide>-->
       <!--      <swiper-slide><img src="@/assets/imgs/test4.png"></swiper-slide>-->
