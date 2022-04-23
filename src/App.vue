@@ -169,7 +169,7 @@
   }
 
   @media screen and (max-width: 670px) {
-    padding-top: 80px;
+    padding-top: 90px;
   }
 }
 </style>
