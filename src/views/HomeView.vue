@@ -65,16 +65,7 @@
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
-          <div v-for="update in updates" :key="update.id" class="news hover-to-shrink">
-            <div class="date_field">
-              <div class="date">2022.3.30</div>
-              <div class="time">18:00</div>
-            </div>
-            <div class="label">
-              <div class="title">{{ update.title }}</div>
-              <div class="summary">{{ update.summary }}</div>
-            </div>
-          </div>
+          <UpdateElement v-for="update in updates" :key="update.id" :update="update"/>
           <router-link class="more_updates hover-to-shrink" to="/updates">
             <div>更新情報をもっとみる</div>
           </router-link>
@@ -83,8 +74,6 @@
       <div class="twitter_embeds">
         <TwitterTimeline/>
       </div>
-      <!--      <TweetTimeline class="twitter_embeds"/>-->
-      <!--                更新情報-->
     </div>
   </div>
 </template>
@@ -509,101 +498,6 @@
       flex-direction: column;
       gap: 0.3rem;
 
-      .news {
-        box-sizing: border-box;
-        display: flex;
-        height: 5rem;
-        padding: 5px;
-        border-radius: 1.5rem;
-        border-style: solid;
-        border-width: 2px;
-        border-color: white;
-        width: 100%;
-        align-items: center;
-
-        .date_field {
-          display: flex;
-          flex-direction: row;
-          font-size: 1.5rem;
-
-          .date {
-            flex-shrink: 0;
-            text-align: center;
-            padding-left: 0.2rem;
-            width: 7rem;
-          }
-
-          .time {
-            flex-shrink: 0;
-            margin: 0 auto;
-            text-align: center;
-            width: 5rem;
-          }
-
-        }
-
-        .label {
-          display: flex;
-          flex-direction: column;
-          margin-left: 0.2rem;
-          line-height: 1;
-
-          .title {
-            line-height: 2rem;
-            height: 2rem;
-            font-size: 1.5rem;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-          }
-
-          .summary {
-            word-break: break-all;
-            font-size: 1rem;
-            height: 2rem;
-            width: 100%;
-            line-height: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-          }
-        }
-
-        @media screen and (max-width: 900px) {
-          .date_field {
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 0.3rem;
-          }
-        }
-
-        @media screen and (max-width: 700px) {
-          .date_field {
-            flex-direction: row;
-            padding-left: 0;
-          }
-        }
-        @media screen and (max-width: 500px) {
-          .date_field {
-            flex-direction: column;
-            padding-left: 0.3rem;
-          }
-        }
-        @media screen and (max-width: 430px) {
-          .date_field {
-            font-size: 1.1rem;
-
-            .date {
-              width: 5rem;
-            }
-          }
-        }
-      }
 
       .more_updates {
         margin: 0.6rem auto 0 auto;
@@ -656,7 +550,8 @@
 import CarouselView from "@/components/CarouselView";
 import {createClient} from 'microcms-js-sdk';
 import AdsBlock from "@/components/AdsBlock";
-import TwitterTimeline from "@/components/TwitterTimeline"; //ES6
+import TwitterTimeline from "@/components/TwitterTimeline";
+import UpdateElement from "@/components/UpdateElement"; //ES6
 // Initialize Client SDK.
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -671,6 +566,7 @@ export default {
     AdsBlock,
     // eslint-disable-next-line vue/no-unused-components
     CarouselView,
+    UpdateElement
   },
   data() {
     return {updates: [], slides: [{slide: {url: "/loading.png"}}], loading: true}
