@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div id="loader" >
+    <div id="loader">
       <div class="spinner">
         <div class="cube1"></div>
         <div class="cube2"></div>
@@ -8,7 +8,7 @@
     </div>
     <img alt="" class="background_img" src="@/assets/background_img.png"/>
     <Header/>
-    <div class="body-frame">
+    <div id="body-frame" v-show="loaded">
       <router-view/>
       <Footer/>
     </div>
@@ -151,8 +151,9 @@
   transform-origin: bottom left;
 }
 
-.body-frame {
+#body-frame {
   position: relative;
+  margin: 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -215,6 +216,9 @@ export default {
   //   return {loading: true};
   // },
   props: {},
+  data() {
+    return {loaded: false};
+  },
   computed: {
     // isLoading() {
     //   return this.loading;
@@ -225,6 +229,7 @@ export default {
       console.log("onload");
       const loader = document.getElementById('loader');
       loader.classList.add('loaded');
+      this.loaded = true;
     }
   }
 }
