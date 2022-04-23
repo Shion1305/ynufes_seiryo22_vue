@@ -48,18 +48,19 @@
       </div>
     </div>
     <div class="button_section_1">
-      <div>
-        <img/>
-        <div>
+      <div id="poster_button" class="hover-to-shrink">
+        <img src="@/assets/home/poster.jpg"/>
+        <router-link to="/poster">
+          <!--          <div style="height: 50%"></div>-->
           <div>ポスター展覧会</div>
-        </div>
+        </router-link>
       </div>
-      <div>
-        <img/>
-        <div>
-          <div>浜フェス投票</div>
-        </div>
-      </div>
+      <!--      <div>-->
+      <!--        <img/>-->
+      <!--        <div>-->
+      <!--          <div>浜フェス投票</div>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
     <div class="update_block">
       <div class="updates_area">
@@ -229,11 +230,6 @@
         }
       }
 
-      .button_events_all:hover {
-        transform: scale(0.9);
-
-      }
-
       .button_events_other {
         display: flex;
         height: 100%;
@@ -313,15 +309,6 @@
         }
         .button_events_part p {
           font-size: 2rem;
-        }
-      }
-      @media screen and (max-width: 820px) {
-        .button_events_all p {
-          font-size: 2.1rem;
-          line-height: 1.7;
-        }
-        .button_events_part p {
-          font-size: 1.9rem;
         }
       }
       @media screen and (max-width: 700px) {
@@ -436,30 +423,45 @@
   display: flex;
   width: 100%;
   max-width: 70rem;
+}
 
-  > div {
-    flex-basis: 50%;
+#poster_button {
+  flex-basis: 50%;
+  position: relative;
+  padding-right: 3px;
+  box-sizing: border-box;
+  font-size: 3rem;
+
+  > img {
+    object-fit: cover;
+    width: 100%;
     position: relative;
+  }
 
-    > img {
-      background: #e31bb1;
-      height: 10rem;
-      width: 100%;
-    }
+  > a {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
 
     > div {
-      top: 0;
-      bottom: 0;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      font-size: 3rem;
-
-      > div {
-        margin: auto;
-        text-align: center;
-      }
+      padding-top: 23%;
+      box-sizing: border-box;
+      text-align: center;
     }
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 40px;
+  }
+  @media screen and (max-width: 700px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 20px;
   }
 }
 

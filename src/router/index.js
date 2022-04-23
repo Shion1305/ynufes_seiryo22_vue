@@ -40,6 +40,11 @@ const routes = [
         path: '/sponsors',
         name: 'sponsors',
         component: () => import('../views/SponsorsView'),
+    },
+    {
+        path: '/poster',
+        name: 'posters',
+        component: () => import('../views/PosterView'),
     }
 ]
 
