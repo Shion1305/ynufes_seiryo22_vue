@@ -3,27 +3,12 @@
     <CarouselView id="carousel"/>
   </div>
   <div class="content-frame">
-<!--    <div class="ads-area">-->
-<!--      <router-link to="/support_us">-->
-<!--        <div>-->
-<!--          ご協賛について-->
-<!--        </div>-->
-<!--      </router-link>-->
-<!--      <AdsBlock/>-->
-
-<!--    </div>-->
-    <!--    一時的に非表示-->
-    <div id="banner-area" style="display: none">
-      <div>
-        今年のテーマは<br>花笑み!
-      </div>
-      <div>
-        5/21,22に<br>オンライン開催
-      </div>
+    <div class="ads-area">
+      <AdsBlock/>
     </div>
     <div class="events_search_block">
       <div class="section_title">
-        <img src="@/assets/home/section_background.png">
+        <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
         <div>
           企画紹介
         </div>
@@ -38,7 +23,7 @@
           </div>
           <div class="button_events_other">
             <div class="button_events_part hover-to-shrink">
-              <img alt="本部企画" src="@/assets/home/event-button-2.png"/>
+              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
               <a>
                 <div>
                   <p>本部企画</p>
@@ -46,7 +31,7 @@
               </a>
             </div>
             <div class="button_events_part hover-to-shrink">
-              <img alt="団体企画" src="@/assets/home/event-button-3.png"/>
+              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
               <a>
                 <div><p>団体企画</p></div>
               </a>
@@ -55,7 +40,7 @@
         </div>
         <hr class="border_in_events">
         <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
-          <img src="@/assets/home/pamphlet_here.jpg"/>
+          <img src="@/assets/home/pamphlet_here.webp" alt="デジタルパンフレット"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
           </div>
@@ -63,44 +48,33 @@
       </div>
     </div>
     <div class="button_section_1">
-      <div>
-        <img/>
-        <div>
+      <div id="poster_button" class="hover-to-shrink">
+        <img src="@/assets/home/poster.jpg" alt="ポスター展覧会"/>
+        <router-link to="/poster">
+          <!--          <div style="height: 50%"></div>-->
           <div>ポスター展覧会</div>
-        </div>
+        </router-link>
       </div>
-      <div>
-        <img/>
-        <div>
-          <div>浜フェス投票</div>
-        </div>
-      </div>
+      <!--      <div>-->
+      <!--        <img/>-->
+      <!--        <div>-->
+      <!--          <div>浜フェス投票</div>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
     <div class="update_block">
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
-          <div v-for="update in updates" :key="update.id" class="news hover-to-shrink">
-            <div class="date_field">
-              <div class="date">2022.3.30</div>
-              <div class="time">18:00</div>
-            </div>
-            <div class="label">
-              <div class="title">{{ update.title }}</div>
-              <div class="summary">{{ update.summary }}</div>
-            </div>
-          </div>
+          <UpdateElement v-for="update in updates" :key="update.id" :update="update"/>
           <router-link class="more_updates hover-to-shrink" to="/updates">
             <div>更新情報をもっとみる</div>
           </router-link>
         </div>
       </div>
       <div class="twitter_embeds">
-        <a class="twitter-timeline" data-height="450" data-lang="ja" data-width="350"
-           href="https://twitter.com/ynu_fes?ref_src=twsrc%5Etfw">Tweets by ynu_fes</a>
+        <TwitterTimeline/>
       </div>
-      <!--      <TweetTimeline class="twitter_embeds"/>-->
-      <!--                更新情報-->
     </div>
   </div>
 </template>
@@ -137,6 +111,7 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
+
   a {
     display: flex;
     justify-content: center;
@@ -161,7 +136,7 @@
   flex-direction: column;
   align-items: center;
   background: #ffffff44;
-  margin: 40px 0;
+  margin: 20px 0;
   border-radius: 40px;
 
   .section_title {
@@ -255,11 +230,6 @@
         }
       }
 
-      .button_events_all:hover {
-        transform: scale(0.9);
-
-      }
-
       .button_events_other {
         display: flex;
         height: 100%;
@@ -341,15 +311,6 @@
           font-size: 2rem;
         }
       }
-      @media screen and (max-width: 820px) {
-        .button_events_all p {
-          font-size: 2.1rem;
-          line-height: 1.7;
-        }
-        .button_events_part p {
-          font-size: 1.9rem;
-        }
-      }
       @media screen and (max-width: 700px) {
         .button_events_all p {
           font-size: 3.2rem;
@@ -417,6 +378,7 @@
       flex-basis: 50%;
       display: flex;
       box-sizing: border-box;
+      color: #940168;
 
       > img {
         box-sizing: border-box;
@@ -435,6 +397,7 @@
         justify-content: center;
 
         > div {
+          white-space: nowrap;
           line-height: 1;
           text-align: center;
           margin: auto;
@@ -442,6 +405,11 @@
         }
       }
 
+      @media screen and (max-width: 800px) {
+        > div > div {
+          font-size: 2.5rem;
+        }
+      }
       @media screen and (max-width: 500px) {
         > div > div {
           font-size: 33px;
@@ -455,30 +423,45 @@
   display: flex;
   width: 100%;
   max-width: 70rem;
+}
 
-  > div {
-    flex-basis: 50%;
+#poster_button {
+  flex-basis: 50%;
+  position: relative;
+  padding-right: 3px;
+  box-sizing: border-box;
+  font-size: 3rem;
+
+  > img {
+    object-fit: cover;
+    width: 100%;
     position: relative;
+  }
 
-    > img {
-      background: #e31bb1;
-      height: 10rem;
-      width: 100%;
-    }
+  > a {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
 
     > div {
-      top: 0;
-      bottom: 0;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      font-size: 3rem;
-
-      > div {
-        margin: auto;
-        text-align: center;
-      }
+      padding-top: 23%;
+      box-sizing: border-box;
+      text-align: center;
     }
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 40px;
+  }
+  @media screen and (max-width: 700px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 20px;
   }
 }
 
@@ -523,101 +506,6 @@
       flex-direction: column;
       gap: 0.3rem;
 
-      .news {
-        box-sizing: border-box;
-        display: flex;
-        height: 5rem;
-        padding: 5px;
-        border-radius: 1.5rem;
-        border-style: solid;
-        border-width: 2px;
-        border-color: white;
-        width: 100%;
-        align-items: center;
-
-        .date_field {
-          display: flex;
-          flex-direction: row;
-          font-size: 1.5rem;
-
-          .date {
-            flex-shrink: 0;
-            text-align: center;
-            padding-left: 0.2rem;
-            width: 7rem;
-          }
-
-          .time {
-            flex-shrink: 0;
-            margin: 0 auto;
-            text-align: center;
-            width: 5rem;
-          }
-
-        }
-
-        .label {
-          display: flex;
-          flex-direction: column;
-          margin-left: 0.2rem;
-          line-height: 1;
-
-          .title {
-            line-height: 2rem;
-            height: 2rem;
-            font-size: 1.5rem;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-          }
-
-          .summary {
-            word-break: break-all;
-            font-size: 1rem;
-            height: 2rem;
-            width: 100%;
-            line-height: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-          }
-        }
-
-        @media screen and (max-width: 900px) {
-          .date_field {
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 0.3rem;
-          }
-        }
-
-        @media screen and (max-width: 700px) {
-          .date_field {
-            flex-direction: row;
-            padding-left: 0;
-          }
-        }
-        @media screen and (max-width: 500px) {
-          .date_field {
-            flex-direction: column;
-            padding-left: 0.3rem;
-          }
-        }
-        @media screen and (max-width: 430px) {
-          .date_field {
-            font-size: 1.1rem;
-
-            .date {
-              width: 5rem;
-            }
-          }
-        }
-      }
 
       .more_updates {
         margin: 0.6rem auto 0 auto;
@@ -669,7 +557,9 @@
 
 import CarouselView from "@/components/CarouselView";
 import {createClient} from 'microcms-js-sdk';
-import AdsBlock from "@/components/AdsBlock"; //ES6
+import AdsBlock from "@/components/AdsBlock";
+import TwitterTimeline from "@/components/TwitterTimeline";
+import UpdateElement from "@/components/UpdateElement"; //ES6
 // Initialize Client SDK.
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -679,25 +569,51 @@ const client = createClient({
 export default {
   name: 'HomeView',
   components: {
+    TwitterTimeline,
     // eslint-disable-next-line vue/no-unused-components
     AdsBlock,
+    // eslint-disable-next-line vue/no-unused-components
     CarouselView,
+    UpdateElement
   },
   data() {
-    return {updates: []}
+    return {updates: [], loading: true}
   },
   methods: {
     getLatestUpdate() {
       client.get({
         endpoint: 'updates',
       }).then((data) => {
-        console.log(data.contents);
         this.updates = data.contents.slice(0, 3);
       });
     },
+    getLatestSlides() {
+      client.get({
+        endpoint: 'slides'
+      }).then((data) => {
+            this.$store.commit('setSlide', data.contents)
+            this.loading = false;
+          }
+      );
+    }
   },
   mounted() {
+    if (this.loaded) {
+      this.getLatestSlides();
+    }
     this.getLatestUpdate();
+  },
+  props: {
+    loaded: {
+      type: Boolean,
+      required: false
+    }
+  },
+  watch: {
+    loaded: function () {
+      //読み込み終了が検知された際にスライド取得操作を行う
+      this.getLatestSlides();
+    }
   }
 }
 </script>

@@ -21,7 +21,7 @@
           <router-link class="hover-underline-animation" to="/">トップ</router-link>
         </li>
         <li>
-          <router-link class="hover-underline-animation" to="/About">清陵祭とは</router-link>
+          <router-link class="hover-underline-animation" to="/about">清陵祭とは</router-link>
         </li>
         <li>
           <router-link class="hover-underline-animation" :to="{
@@ -33,7 +33,7 @@
           <router-link class="hover-underline-animation" to="/pamphlet">パンフレット</router-link>
         </li>
         <li>
-          <router-link class="hover-underline-animation" to="/qa">Q&A</router-link>
+          <router-link class="hover-underline-animation" to="/sponsors">ご協賛について</router-link>
         </li>
       </ul>
     </nav>
@@ -50,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 header {
   padding-top: 1rem;
-  z-index: 50;
+  z-index: 100;
   width: 100%;
   position: fixed;
   color: white;

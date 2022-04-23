@@ -1,7 +1,7 @@
 <template>
   <div class="event_widget">
-    <img :src="`/icon/${this.event.id}.jpeg`"  :alt="`icon for ${this.event.event_name} by ${this.event.org_name}`"/>
-    <div class="type" v-if="Boolean(this.event.type)">{{this.event.type}}</div>
+    <img :src="`/icon/${this.event.id}.jpeg`" :alt="`icon for ${this.event.event_name} by ${this.event.org_name}`"/>
+    <div class="type" v-if="Boolean(this.event.type)">{{ this.event.type }}</div>
     <div class="meta_area">
       <h2>
         {{ event.event_name }}
@@ -51,6 +51,7 @@ export default {
   }
 
   > .meta_area {
+    color: black;
     margin: 1.2rem 1rem;
 
     h2 {
