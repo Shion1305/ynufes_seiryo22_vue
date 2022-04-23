@@ -21,7 +21,7 @@
           <router-link class="hover-underline-animation" to="/">トップ</router-link>
         </li>
         <li>
-          <router-link class="hover-underline-animation" to="/About">清陵祭とは</router-link>
+          <router-link class="hover-underline-animation" to="/about">清陵祭とは</router-link>
         </li>
         <li>
           <router-link class="hover-underline-animation" :to="{

@@ -16,7 +16,7 @@
         :spaceBetween="15"
         class="mainSwiper">
       <swiper-slide>
-        <router-link :to="{name:'About'}">
+        <router-link to="/about">
           <img src="@/assets/imgs/top_slide.jpg" alt="トップスライド">
         </router-link>
       </swiper-slide>
