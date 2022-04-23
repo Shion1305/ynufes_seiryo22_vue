@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import NotFoundView from "@/views/NotFoundView";
 
 const routes = [
     {
@@ -56,7 +57,9 @@ const routes = [
     //     name: 'update_detail',
     //     component: () => import(/* webpackChunkName: "update_detail" */ '../views/EventDetailView.vue'),
     //     props: (route) => ({...route.params, id: parseInt(route.params.id)})
-    // }
+    // },
+    { path: '/404', component: NotFoundView },
+    { path: '*', redirect: '/404' },
 ]
 
 const router = createRouter({
