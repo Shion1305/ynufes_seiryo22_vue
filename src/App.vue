@@ -273,7 +273,6 @@ export default {
       client.get({
         endpoint: 'ads'
       }).then((data) => {
-            console.log(data);
             this.$store.commit('setAds', data.contents);
           }
       );
@@ -283,7 +282,6 @@ export default {
     this.getLatestAds();
     this.getLatestUpdate();
     window.onload = () => {
-      console.log("onload");
       const loader = document.getElementById('loader');
       loader.classList.add('loaded');
       this.loaded = true;

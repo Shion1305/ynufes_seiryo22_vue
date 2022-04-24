@@ -577,7 +577,6 @@ export default {
   },
   methods: {
     getNewestUpdate() {
-      console.log(this.$store.state.updates.slice(0, 3));
       return this.$store.state.updates.slice(0, 3);
     }
   },

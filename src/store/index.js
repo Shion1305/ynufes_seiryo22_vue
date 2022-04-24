@@ -15,7 +15,6 @@ export default createStore({
             state.ads = newAds;
         },
         setUpdates(state, newUpdates) {
-            console.log(newUpdates);
             state.updates = newUpdates;
         }
     },
