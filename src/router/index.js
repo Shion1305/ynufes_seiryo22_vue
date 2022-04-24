@@ -18,18 +18,18 @@ const routes = [
     {
         path: '/events',
         name: 'event_list',
-        component: () => import(/* webpackChunkName: "about" */ '../views/EventListView')
+        component: () => import(/* webpackChunkName: "events" */ '../views/EventListView')
     },
     {
         path: '/events/:id',
         name: 'event_detail',
-        component: () => import(/* webpackChunkName: "about" */ '../views/EventDetailView.vue'),
+        component: () => import(/* webpackChunkName: "event_detail" */ '../views/EventDetailView.vue'),
         props: (route) => ({...route.params, id: parseInt(route.params.id)})
     },
     {
         path: '/pamphlet',
         name: 'pamphlet',
-        component: () => import(/* webpackChunkName: "about" */ '../views/PamphletView')
+        component: () => import(/* webpackChunkName: "pamphlet" */ '../views/PamphletView')
     },
     {
         path: '/preview',
@@ -49,7 +49,12 @@ const routes = [
     {
         path: '/update',
         name: 'updates',
-        component: ()=>import('../views/UpdatesView'),
+        component: () => import('../views/UpdatesView'),
+    },
+    {
+        path: '/others',
+        name: 'other',
+        component: () => import('../views/UpdatesView'),
     },
     // {
     //     path:'/update/:id',

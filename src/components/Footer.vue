@@ -3,12 +3,21 @@
     <div class="footer_wrapper">
       <nav class="sitemap">
         <ul>
-          <li><a>清陵祭について</a></li>
-          <li><a>更新情報</a></li>
-          <li><a>企画を探す</a></li>
-          <li><a>ご協賛について</a></li>
-          <li><a>Q&A</a></li>
-          <li><a>相互リンク</a></li>
+          <li>
+            <router-link to="/about">清陵祭について</router-link>
+          </li>
+          <li>
+            <router-link to="/update">更新情報</router-link>
+          </li>
+          <li>
+            <router-link to="/events">企画を探す</router-link>
+          </li>
+          <li>
+            <router-link to="/sponsors">ご協賛について</router-link>
+          </li>
+          <li>
+            <router-link to="/others">相互リンク</router-link>
+          </li>
         </ul>
       </nav>
       <div class="footer_org">
@@ -84,6 +93,12 @@ footer {
 
     > ul {
       margin: auto;
+      list-style: none;
+
+      > li > a {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 
