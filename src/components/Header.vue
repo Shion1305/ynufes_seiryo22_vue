@@ -7,13 +7,13 @@
                 stroke-width="2"></path>
         </svg>
       </button>
-      <div id="site_title">
+      <router-link id="site_title" to="/">
         <div class="logo1">
           <div>22清陵祭</div>
           <div>横浜国立大学 大学祭</div>
         </div>
         <div class="logo2">花笑み</div>
-      </div>
+      </router-link>
     </div>
     <nav>
       <ul class="header_menu">
@@ -121,6 +121,8 @@ header {
 }
 
 #site_title {
+  text-decoration: none;
+  color: white;
   height: 70px;
   font-family: 'Kaisei Decol', serif;
   display: flex;
