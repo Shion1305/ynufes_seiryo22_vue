@@ -17,7 +17,7 @@
         class="mainSwiper">
       <swiper-slide>
         <router-link to="/about">
-          <img src="@/assets/imgs/top_slide.jpg" alt="トップスライド">
+          <img src="@/assets/imgs/top_slide.webp" alt="トップスライド">
         </router-link>
       </swiper-slide>
       <swiper-slide v-for="slide in this.$store.state.slides" :key="slide.id">
@@ -36,18 +36,12 @@
   </div>
 </template>
 <script>
-// Import Swiper Vue.js components
 import {Swiper, SwiperSlide} from "swiper/vue";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-// import "./style.css";
-// import required modules
 import {Autoplay, Navigation, Pagination} from "swiper";
-
 export default {
   components: {
     Swiper,

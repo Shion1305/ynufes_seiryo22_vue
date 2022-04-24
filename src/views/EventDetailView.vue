@@ -5,7 +5,7 @@
         <div class="icon_title_block">
           <div class="icon_area">
             <img
-                :src="`/icon/${event.id}.jpeg`"
+                :src="`/icon/${event.img}`"
                 class="icon"
                 alt="icon"
             />
