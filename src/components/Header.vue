@@ -17,24 +17,23 @@
     </div>
     <nav>
       <ul class="header_menu">
-        <li>
-          <router-link class="hover-underline-animation" to="/">トップ</router-link>
-        </li>
-        <li>
-          <router-link class="hover-underline-animation" to="/about">清陵祭とは</router-link>
-        </li>
-        <li>
-          <router-link class="hover-underline-animation" :to="{
+        <router-link active-class="header_active" to="/">
+          <li class="hover-underline-animation">トップ</li>
+        </router-link>
+        <router-link active-class="header_active" to="/about">
+          <li class="hover-underline-animation">清陵祭とは</li>
+        </router-link>
+        <router-link active-class="header_active" routerLinkActive="" :to="{
             name:'event_list'
-          }">企画を見る
-          </router-link>
-        </li>
-        <li>
-          <router-link class="hover-underline-animation" to="/pamphlet">パンフレット</router-link>
-        </li>
-        <li>
-          <router-link class="hover-underline-animation" to="/sponsors">ご協賛について</router-link>
-        </li>
+          }">
+          <li class="hover-underline-animation">企画を見る</li>
+        </router-link>
+        <router-link active-class="header_active" to="/pamphlet">
+          <li class="hover-underline-animation">パンフレット</li>
+        </router-link>
+        <router-link active-class="header_active" to="/sponsors">
+          <li class="hover-underline-animation">ご協賛について</li>
+        </router-link>
       </ul>
     </nav>
   </header>
@@ -48,6 +47,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header_active {
+  background: #ff3b90;
+}
+
 header {
   padding-top: 1rem;
   z-index: 100;
@@ -78,16 +81,17 @@ header {
       padding: 0;
       color: #aba499;
 
-      li {
+      a {
         line-height: 40px;
         align-items: center;
         height: 40px;
         border-radius: 20px;
         font-size: 20px;
         padding: 5px 10px;
+        text-decoration: none;
         transition: background 0.5s ease-in-out;
 
-        a {
+        li {
           height: 100%;
           margin: 0 auto;
           text-decoration: none;
@@ -95,7 +99,7 @@ header {
         }
       }
 
-      li:hover {
+      a:hover {
         background: #ff3b90;
       }
     }
