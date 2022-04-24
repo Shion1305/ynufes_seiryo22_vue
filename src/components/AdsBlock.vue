@@ -18,7 +18,8 @@
           }"
           class="adsSwiper">
 
-    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id"><img :src="`${ad.image.url}`" alt=""/></swiper-slide>
+    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id"><img :src="`${ad.image.url}`" alt=""/>
+    </swiper-slide>
   </swiper>
 </template>
 <script>
@@ -45,16 +46,13 @@ export default {
     return {};
   },
   methods: {
-    randomList: function(rand){
-      return rand.sort(function(){return 0.5 - Math.random()});
+    randomList: function (rand) {
+      return rand.sort(function () {
+        return 0.5 - Math.random()
+      });
     }
   },
-  props: {
-    ads: {
-      type: Object,
-      required: true,
-    }
-  }
+  props: {}
 }
 </script>
 <style lang="scss">
