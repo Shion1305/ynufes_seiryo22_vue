@@ -1,9 +1,9 @@
 <template>
-  <div class="content-frame">
-    <div>
+  <div class="content-frame fadeUp">
+    <div class="fadeUp" style="animation-delay: 0.4s">
       <img src="@/assets/kamome_sempai/ojigi.webp" alt="かもめ先輩のお辞儀"/>
       <div style="font-size: 3rem">404</div>
-      <div style="font-size: 1.5rem">お探しのページは<br>見つかりませんでした</div>
+      <div id="not-found">お探しのページは<br>見つかりませんでした</div>
     </div>
   </div>
 </template>
@@ -15,11 +15,17 @@ export default {
 </script>
 
 <style scoped>
+#not-found{
+  font-size: 1.5rem;
+}
 .content-frame {
+  animation-delay: 0.2s;
+  white-space: nowrap;
   width: min(100% - 2rem, 60rem);
   margin-inline: auto;
   display: flex;
   position: relative;
+  text-align: center;
   background-size: cover;
   flex-direction: column;
   align-items: center;
@@ -29,15 +35,22 @@ export default {
 }
 
 .content-frame img {
-background-size: contain;
+  background-size: contain;
+  width: 100%;
   max-width: 300px;
 }
 
 .content-frame > div {
-  margin: 1rem;
-  text-align: center;
-  background: #fffc;
+  width: min(100vw - 200px, 300px);
+  margin: 20px;
+  background: #cd4fffcc;
+  color: white;
+  padding: 1rem 1.5rem;
   border-radius: 3rem;
-  padding: 1rem;
+}
+@media screen and (max-width: 450px) {
+  #not-found{
+    font-size: 18px;
+  }
 }
 </style>
