@@ -1,12 +1,12 @@
 <template>
   <div class="carouselView">
-    <CarouselView id="carousel"/>
+    <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
   </div>
   <div class="content-frame">
-    <div class="ads-area">
+    <div class="ads-area fadeUp">
       <AdsBlock/>
     </div>
-    <div class="events_search_block">
+    <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
         <div>
@@ -16,7 +16,7 @@
       <div class="content1-home">
         <div class="home_events">
           <div class="button_events_all hover-to-shrink">
-            <img alt="全ての企画を見る" src="@/assets/home/event-button-1.png"/>
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
             <router-link to="/pamphlet">
               <div><p>全ての<br>企画</p></div>
             </router-link>
@@ -66,9 +66,9 @@
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
-          <UpdateElement v-for="update in updates" :key="update.id" :update="update"/>
+          <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
           <router-link class="more_updates hover-to-shrink" to="/updates">
-            <div>更新情報をもっとみる</div>
+            <div v-show="this.$store.state.updates.length>=3">更新情報をもっとみる</div>
           </router-link>
         </div>
       </div>
@@ -111,6 +111,7 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
+  animation-delay: 1.0s;
 
   a {
     display: flex;
@@ -138,6 +139,7 @@
   background: #ffffff44;
   margin: 20px 0;
   border-radius: 40px;
+  animation-delay: 1.2s;
 
   .section_title {
     display: flex;
@@ -556,15 +558,9 @@
 <script>
 
 import CarouselView from "@/components/CarouselView";
-import {createClient} from 'microcms-js-sdk';
 import AdsBlock from "@/components/AdsBlock";
 import TwitterTimeline from "@/components/TwitterTimeline";
-import UpdateElement from "@/components/UpdateElement"; //ES6
-// Initialize Client SDK.
-const client = createClient({
-  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
-  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
-});
+import UpdateElement from "@/components/UpdateElement";
 
 export default {
   name: 'HomeView',
@@ -577,44 +573,24 @@ export default {
     UpdateElement
   },
   data() {
-    return {updates: [], loading: true}
+    return {}
   },
   methods: {
-    getLatestUpdate() {
-      client.get({
-        endpoint: 'updates',
-      }).then((data) => {
-        this.updates = data.contents.slice(0, 3);
-      });
+    getNewestUpdate() {
+      return this.$store.state.updates.slice(0, 3);
     },
-    getLatestSlides() {
-      client.get({
-        endpoint: 'slides'
-      }).then((data) => {
-            this.$store.commit('setSlide', data.contents)
-            this.loading = false;
-          }
-      );
+    async scrollTop() {
+      window.scrollTo(0, 0);
     }
   },
+  props: {},
   mounted() {
-    if (this.loaded) {
-      this.getLatestSlides();
-    }
-    this.getLatestUpdate();
+    this.scrollTop();
+    // document.addEventListener('backbutton', this.scrollTop, false);
   },
-  props: {
-    loaded: {
-      type: Boolean,
-      required: false
-    }
+  beforeRouteLeave() {
+    this.scrollTop();
   },
-  watch: {
-    loaded: function () {
-      //読み込み終了が検知された際にスライド取得操作を行う
-      this.getLatestSlides();
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>

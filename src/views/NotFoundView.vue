@@ -1,9 +1,9 @@
 <template>
-  <div class="content-frame fadeUp" style="animation-delay: 0.2s">
+  <div class="content-frame fadeUp">
     <div class="fadeUp" style="animation-delay: 0.4s">
-      <img src="@/assets/kamome_sempai/writing.png" alt="かもめ先輩、勉強中!"/>
-      <div style="font-size: 3rem">Under Construction...</div>
-      <div id="not-found">このページは作成中です!<br>公開までしばらくお待ちください</div>
+      <img src="@/assets/kamome_sempai/ojigi.webp" alt="かもめ先輩のお辞儀"/>
+      <div style="font-size: 3rem">404</div>
+      <div id="not-found">お探しのページは<br>見つかりませんでした</div>
     </div>
   </div>
 </template>
@@ -16,9 +16,10 @@ export default {
 
 <style scoped>
 #not-found{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .content-frame {
+  animation-delay: 0.2s;
   white-space: nowrap;
   width: min(100% - 2rem, 60rem);
   margin-inline: auto;
@@ -40,7 +41,7 @@ export default {
 }
 
 .content-frame > div {
-  width: fit-content;
+  width: min(100vw - 200px, 300px);
   margin: 20px;
   background: #cd4fffcc;
   color: white;

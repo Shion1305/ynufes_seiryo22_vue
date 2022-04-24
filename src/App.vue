@@ -11,9 +11,9 @@
       </div>
     </div>
     <img alt="" class="background_img" src="@/assets/background_img.jpg"/>
-    <Header/>
+    <Header v-show="loaded" class="fadeUp"/>
     <div id="body-frame" v-show="loaded">
-      <router-view :loaded="loaded"/>
+      <router-view/>
       <Footer/>
     </div>
   </div>
@@ -181,6 +181,45 @@
 </style>
 <!--style below applies to all components-->
 <style>
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeLeft {
+  animation-name: fadeLeftAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeLeftAnime {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .hover-to-shrink {
   transition: all 0.1s linear;
 }
@@ -213,8 +252,14 @@
 }
 </style>
 <script>
+import {createClient} from "microcms-js-sdk"; //ES6
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const client = createClient({
+  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
+  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
+});
 
 export default {
   components: {Header, Footer},
@@ -225,17 +270,40 @@ export default {
   data() {
     return {loaded: false};
   },
-  computed: {
-    // isLoading() {
-    //   return this.loading;
-    // }
+  methods: {
+    getLatestUpdate() {
+      client.get({
+        endpoint: 'updates',
+      }).then((data) => {
+        this.$store.commit('setUpdates', data.contents);
+        // this.updates = data.contents.slice(0, 3);
+      });
+    },
+    getLatestSlides() {
+      client.get({
+        endpoint: 'slides'
+      }).then((data) => {
+            this.$store.commit('setSlide', data.contents)
+          }
+      );
+    },
+    getLatestAds() {
+      client.get({
+        endpoint: 'ads'
+      }).then((data) => {
+            this.$store.commit('setAds', data.contents);
+          }
+      );
+    }
   },
   mounted() {
+    this.getLatestAds();
+    this.getLatestUpdate();
     window.onload = () => {
-      console.log("onload");
       const loader = document.getElementById('loader');
       loader.classList.add('loaded');
       this.loaded = true;
+      this.getLatestSlides();
     }
   }
 }

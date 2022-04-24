@@ -121,12 +121,12 @@ export default {
   methods: {
     getDate() {
       const date = new Date(this.update.date);
-      return date.getFullYear() + '.' + date.getMonth() + '.' + date.getDate();
+      return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
     },
     getTime() {
       const date = new Date(this.update.date);
       return date.getHours() + ":" + (date.getMinutes() < 10 ? ("0" + date.getMinutes()) : date.getMinutes());
-    }
+    },
   }
 }
 </script>

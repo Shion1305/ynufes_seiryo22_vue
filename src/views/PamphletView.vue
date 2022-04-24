@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="main" class="fadeUp">
     <img src="@/assets/imgs/image1.webp"/>
     <div>
       <div>Coming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Soon...
@@ -13,12 +13,16 @@
 
 <script>
 export default {
-  name: "PamphletView"
+  name: "PamphletView",
+  mounted() {
+    window.scrollTo(0,0);
+  }
 }
 </script>
 
 <style scoped>
 #main {
+  animation-delay: 0.2s;
   width: min(100%, 80rem);
   margin-inline: auto;
   position: relative;
