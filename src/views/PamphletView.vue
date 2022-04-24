@@ -13,7 +13,10 @@
 
 <script>
 export default {
-  name: "PamphletView"
+  name: "PamphletView",
+  mounted() {
+    window.scrollTo(0,0);
+  }
 }
 </script>
 

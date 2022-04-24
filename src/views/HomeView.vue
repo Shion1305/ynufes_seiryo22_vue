@@ -578,9 +578,19 @@ export default {
   methods: {
     getNewestUpdate() {
       return this.$store.state.updates.slice(0, 3);
+    },
+    async scrollTop() {
+      window.scrollTo(0, 0);
     }
   },
-  props: {}
+  props: {},
+  mounted() {
+    this.scrollTop();
+    // document.addEventListener('backbutton', this.scrollTop, false);
+  },
+  beforeRouteLeave() {
+    this.scrollTop();
+  },
 }
 </script>
 <style lang="scss" scoped>
