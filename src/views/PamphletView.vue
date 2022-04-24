@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 #main {
-  animation-delay: 0.5s;
+  animation-delay: 0.2s;
   width: min(100%, 80rem);
   margin-inline: auto;
   position: relative;
