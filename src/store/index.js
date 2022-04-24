@@ -2,12 +2,21 @@ import {createStore} from 'vuex'
 
 export default createStore({
     state: {
-        slides: [{slide: {url: "/loading.png"}}]
+        slides: [{slide: {url: "/loading.png"}}],
+        ads: [{image: {url: "/dummyAds.png"}}],
+        updates: []
     },
     getters: {},
     mutations: {
         setSlide(state, newSlides) {
             state.slides = newSlides;
+        },
+        setAds(state, newAds) {
+            state.ads = newAds;
+        },
+        setUpdates(state, newUpdates) {
+            console.log(newUpdates);
+            state.updates = newUpdates;
         }
     },
     actions: {},

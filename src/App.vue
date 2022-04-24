@@ -234,8 +234,14 @@
 }
 </style>
 <script>
+import {createClient} from "microcms-js-sdk"; //ES6
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const client = createClient({
+  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
+  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
+});
 
 export default {
   components: {Header, Footer},
@@ -246,17 +252,32 @@ export default {
   data() {
     return {loaded: false};
   },
-  computed: {
-    // isLoading() {
-    //   return this.loading;
-    // }
+  methods: {
+    getLatestUpdate() {
+      client.get({
+        endpoint: 'updates',
+      }).then((data) => {
+        this.$store.commit('setUpdates', data.contents);
+        // this.updates = data.contents.slice(0, 3);
+      });
+    },
+    getLatestSlides() {
+      client.get({
+        endpoint: 'slides'
+      }).then((data) => {
+            this.$store.commit('setSlide', data.contents)
+          }
+      );
+    },
   },
   mounted() {
+    this.getLatestUpdate();
     window.onload = () => {
       console.log("onload");
       const loader = document.getElementById('loader');
       loader.classList.add('loaded');
       this.loaded = true;
+      this.getLatestSlides();
     }
   }
 }

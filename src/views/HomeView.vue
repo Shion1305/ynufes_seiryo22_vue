@@ -66,7 +66,7 @@
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
-          <UpdateElement v-for="update in updates" :key="update.id" :update="update"/>
+          <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
           <router-link class="more_updates hover-to-shrink" to="/updates">
             <div>更新情報をもっとみる</div>
           </router-link>
@@ -558,15 +558,9 @@
 <script>
 
 import CarouselView from "@/components/CarouselView";
-import {createClient} from 'microcms-js-sdk';
 import AdsBlock from "@/components/AdsBlock";
 import TwitterTimeline from "@/components/TwitterTimeline";
-import UpdateElement from "@/components/UpdateElement"; //ES6
-// Initialize Client SDK.
-const client = createClient({
-  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
-  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
-});
+import UpdateElement from "@/components/UpdateElement";
 
 export default {
   name: 'HomeView',
@@ -579,44 +573,15 @@ export default {
     UpdateElement
   },
   data() {
-    return {updates: []}
+    return {}
   },
   methods: {
-    getLatestUpdate() {
-      client.get({
-        endpoint: 'updates',
-      }).then((data) => {
-        this.updates = data.contents.slice(0, 3);
-      });
-    },
-    getLatestSlides() {
-      client.get({
-        endpoint: 'slides'
-      }).then((data) => {
-            this.$store.commit('setSlide', data.contents)
-            this.loading = false;
-          }
-      );
+    getNewestUpdate() {
+      console.log(this.$store.state.updates.slice(0, 3));
+      return this.$store.state.updates.slice(0, 3);
     }
   },
-  mounted() {
-    if (this.loaded) {
-      this.getLatestSlides();
-    }
-    this.getLatestUpdate();
-  },
-  props: {
-    loaded: {
-      type: Boolean,
-      required: false
-    }
-  },
-  watch: {
-    loaded: function () {
-      //読み込み終了が検知された際にスライド取得操作を行う
-      this.getLatestSlides();
-    }
-  }
+  props: {}
 }
 </script>
 <style lang="scss" scoped>
