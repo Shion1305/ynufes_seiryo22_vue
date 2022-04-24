@@ -269,8 +269,18 @@ export default {
           }
       );
     },
+    getLatestAds() {
+      client.get({
+        endpoint: 'ads'
+      }).then((data) => {
+            console.log(data);
+            this.$store.commit('setAds', data.contents);
+          }
+      );
+    }
   },
   mounted() {
+    this.getLatestAds();
     this.getLatestUpdate();
     window.onload = () => {
       console.log("onload");
