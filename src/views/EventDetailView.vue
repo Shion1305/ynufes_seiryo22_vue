@@ -1,7 +1,7 @@
 <template>
   <div class="content-frame">
-    <div class="content-block">
-      <div class="top_area">
+    <div class="content-block fadeUp">
+      <div class="top_area fadeLeft">
         <div class="icon_title_block">
           <div class="icon_area">
             <img
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="detail_block">
+      <div class="detail_block fadeLeft">
         <h1>企画説明</h1>
         {{ event.event_description }}
       </div>
@@ -75,6 +75,7 @@ export default {
 }
 
 .content-block {
+  animation-delay: 0.2s;
   box-sizing: border-box;
   width: 100%;
   max-width: 60rem;
@@ -187,7 +188,7 @@ export default {
   h1 {
     width: 100%;
   }
-
+  animation-delay: 0.6s;
   padding-bottom: 5rem;
   white-space: pre-wrap;
   box-sizing: border-box;
@@ -196,6 +197,7 @@ export default {
 }
 
 .top_area {
+  animation-delay: 0.4s;
 }
 
 .content-block {

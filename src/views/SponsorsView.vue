@@ -1,10 +1,9 @@
 <template>
-
-  <div class="content-frame">
+  <div class="content-frame fadeUp">
     <img src="@/assets/imgs/image3.jpg"/>
     <h1 class="title">ご協賛企業一覧</h1>
     <div class="section_holder">
-      <section class="section" style="width:min(100% - 1rem, 27rem)">
+      <section class="section fadeLeft delay04" style="width:min(100% - 1rem, 27rem)">
         <div class="section_head"/>
         <div class="section_content">
           <h2>パンフレット協賛</h2>
@@ -26,7 +25,7 @@
         </div>
       </section>
       <div style="width:min(100% - 1rem, 27rem)">
-        <section class="section" style="margin-bottom: 20px">
+        <section class="section fadeLeft delay06" style="margin-bottom: 20px">
           <div class="section_head"/>
           <div class="section_content">
             <h2>バナー協賛</h2>
@@ -41,7 +40,7 @@
             </ul>
           </div>
         </section>
-        <section class="section">
+        <section class="section fadeLeft delay08">
           <div class="section_head"/>
           <div class="section_content">
             <h2>寄付</h2>
@@ -70,7 +69,7 @@ export default {
   margin: 0;
   width: 100%;
   font-size: 3rem;
-  background: #ff5eccdd;
+  background: linear-gradient(120deg, #ff5eccdd, #ff75a8dd);
   color: white;
 }
 
@@ -125,6 +124,7 @@ export default {
 }
 
 .content-frame {
+  animation-delay: 0.2s;
   margin-bottom: 3rem;
   color: white;
   text-align: center;
@@ -152,11 +152,23 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 1rem 2rem;
-
   div {
     flex-basis: calc(50% - 2rem);
   }
 }
+
+.delay04{
+  animation-delay: 0.4s;
+}
+
+.delay06{
+  animation-delay: 0.6s;
+}
+.delay08{
+  animation-delay: 0.8s;
+}
+
+
 
 @media screen and (max-width: 600px) {
   .content-frame {

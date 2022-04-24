@@ -184,7 +184,7 @@
 
 .fadeUp {
   animation-name: fadeUpAnime;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -201,6 +201,24 @@
   }
 }
 
+.fadeLeft {
+  animation-name: fadeLeftAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeLeftAnime {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 .hover-to-shrink {
   transition: all 0.1s linear;
