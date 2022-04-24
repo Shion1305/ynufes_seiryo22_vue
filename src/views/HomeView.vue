@@ -579,7 +579,7 @@ export default {
     UpdateElement
   },
   data() {
-    return {updates: [], loading: true}
+    return {updates: []}
   },
   methods: {
     getLatestUpdate() {
