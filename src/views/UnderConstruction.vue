@@ -2,7 +2,7 @@
   <div class="content-frame fadeUp" style="animation-delay: 0.2s">
     <div class="fadeUp" style="animation-delay: 0.4s">
       <img src="@/assets/kamome_sempai/writing.png" alt="かもめ先輩、勉強中!"/>
-      <div style="font-size: 3rem">404</div>
+      <div style="font-size: 3rem">Under Construction...</div>
       <div id="not-found">このページは作成中です!<br>公開までしばらくお待ちください</div>
     </div>
   </div>

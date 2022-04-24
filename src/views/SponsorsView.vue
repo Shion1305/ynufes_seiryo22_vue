@@ -1,6 +1,6 @@
 <template>
   <div class="content-frame fadeUp">
-    <img src="@/assets/imgs/image3.jpg"/>
+    <img src="@/assets/imgs/image3.webp"/>
     <h1 class="title">ご協賛企業一覧</h1>
     <div class="section_holder">
       <section class="section fadeLeft delay04" style="width:min(100% - 1rem, 27rem)">

@@ -54,7 +54,7 @@ const routes = [
     {
         path: '/others',
         name: 'other',
-        component: () => import('../views/UpdatesView'),
+        component: () => import('../views/UnderConstruction'),
     },
     // {
     //     path:'/update/:id',
@@ -62,8 +62,8 @@ const routes = [
     //     component: () => import(/* webpackChunkName: "update_detail" */ '../views/EventDetailView.vue'),
     //     props: (route) => ({...route.params, id: parseInt(route.params.id)})
     // },
-    { path: '/404', component: ()=>import('../views/NotFoundView') },
-    { path: '/:pathMatch(.*)*' ,redirect:'/404' },
+    {path: '/404', component: () => import('../views/NotFoundView')},
+    {path: '/:pathMatch(.*)*', redirect: '/404'},
 ]
 
 const router = createRouter({
