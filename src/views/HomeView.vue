@@ -68,7 +68,7 @@
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
           <router-link class="more_updates hover-to-shrink" to="/updates">
-            <div>更新情報をもっとみる</div>
+            <div v-show="this.$store.state.updates.length>=3">更新情報をもっとみる</div>
           </router-link>
         </div>
       </div>
