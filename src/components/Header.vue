@@ -46,7 +46,18 @@
           <router-link active-class="mLink-active" @click="toggleMenu" to="/events"><div>企画を探す</div></router-link>
           <router-link active-class="mLink-active" @click="toggleMenu" to="/pamphlet"><div>パンフレット</div></router-link>
           <router-link active-class="mLink-active" @click="toggleMenu" to="/sponsors"><div>ご協賛について</div></router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/other"><div>他大学リンク</div></router-link>
+          <router-link active-class="mLink-active" @click="toggleMenu" to="/others"><div>他大学リンク</div></router-link>
+        </div>
+        <div class="sns">
+          <a href="https://twitter.com/ynu_fes" target="_blank"><img alt="twitter"
+                                                                     class="hover-to-shrink"
+                                                                     src="@/assets/sns/twitter_logo.png"/></a>
+          <a href="https://www.instagram.com/ynu_fes" target="_blank"><img alt="instagram"
+                                                                           class="hover-to-shrink"
+                                                                           src="@/assets/sns/instagram_logo.png"/></a>
+          <a href="https://www.facebook.com/ynufes" target="_blank"><img alt="facebook"
+                                                                         class="hover-to-shrink"
+                                                                         src="@/assets/sns/facebook_logo.png"/></a>
         </div>
       </div>
     </div>
@@ -81,6 +92,9 @@ export default {
   display: none;
   flex-direction: column;
   z-index: -10;
+  padding-bottom: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   background: linear-gradient(120deg, #ff5eccee, #ff75a8ee);
   position: absolute;
   padding-top: 80px;
@@ -120,6 +134,19 @@ export default {
       >div{
         text-align: center;
       }
+    }
+  }
+
+  .sns {
+    padding-top: 20px;
+    width: 300px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    img {
+      width: 60px;
     }
   }
 }
