@@ -18,7 +18,8 @@ const routes = [
     {
         path: '/events',
         name: 'event_list',
-        component: () => import(/* webpackChunkName: "events" */ '../views/EventListView')
+        component: () => import(/* webpackChunkName: "events" */ '../views/EventListView'),
+        props: (route) => ({...route.params, type: parseInt(route.params.type)})
     },
     {
         path: '/events/:id',
