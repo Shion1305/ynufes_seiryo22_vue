@@ -55,6 +55,13 @@
           <div>ポスター展覧会</div>
         </router-link>
       </div>
+      <div id="hama_fes" class="hover-to-shrink">
+        <img src="@/assets/home/hama_fes.jpg" alt="ポスター展覧会"/>
+        <router-link to="/hama_fes">
+          <!--          <div style="height: 50%"></div>-->
+          <div>はまフェス投票</div>
+        </router-link>
+      </div>
       <!--      <div>-->
       <!--        <img/>-->
       <!--        <div>-->
@@ -455,6 +462,48 @@
       text-align: center;
     }
   }
+
+
+  @media screen and (max-width: 900px) {
+    font-size: 40px;
+  }
+  @media screen and (max-width: 700px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 20px;
+  }
+}
+
+#hama_fes {
+  flex-basis: 50%;
+  position: relative;
+  padding-right: 3px;
+  box-sizing: border-box;
+  font-size: 3rem;
+
+  > img {
+    object-fit: cover;
+    width: 100%;
+    position: relative;
+  }
+
+  > a {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    > div {
+      padding-top: 15%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+
 
   @media screen and (max-width: 900px) {
     font-size: 40px;
