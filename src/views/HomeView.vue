@@ -3,9 +3,9 @@
     <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
   </div>
   <div class="content-frame">
-    <div class="ads-area fadeUp">
-      <AdsBlock/>
-    </div>
+<!--    <div class="ads-area fadeUp">-->
+<!--      <AdsBlock/>-->
+<!--    </div>-->
     <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
