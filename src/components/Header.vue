@@ -8,7 +8,7 @@
                   stroke-width="2"></path>
           </svg>
         </button>
-        <router-link id="site_title" to="/">
+        <router-link id="site_title" to="/" @click="closeMenu">
           <div class="logo1">
             <div>22清陵祭</div>
             <div>横浜国立大学 大学祭</div>
@@ -24,7 +24,7 @@
           <router-link active-class="header_active" to="/about">
             <li class="hover-underline-animation">清陵祭とは</li>
           </router-link>
-          <router-link active-class="header_active" routerLinkActive="" :to="{
+          <router-link active-class="header_active" :to="{
             name:'event_list'
           }">
             <li class="hover-underline-animation">企画を見る</li>
@@ -41,12 +41,24 @@
     <div>
       <div id="mobile_menu" v-show="mToggled">
         <div>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/"><div>ホーム</div></router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/about"><div>清陵祭とは</div></router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/events"><div>企画を探す</div></router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/pamphlet"><div>パンフレット</div></router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/sponsors"><div>ご協賛について</div></router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/others"><div>他大学リンク</div></router-link>
+          <router-link active-class="mLink-active" @click="closeMenu" to="/">
+            <div>ホーム</div>
+          </router-link>
+          <router-link active-class="mLink-active" @click="closeMenu" to="/about">
+            <div>清陵祭とは</div>
+          </router-link>
+          <router-link active-class="mLink-active" @click="closeMenu" to="/events">
+            <div>企画を探す</div>
+          </router-link>
+          <router-link active-class="mLink-active" @click="closeMenu" to="/pamphlet">
+            <div>パンフレット</div>
+          </router-link>
+          <router-link active-class="mLink-active" @click="closeMenu" to="/sponsors">
+            <div>ご協賛について</div>
+          </router-link>
+          <router-link active-class="mLink-active" @click="toggleMenu" to="/others">
+            <div>他大学リンク</div>
+          </router-link>
         </div>
         <div class="sns">
           <a href="https://twitter.com/ynu_fes" target="_blank"><img alt="twitter"
@@ -72,6 +84,9 @@ export default {
     toggleMenu() {
       console.log("toggled");
       this.mToggled = !this.mToggled;
+    },
+    closeMenu() {
+      this.mToggled = false;
     }
   },
   data() {
@@ -121,7 +136,8 @@ export default {
     width: unquote("min(100vw - 2rem,500px)");
     justify-content: space-around;
     flex-wrap: wrap;
-    >a{
+
+    > a {
       border-radius: 25px;
       color: white;
       text-decoration: white;
@@ -131,7 +147,8 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      >div{
+
+      > div {
         text-align: center;
       }
     }
@@ -145,14 +162,17 @@ export default {
     align-items: center;
     margin: auto;
     justify-content: center;
+
     img {
       width: 60px;
     }
   }
 }
-.mLink-active{
+
+.mLink-active {
   background: white;
-  >div {
+
+  > div {
     color: #ff5ecc;
   }
 }
