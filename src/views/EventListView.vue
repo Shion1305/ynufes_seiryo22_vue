@@ -33,9 +33,9 @@ export default {
   computed: {
     eventData() {
       switch (this.mode) {
-        case 2:
-          return data.filter(x => x.id < 2000);
         case 3:
+          return data.filter(x => x.id < 2000);
+        case 2:
           return data.filter(x => x.id > 2000);
         case 1:
         default:
