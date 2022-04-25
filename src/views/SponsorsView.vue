@@ -3,7 +3,8 @@
     <img src="@/assets/imgs/image3.webp" alt="背景画像"/>
     <div id="page_top">
       <h1 class="title">ご協賛企業一覧</h1>
-      <div><span>「22清陵祭」を開催するにあたり、</span>多くの企業の皆様より多大なご協力を賜りました。この場をお借りいたしまして、心より感謝申し上げます。ご協賛いただきました企業を以下に掲載させていただきます。</div>
+      <div>「22清陵祭」を開催するにあたり、多くの企業の皆様より多大なご協力を賜りました。この場をお借りいたしまして、心より感謝申し上げます。ご協賛いただきました企業を以下に掲載させていただきます。
+      </div>
     </div>
     <div class="section_holder">
       <section class="section fadeLeft delay04" style="width:min(100% - 1rem, 27rem)">
@@ -74,6 +75,7 @@
               <li>Uni coffee roastery</li>
               <li>LocaliST株式会社</li>
               <li>株式会社アットヨコハマ</li>
+              <li>ジョイナス</li>
             </ul>
           </div>
         </section>
@@ -126,7 +128,8 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 1rem 10px;  gap: 0 10px;
+  padding: 1rem 10px;
+  gap: 0 10px;
 }
 
 .section {
@@ -224,11 +227,10 @@ export default {
 }
 
 
-
 @media screen and (max-width: 1000px) {
   .content-frame {
-    .title {
-      font-size: 30px;
+    #page_top .title {
+      font-size: 43px;
     }
 
     .section_head {
@@ -253,10 +255,11 @@ export default {
     padding-bottom: 1rem;
   }
 }
+
 @media screen and (max-width: 600px) {
   .content-frame {
-    .title {
-      font-size: 30px;
+    #page_top .title {
+      font-size: 35px;
     }
 
     .section_head {
@@ -284,8 +287,8 @@ export default {
 
 @media screen and (max-width: 450px) {
   .content-frame {
-    .title {
-      font-size: 25px;
+    #page_top .title {
+      font-size: 27px;
     }
 
     .section_head {
