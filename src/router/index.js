@@ -50,7 +50,7 @@ const routes = [
     {
         path: '/update',
         name: 'updates',
-        component: () => import('../views/UpdatesView'),
+        component: () => import('../views/UnderConstruction'),
     },
     {
         path: '/others',
