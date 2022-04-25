@@ -1,7 +1,7 @@
 <template>
   <div class="event_widget">
     <img :src="`/icon/${this.event.img}`" :alt="`icon for ${this.event.event_name} by ${this.event.org_name}`"/>
-    <div class="type" v-if="Boolean(this.event.type)">{{ this.event.type }}</div>
+    <div class="type" :style="`background: ${this.event.tag_color};`" v-if="Boolean(this.event.type)">{{ this.event.type }}</div>
     <div class="meta_area">
       <h2>
         {{ event.event_name }}
@@ -39,7 +39,6 @@ export default {
     position: absolute;
     top: 10.8rem;
     margin: 0.3rem;
-    background: #de31aa;
     border-radius: 1rem;
     padding: 0.2rem;
   }
@@ -52,6 +51,7 @@ export default {
 
   > .meta_area {
     color: black;
+    padding-bottom: 10px;
     margin: 1.2rem 1rem;
 
     h2 {
