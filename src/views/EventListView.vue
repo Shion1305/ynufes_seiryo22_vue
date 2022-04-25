@@ -94,11 +94,11 @@ export default {
 }
 
 .events_block {
+  margin-top: 20px;
   animation-delay: 0.2s;
   box-sizing: border-box;
   justify-content: center;
   gap: 0.5rem;
-  margin: 10px;
   display: flex;
   flex-wrap: wrap;
   max-width: 70rem;
