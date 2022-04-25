@@ -44,7 +44,7 @@ const routes = [
     {
         path: '/poster',
         name: 'posters',
-        component: () => import('../views/PosterView'),
+        component: () => import('../views/UnderConstruction'),
     },
     {
         path: '/update',
@@ -54,7 +54,7 @@ const routes = [
     {
         path: '/others',
         name: 'other',
-        component: () => import('../views/UnderConstruction'),
+        component: () => import(/* webpackChunkName: "others" */ '../views/UnderConstruction'),
     },
     // {
     //     path:'/update/:id',
@@ -64,6 +64,11 @@ const routes = [
     // },
     {path: '/404', component: () => import('../views/NotFoundView')},
     {path: '/:pathMatch(.*)*', redirect: '/404'},
+    {
+        path: '/hama_fes',
+        name: 'HamaFes',
+        component: () => import('../views/UnderConstruction'),
+    }
 ]
 
 const router = createRouter({
