@@ -3,18 +3,16 @@
     <div>
       <!--Control area-->
     </div>
-    <div>
-      <div class="events_block fadeUp">
-        <router-link :key="event.key" v-for="event in eventData"
-                     :to="{
+    <div class="events_block fadeUp">
+      <router-link :key="event.key" v-for="event in eventData"
+                   :to="{
           name: 'event_detail',
-          params: { id: event.id, },
+          params: { id: event.id },
         }">
-          <EventTile :event="event"></EventTile>
-        </router-link>
-      </div>
-      <!--      </router-link>-->
+        <EventTile :event="event"></EventTile>
+      </router-link>
     </div>
+    <!--      </router-link>-->
   </div>
 </template>
 
@@ -48,8 +46,9 @@ export default {
 .content-frame {
   display: flex;
   flex-direction: column;
-  width: min(100% - 2rem, 70rem);
+  width: min(100%, 70rem);
   margin-inline: auto;
+  box-sizing: border-box;
 }
 
 a {
