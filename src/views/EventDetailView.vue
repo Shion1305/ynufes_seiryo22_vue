@@ -27,7 +27,7 @@
         <h1>企画説明</h1>
         {{ event.event_description }}
       </div>
-      <div class="willBeHere">企画コンテンツは<br>5/に公開されます</div>
+      <div class="willBeHere">企画コンテンツは<br>順次公開されます</div>
       <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
       <!--      <h3 style="text-align: center">(↓Youtube(WEB展示)の場合)</h3>-->
       <!--      <div class="youtube_area">-->
