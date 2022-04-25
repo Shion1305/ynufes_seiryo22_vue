@@ -90,4 +90,27 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 470px) {
+  .event_widget {
+    width: 160px;
+
+    .type {
+      top: 140px;
+      font-size: 16px;
+    }
+
+    > .meta_area {
+      margin: 13px 10px;
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+
+    .org_name {
+      font-size: 15px;
+    }
+  }
+}
 </style>
