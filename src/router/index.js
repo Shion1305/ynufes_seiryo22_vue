@@ -18,13 +18,13 @@ const routes = [
     {
         path: '/events',
         name: 'event_list',
-        component: () => import(/* webpackChunkName: "events" */ '../views/EventListView'),
+        component: () => import(/* webpackChunkName: "events" */ '../views/UnderConstruction'),
         props: (route) => ({...route.params, type: parseInt(route.params.type)})
     },
     {
         path: '/events/:id',
         name: 'event_detail',
-        component: () => import(/* webpackChunkName: "event_detail" */ '../views/EventDetailView.vue'),
+        component: () => import(/* webpackChunkName: "event_detail" */ '../views/UnderConstruction'),
         props: (route) => ({...route.params, id: parseInt(route.params.id)})
     },
     {
@@ -40,7 +40,7 @@ const routes = [
     {
         path: '/sponsors',
         name: 'sponsors',
-        component: () => import('../views/SponsorsView'),
+        component: () => import('../views/UnderConstruction'),
     },
     {
         path: '/poster',
@@ -50,7 +50,7 @@ const routes = [
     {
         path: '/update',
         name: 'updates',
-        component: () => import('../views/UpdatesView'),
+        component: () => import('../views/UnderConstruction'),
     },
     {
         path: '/others',

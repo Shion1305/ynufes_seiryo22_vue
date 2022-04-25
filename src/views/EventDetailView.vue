@@ -18,7 +18,7 @@
             <hr/>
             <div class="organization_name">{{ event.org_name }}</div>
             <div class="tag_frame">
-              <div class="tag"><p>{{ event.type }}</p></div>
+              <div class="tag" :style="`background: ${event.tag_color}`"><p>{{ event.type }}</p></div>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
         <h1>企画説明</h1>
         {{ event.event_description }}
       </div>
-      <div class="willBeHere">企画コンテンツは<br>5/に公開されます</div>
+      <div class="willBeHere">企画コンテンツは<br>順次公開されます</div>
       <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
       <!--      <h3 style="text-align: center">(↓Youtube(WEB展示)の場合)</h3>-->
       <!--      <div class="youtube_area">-->
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.willBeHere{
+.willBeHere {
   margin: auto;
   width: fit-content;
   padding: 13px;
@@ -76,6 +76,7 @@ export default {
   text-align: center;
   background: #ff5ecc;
 }
+
 .content-frame {
   width: 100%;
   box-sizing: border-box;
@@ -160,6 +161,7 @@ export default {
     box-sizing: border-box;
 
     .tag {
+      color: white;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
@@ -167,7 +169,6 @@ export default {
       height: 2rem;
       padding: 0.2rem 0.7rem;
       border-radius: 20px;
-      background: #99999999;
 
       p {
         padding: 0;
@@ -200,6 +201,7 @@ export default {
   h1 {
     width: 100%;
   }
+
   animation-delay: 0.6s;
   padding-bottom: 2rem;
   white-space: pre-wrap;

@@ -1,13 +1,13 @@
 <template>
   <div class="content-frame">
     <div id="controller">
-      <div id="type_selector">
+      <div id="type_selector" class="fadeUp">
         <div :class="{'active-type':this.mode===1}" @click="setType(1)">全て</div>
         <div :class="{'active-type':this.mode===2}" @click="setType(2)">本部企画</div>
         <div :class="{'active-type':this.mode===3}" @click="setType(3)">団体企画</div>
       </div>
     </div>
-    <div class="events_block fadeUp">
+    <div id="events_block" class="fadeUp">
       <router-link :key="event.key" v-for="event in eventData"
                    :to="{
           name: 'event_detail',
@@ -33,9 +33,9 @@ export default {
   computed: {
     eventData() {
       switch (this.mode) {
-        case 2:
-          return data.filter(x => x.id < 2000);
         case 3:
+          return data.filter(x => x.id < 2000);
+        case 2:
           return data.filter(x => x.id > 2000);
         case 1:
         default:
@@ -55,11 +55,20 @@ export default {
     } else {
       this.mode = this.type
     }
+    const events_block = document.getElementById("events_block");
+    document.getElementById("type_selector").addEventListener("click", function () {
+      events_block.classList.remove("fadeUp");
+      setTimeout(function () {
+        events_block.classList.add("fadeUp");
+      });
+    })
   },
   methods: {
     setType(t) {
-      this.mode = t
-    }
+      if (this.mode !== t) {
+        this.mode = t;
+      }
+    },
   }
 }
 </script>
@@ -72,6 +81,7 @@ export default {
 }
 
 #type_selector {
+  animation-delay: 0.2s;
   display: flex;
   flex-direction: row;
   width: fit-content;
@@ -82,6 +92,7 @@ export default {
   color: white;
 
   > div {
+    cursor: pointer;
     padding: 12px;
     font-size: 30px;
     border-radius: 20px;
@@ -93,9 +104,9 @@ export default {
   background: white;
 }
 
-.events_block {
+#events_block {
   margin-top: 20px;
-  animation-delay: 0.2s;
+  animation-delay: 0.4s;
   box-sizing: border-box;
   justify-content: center;
   gap: 0.5rem;
@@ -107,7 +118,6 @@ export default {
 
 .content-frame {
   display: flex;
-
   flex-direction: column;
   width: unquote("min(100%, 70rem)");
   margin-inline: auto;
@@ -118,9 +128,9 @@ a {
   text-decoration: none;
 }
 
-@media screen and (max-width: 400px){
-  #type_selector{
-    >div{
+@media screen and (max-width: 400px) {
+  #type_selector {
+    > div {
       font-size: 23px;
     }
   }

@@ -1,8 +1,9 @@
 <template>
-  <swiper :slidesPerView="2" :spaceBetween="20"
+  <swiper :slidesPerView="2" :spaceBetween="10"
+          :slidesPerGroup="2"
           :loop="true"
           :autoplay="{
-  delay: 4000,
+  delay: 4500,
   disableOnInteraction: false,
   }"
           :breakpoints="{
