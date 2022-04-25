@@ -117,4 +117,12 @@ export default {
 a {
   text-decoration: none;
 }
+
+@media screen and (max-width: 400px){
+  #type_selector{
+    >div{
+      font-size: 23px;
+    }
+  }
+}
 </style>
