@@ -180,5 +180,19 @@
     "instagram": "",
     "facebook": "",
     "website": ""
+  },
+  {
+    "id": 2005,
+    "type": "本部企画",
+    "tag_color": "#00a0f3",
+    "img": "noimage.png",
+    "event_name": "横浜エコ国立大学 入学試験",
+    "org_name": "清陵祭実行委員会",
+    "event_description": "今年の清陵祭では環境にまつわるエコ企画を行います！\uD83D\uDC4F\n大学祭公式ホームページ上にて、環境に関する高難易度(?)クイズ、『横浜エコ国立大学 入学試験』を実施します！\uD83D\uDCD6\n君は、横浜エコ国立大学に無事入学することはできるかな‥‥？",
+    "org_description": "",
+    "twitter": "",
+    "instagram": "",
+    "facebook": "",
+    "website": ""
   }
 ]
