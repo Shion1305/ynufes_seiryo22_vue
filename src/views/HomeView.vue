@@ -60,7 +60,7 @@
     </div>
     <div class="button_section_1">
       <div id="poster_button" class="hover-to-shrink">
-        <img src="@/assets/home/poster.jpg" alt="ポスター展覧会"/>
+        <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
         <router-link to="/poster">
           <!--          <div style="height: 50%"></div>-->
           <div>ポスター展覧会</div>
