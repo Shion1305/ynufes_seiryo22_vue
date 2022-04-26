@@ -73,8 +73,8 @@
               <li>株式会社中萬学院</li>
               <li>JOINUS</li>
               <li>Uni coffee roastery</li>
-              <li>モアーズ</li>
-              <li>LocaliST株式会社</li>
+              <li>横浜モアーズ</li>
+              <li>LocaliST</li>
             </ul>
           </div>
         </section>
