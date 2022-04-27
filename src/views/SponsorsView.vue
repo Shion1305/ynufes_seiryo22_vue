@@ -74,7 +74,7 @@
               <li>JOINUS</li>
               <li>Uni coffee roastery</li>
               <li>横浜モアーズ</li>
-              <li>LocaliST</li>
+              <li>LocaliST株式会社</li>
             </ul>
           </div>
         </section>
