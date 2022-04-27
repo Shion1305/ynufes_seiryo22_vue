@@ -9,15 +9,24 @@
 </template>
 
 <script>
+import {useMeta} from "vue-meta";
+
 export default {
-  name: "NotFoundView"
+  name: "NotFoundView",
+  setup() {
+    useMeta({
+      title: "404 ページが見つかりませんでした",
+      description: "お探しのページは見つかりませんでした"
+    })
+  }
 }
 </script>
 
 <style scoped>
-#not-found{
+#not-found {
   font-size: 1.5rem;
 }
+
 .content-frame {
   animation-delay: 0.2s;
   white-space: nowrap;
@@ -48,8 +57,9 @@ export default {
   padding: 1rem 1.5rem;
   border-radius: 3rem;
 }
+
 @media screen and (max-width: 450px) {
-  #not-found{
+  #not-found {
     font-size: 18px;
   }
 }

@@ -63,7 +63,10 @@ export default {
     }
   },
   setup() {
-    useMeta({title: '企画詳細',description:'企画詳細ページ'})
+    useMeta({
+      title: event.event_name + "(" + event.org_name + ")の企画詳細",
+      description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
+    })
   }
 }
 </script>

@@ -26,10 +26,12 @@ const fs = require('fs');
 let sourceData;
 let desc;
 
-fs.readFile(__dirname + '\\description.json', 'utf8', (err, data) => {
+fs.readFile(__dirname + '/description.json', 'utf8', (err, data) => {
+    console.log(data);
     desc = JSON.parse(data);
 });
 fs.readFile(__dirname + "/src/assets/data.json", 'utf8', (err, data) => {
+    console.log(data);
     sourceData = JSON.parse(data);
 });
 let html = '';
@@ -47,16 +49,15 @@ app.use('/image', express.static(__dirname + '/dist/image/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
 app.use('/js', express.static(__dirname + '/dist/js/'));
 app.get('/*', (req, res) => {
-    console.log(req.path)
     if (req.path.indexOf(".") > -1) return;
-    console.log(req.path);
     var d = resolveData(req.path);
     console.log(d);
+    let htmlTmp = html;
     if (d) {
-        html = html.replace("<title></title>", "<title>" + d.title + "</title>");
-        html = html.replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + d.description + "\"/>");
+        htmlTmp = html.replace("<title></title>", "<title>" + (d.title !== "" ? d.title + " | 22清陵祭『花笑み』公式HP 横浜国立大学大学祭" : "22清陵祭『花笑み』公式HP 横浜国立大学大学祭") + "</title>")
+            .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>");
     }
-    res.send(html);
+    res.send(htmlTmp);
 });
 
 const PORT = parseInt(process.env.PORT) || 8080;

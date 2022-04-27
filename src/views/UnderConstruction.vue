@@ -9,15 +9,24 @@
 </template>
 
 <script>
+import {useMeta} from "vue-meta";
+
 export default {
-  name: "NotFoundView"
+  name: "NotFoundView",
+  setup() {
+    useMeta({
+      title: "作成中...",
+      description: "このページは作成中です!公開までしばらくお待ちください"
+    })
+  }
 }
 </script>
 
 <style scoped>
-#not-found{
+#not-found {
   font-size: 1.2rem;
 }
+
 .content-frame {
   white-space: nowrap;
   width: min(100% - 2rem, 60rem);
@@ -47,8 +56,9 @@ export default {
   padding: 1rem 1.5rem;
   border-radius: 3rem;
 }
+
 @media screen and (max-width: 450px) {
-  #not-found{
+  #not-found {
     font-size: 18px;
   }
 }

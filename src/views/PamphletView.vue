@@ -20,7 +20,7 @@ export default {
     window.scrollTo(0,0);
   },
   setup() {
-    useMeta({title: 'デジタルパンフレット',description:'22清陵祭のオンラインパンフレットを掲載しています。'})
+    useMeta({title: 'デジタルパンフレット',description:'22清陵祭のデジタルパンフレットを掲載しています。'})
   }
 }
 </script>

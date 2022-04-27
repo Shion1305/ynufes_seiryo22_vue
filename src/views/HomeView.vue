@@ -654,7 +654,7 @@ export default {
     this.scrollTop();
   },
   setup() {
-    useMeta({title: 'トップ',description:'横浜国立大学祭「22清陵祭」の公式ホームページのトップ画面です。今年のテーマは『花笑み』。'})
+    useMeta({title: '',description:'横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』!! 様々なオンライン企画をお楽しみください!'})
   }
 }
 </script>
