@@ -317,7 +317,7 @@ export default {
     useMeta({
       title: '',
       htmlAttrs: { lang: 'ja', amp: true },
-      description: 'testtest'
+      description: ''
     })
   }
 }
