@@ -9,9 +9,9 @@
     <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
-        <div>
+        <h1>
           企画紹介
-        </div>
+        </h1>
       </div>
       <div class="content1-home">
         <div class="home_events">
@@ -32,7 +32,8 @@
                   :to="{
           name: 'event_list',
           params: { type: 2 },
-        }">                <div>
+        }">
+                <div>
                   <p>本部企画</p>
                 </div>
               </router-link>
@@ -60,7 +61,7 @@
     </div>
     <div class="button_section_1">
       <div id="poster_button" class="hover-to-shrink">
-        <img src="@/assets/home/poster.jpg" alt="ポスター展覧会"/>
+        <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
         <router-link to="/poster">
           <!--          <div style="height: 50%"></div>-->
           <div>ポスター展覧会</div>
@@ -176,7 +177,8 @@
       z-index: 30;
     }
 
-    > div {
+    > h1 {
+      margin: 0;
       z-index: 50;
       height: 100%;
       top: 0;
@@ -621,6 +623,7 @@ import CarouselView from "@/components/CarouselView";
 import AdsBlock from "@/components/AdsBlock";
 import TwitterTimeline from "@/components/TwitterTimeline";
 import UpdateElement from "@/components/UpdateElement";
+import {useMeta} from "vue-meta";
 
 export default {
   name: 'HomeView',
@@ -651,6 +654,9 @@ export default {
   beforeRouteLeave() {
     this.scrollTop();
   },
+  setup() {
+    useMeta({title: '',description:'横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'})
+  }
 }
 </script>
 <style lang="scss" scoped>

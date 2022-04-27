@@ -1,4 +1,9 @@
 <template>
+  <!--  vue-meta expression starts from here-->
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content ? `${content} | 22清陵祭公式ホームページ 横浜国立大学大学祭` : `22清陵祭公式ホームページ 横浜国立大学大学祭` }}</template>
+  </metainfo>
+  <!--  vue-meta expression ends here-->
   <div class="wrapper">
     <div id="loader" style="color: white;font-family: 'Kaisei Decol', serif;">
       <div style="font-size: 7rem;font-family: 'Kaisei Decol', serif;">花笑み</div>
@@ -255,6 +260,7 @@
 import {createClient} from "microcms-js-sdk"; //ES6
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {useMeta} from 'vue-meta';
 
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -305,6 +311,14 @@ export default {
       this.loaded = true;
       this.getLatestSlides();
     }
+  },
+  setup(){
+    document.querySelector("[name='description']").remove()
+    useMeta({
+      title: '',
+      htmlAttrs: { lang: 'ja', amp: true },
+      description: ''
+    })
   }
 }
 </script>

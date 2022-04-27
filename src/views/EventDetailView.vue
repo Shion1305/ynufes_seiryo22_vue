@@ -45,6 +45,7 @@
 <script>
 
 import sourceData from "@/assets/data.json"
+import {useMeta} from "vue-meta";
 
 export default {
   name: "EventDetailView",
@@ -60,6 +61,12 @@ export default {
           (data) => data.id === this.id
       );
     }
+  },
+  setup() {
+    useMeta({
+      title: event.event_name + "(" + event.org_name + ")の企画詳細",
+      description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
+    })
   }
 }
 </script>

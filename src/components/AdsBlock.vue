@@ -1,5 +1,5 @@
 <template>
-  <swiper :slidesPerView="2" :spaceBetween="10"
+  <swiper v-if="this.$store.state.ads.length!==0" :slidesPerView="2" :spaceBetween="10"
           :slidesPerGroup="2"
           :loop="true"
           :autoplay="{

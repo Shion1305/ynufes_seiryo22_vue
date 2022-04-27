@@ -23,6 +23,7 @@
 <script>
 import EventTile from "@/components/EventTile";
 import data from "@/assets/data.json";
+import {useMeta} from "vue-meta";
 
 export default {
   name: "EventListView",
@@ -69,6 +70,9 @@ export default {
         this.mode = t;
       }
     },
+  },
+  setup() {
+    useMeta({title: '企画一覧', description: '22清陵祭で開催するオンライン企画を一覧で紹介しています。それぞれの企画を選択するとその詳細を確認できます。'})
   }
 }
 </script>

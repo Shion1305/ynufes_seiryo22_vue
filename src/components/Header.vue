@@ -63,10 +63,10 @@
         <div class="sns">
           <a href="https://twitter.com/ynu_fes" target="_blank"><img alt="twitter"
                                                                      class="hover-to-shrink"
-                                                                     src="@/assets/sns/twitter_logo.png"/></a>
+                                                                     src="@/assets/sns/twitter_logo.webp"/></a>
           <a href="https://www.instagram.com/ynu_fes" target="_blank"><img alt="instagram"
                                                                            class="hover-to-shrink"
-                                                                           src="@/assets/sns/instagram_logo.png"/></a>
+                                                                           src="@/assets/sns/instagram_logo.webp"/></a>
           <a href="https://www.facebook.com/ynufes" target="_blank"><img alt="facebook"
                                                                          class="hover-to-shrink"
                                                                          src="@/assets/sns/facebook_logo.png"/></a>

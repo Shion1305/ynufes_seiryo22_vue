@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="fadeUp">
-    <img src="@/assets/imgs/image1.webp"/>
+    <img src="@/assets/imgs/image1.webp" alt="背景画像"/>
     <div>
       <div>Coming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Soon...
       </div>
@@ -12,10 +12,15 @@
 </template>
 
 <script>
+import {useMeta} from "vue-meta";
+
 export default {
   name: "PamphletView",
   mounted() {
     window.scrollTo(0,0);
+  },
+  setup() {
+    useMeta({title: 'デジタルパンフレット',description:'22清陵祭のデジタルパンフレットを掲載しています。'})
   }
 }
 </script>

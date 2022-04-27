@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import {useMeta} from "vue-meta";
+
 export default {
-  name: "PreviewEndView"
+  name: "PreviewEndView",
+  setup() {
+    useMeta({title: 'プレビュー',description:'企画団体用のプレビューサイトです。プレビューサイトの公開は終了しました。'})
+  }
 }
 </script>
 
