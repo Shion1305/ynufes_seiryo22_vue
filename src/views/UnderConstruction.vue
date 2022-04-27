@@ -29,7 +29,7 @@ export default {
   flex-direction: column;
   align-items: center;
   border-radius: 2rem;
-  background-image: url("/public/image2.webp");
+  background-image: url("/public/image/image2.webp");
   margin-bottom: 1rem;
 }
 

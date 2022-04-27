@@ -1,0 +1,34 @@
+{
+  "/": {
+    "title": "トップ",
+    "description": "横浜国立大学祭「22清陵祭」の公式ホームページのトップ画面です。今年のテーマは『花笑み』。"
+  },
+  "/events/": {
+    "title": "企画一覧",
+    "description": "22清陵祭で開催するオンライン企画を一覧で紹介しています。それぞれの企画を選択するとその詳細を確認できます。"
+  },
+  "/about/": {
+    "title": "清陵祭について",
+    "description": ""
+  },
+  "/sponsors/": {
+    "title": "ご協賛について",
+    "description": ""
+  },
+  "/pamphlet/": {
+    "title": "デジタルパンフレット",
+    "description": ""
+  },
+  "/poster/": {
+    "title": "ポスター展覧会",
+    "description": ""
+  },
+  "/update/": {
+    "title": "更新情報",
+    "description": ""
+  },
+  "/others/": {
+    "title": "",
+    "description": ""
+  }
+}
