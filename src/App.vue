@@ -313,6 +313,7 @@ export default {
     }
   },
   setup(){
+    document.querySelector("[name='description']").remove()
     useMeta({
       title: '',
       htmlAttrs: { lang: 'ja', amp: true },
