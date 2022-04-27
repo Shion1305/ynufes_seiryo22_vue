@@ -319,21 +319,5 @@ export default {
       description: 'testtest'
     })
   }
-  /**
-   * refer here for seo measure
-   * https://www.digitalocean.com/community/tutorials/vuejs-vue-seo-tips
-   */
-  // metaInfo: {
-  //   title: 'ようこそ',
-  //   // Result: My Page Title ← My Site
-  //   // If a child changes the title to "My Other Page Title",
-  //   // it will become: My Other Page Title ← My Site
-  //   titleTemplate: '%s | 22清陵祭公式ホームページ 横浜国立大学大学祭',
-  //   meta: [
-  //     {'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8'},
-  //     {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-  //     {name: 'description', content: 'I have things here on my site.'}
-  //   ]
-  // }
 }
 </script>

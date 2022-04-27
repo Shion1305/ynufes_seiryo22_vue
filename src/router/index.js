@@ -63,13 +63,13 @@ const routes = [
     //     component: () => import(/* webpackChunkName: "update_detail" */ '../views/EventDetailView.vue'),
     //     props: (route) => ({...route.params, id: parseInt(route.params.id)})
     // },
-    {path: '/404', component: () => import('../views/NotFoundView')},
-    {path: '/:pathMatch(.*)*', redirect: '/404'},
     {
         path: '/hama_fes',
         name: 'HamaFes',
         component: () => import('../views/UnderConstruction'),
-    }
+    },
+    {path: '/404', component: () => import('../views/NotFoundView'),meta:{title:"404 ページが存在しません。", desc: "対象のページは見つかりm戦でした。。"}},
+    {path: '/:pathMatch(.*)*', redirect: '/404'},
 ]
 
 const router = createRouter({
