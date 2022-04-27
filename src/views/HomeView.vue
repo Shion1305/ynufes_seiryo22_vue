@@ -9,9 +9,9 @@
     <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
-        <div>
+        <h1>
           企画紹介
-        </div>
+        </h1>
       </div>
       <div class="content1-home">
         <div class="home_events">
@@ -177,7 +177,8 @@
       z-index: 30;
     }
 
-    > div {
+    > h1 {
+      margin: 0;
       z-index: 50;
       height: 100%;
       top: 0;
