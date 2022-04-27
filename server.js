@@ -49,6 +49,14 @@ app.use('/image', express.static(__dirname + '/dist/image/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
 app.use('/js', express.static(__dirname + '/dist/js/'));
 app.get('/*', (req, res) => {
+    if (req.path === "/robots.txt") {
+        res.sendFile(__dirname + "/public/robots.txt");
+        return;
+    }
+    if (req.path === "/sitemap.xml") {
+        res.sendFile(__dirname + "/public/sitemap.xml");
+        return;
+    }
     if (req.path.indexOf(".") > -1) return;
     var d = resolveData(req.path);
     console.log(d);
