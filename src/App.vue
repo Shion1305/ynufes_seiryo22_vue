@@ -1,4 +1,9 @@
 <template>
+  <!--  vue-meta expression starts from here-->
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content ? `${content} | 22清陵祭公式ホームページ 横浜国立大学大学祭` : `22清陵祭公式ホームページ 横浜国立大学大学祭` }}</template>
+  </metainfo>
+  <!--  vue-meta expression ends here-->
   <div class="wrapper">
     <div id="loader" style="color: white;font-family: 'Kaisei Decol', serif;">
       <div style="font-size: 7rem;font-family: 'Kaisei Decol', serif;">花笑み</div>
@@ -255,6 +260,7 @@
 import {createClient} from "microcms-js-sdk"; //ES6
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {useMeta} from 'vue-meta';
 
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -305,6 +311,29 @@ export default {
       this.loaded = true;
       this.getLatestSlides();
     }
+  },
+  setup(){
+    useMeta({
+      title: '',
+      htmlAttrs: { lang: 'ja', amp: true },
+      description: 'testtest'
+    })
   }
+  /**
+   * refer here for seo measure
+   * https://www.digitalocean.com/community/tutorials/vuejs-vue-seo-tips
+   */
+  // metaInfo: {
+  //   title: 'ようこそ',
+  //   // Result: My Page Title ← My Site
+  //   // If a child changes the title to "My Other Page Title",
+  //   // it will become: My Other Page Title ← My Site
+  //   titleTemplate: '%s | 22清陵祭公式ホームページ 横浜国立大学大学祭',
+  //   meta: [
+  //     {'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8'},
+  //     {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+  //     {name: 'description', content: 'I have things here on my site.'}
+  //   ]
+  // }
 }
 </script>

@@ -45,6 +45,7 @@
 <script>
 
 import sourceData from "@/assets/data.json"
+import {useMeta} from "vue-meta";
 
 export default {
   name: "EventDetailView",
@@ -60,6 +61,9 @@ export default {
           (data) => data.id === this.id
       );
     }
+  },
+  setup() {
+    useMeta({title: '企画詳細',description:'企画詳細ページ'})
   }
 }
 </script>

@@ -32,7 +32,8 @@
                   :to="{
           name: 'event_list',
           params: { type: 2 },
-        }">                <div>
+        }">
+                <div>
                   <p>本部企画</p>
                 </div>
               </router-link>
@@ -621,6 +622,7 @@ import CarouselView from "@/components/CarouselView";
 import AdsBlock from "@/components/AdsBlock";
 import TwitterTimeline from "@/components/TwitterTimeline";
 import UpdateElement from "@/components/UpdateElement";
+import {useMeta} from "vue-meta";
 
 export default {
   name: 'HomeView',
@@ -651,6 +653,9 @@ export default {
   beforeRouteLeave() {
     this.scrollTop();
   },
+  setup() {
+    useMeta({title: 'トップ',description:'横浜国立大学祭「22清陵祭」の公式ホームページのトップ画面です。今年のテーマは『花笑み』。'})
+  }
 }
 </script>
 <style lang="scss" scoped>
