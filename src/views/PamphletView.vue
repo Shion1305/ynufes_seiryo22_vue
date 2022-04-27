@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="fadeUp">
-    <img src="@/assets/imgs/image1.webp"/>
+    <img src="@/assets/imgs/image1.webp" alt="背景画像"/>
     <div>
       <div>Coming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Soon...
       </div>
