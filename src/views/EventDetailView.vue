@@ -45,6 +45,7 @@
 <script>
 
 import sourceData from "@/assets/data.json"
+import {useMeta} from "vue-meta";
 
 export default {
   name: "EventDetailView",
@@ -56,15 +57,16 @@ export default {
   },
   computed: {
     event() {
-      console.log("compute")
       return sourceData.find(
           (data) => data.id === this.id
       );
     }
   },
-  mounted() {
-    document.title = this.event.event_name + " 企画詳細ページ | 22清陵祭公式ホームページ 横浜国立大学大学祭"
-    document.querySelector("meta[name='description']").setAttribute('content', this.event.event_name + ' (' + this.event.org_name + ') ' + 'の企画詳細ページです。' + this.event.event_description);
+  setup() {
+    useMeta({
+      title: event.event_name + "(" + event.org_name + ")の企画詳細",
+      description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
+    })
   }
 }
 </script>

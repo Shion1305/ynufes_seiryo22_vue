@@ -94,8 +94,16 @@
 </template>
 
 <script>
+import {useMeta} from "vue-meta";
+
 export default {
-  name: "SponsorsView"
+  name: "SponsorsView",
+  setup() {
+    useMeta({
+      title: "ご協賛について",
+      description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
+    })
+  }
 }
 </script>
 <style lang="scss" scoped>

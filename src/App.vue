@@ -1,4 +1,9 @@
 <template>
+  <!--  vue-meta expression starts from here-->
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content ? `${content} | 22清陵祭公式ホームページ 横浜国立大学大学祭` : `22清陵祭公式ホームページ 横浜国立大学大学祭` }}</template>
+  </metainfo>
+  <!--  vue-meta expression ends here-->
   <div class="wrapper">
     <div id="loader" style="color: white;font-family: 'Kaisei Decol', serif;">
       <div style="font-size: 7rem;font-family: 'Kaisei Decol', serif;">花笑み</div>
@@ -255,6 +260,7 @@
 import {createClient} from "microcms-js-sdk"; //ES6
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {useMeta} from 'vue-meta';
 
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -271,24 +277,6 @@ export default {
     return {loaded: false};
   },
   methods: {
-    createTitleDesc: function (routeInstance) {
-      //titleを設定する処理
-      if (routeInstance.meta.title) {
-        document.title = routeInstance.meta.title + ' | 22清陵祭公式ホームページ 横浜国立大学大学祭';
-      } else {
-        document.title = '22清陵祭公式ホームページ 横浜国立大学大学祭'
-      }
-      // メタタグのdescription設定処理
-
-      //meta.descに1が設定されている場合は無視する。
-      if (routeInstance.meta.desc === 1) return;
-
-      if (routeInstance.meta.desc) {
-        document.querySelector("meta[name='description']").setAttribute('content', routeInstance.meta.desc);
-        return;
-      }
-      document.querySelector("meta[name='description']").setAttribute('content', 'ディスクリプションはありません');
-    },
     getLatestUpdate() {
       client.get({
         endpoint: 'updates',
@@ -315,8 +303,6 @@ export default {
     }
   },
   mounted() {
-    //meta情報変更を反映
-    this.createTitleDesc(this.$route);
     this.getLatestAds();
     this.getLatestUpdate();
     window.onload = () => {
@@ -326,11 +312,12 @@ export default {
       this.getLatestSlides();
     }
   },
-  watch: {
-    //ページが遷移した時(つまり$routeが変化した時)にmeta情報の変更を反映する
-    '$route'(routeInstance) {
-      this.createTitleDesc(routeInstance);
-    }
+  setup(){
+    useMeta({
+      title: '',
+      htmlAttrs: { lang: 'ja', amp: true },
+      description: 'testtest'
+    })
   }
 }
 </script>

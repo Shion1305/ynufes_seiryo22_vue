@@ -1,12 +1,13 @@
-runtime: nodejs16
-env: standard
-handlers:
-  - url: /(.*\..+)$
-    static_files: dist/\1
-    upload: dist/(.*\..+)$
-    secure: always
-    # catch all handler to index.html
-  - url: /.*
-    static_files: dist/index.html
-    upload: dist/index.html
-    secure: always
+#runtime: nodejs16
+#env: standard
+#handlers:
+#  - url: /(.*\..+)$
+#    static_files: dist/\1
+#    upload: dist/(.*\..+)$
+#    secure: always
+#    # catch all handler to index.html
+#  - url: /.*
+#    static_files: dist/index.html
+#    upload: dist/index.html
+#    secure: always
+runtime: nodejs14
