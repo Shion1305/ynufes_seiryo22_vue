@@ -9,7 +9,13 @@
 
 <script>
 export default {
-  name: "UpdatesView"
+  name: "UpdatesView",
+  props: {
+    updateID: {
+      type: Number,
+      required: false,
+    }
+  }
 }
 </script>
 
