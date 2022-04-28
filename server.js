@@ -19,6 +19,7 @@
 //
 // module.exports = app;
 
+'use strict';
 
 const express = require('express')
 const app = express()
@@ -26,14 +27,8 @@ const fs = require('fs');
 let sourceData;
 let desc;
 
-fs.readFile(__dirname + '/description.json', 'utf8', (err, data) => {
-    console.log(data);
-    desc = JSON.parse(data);
-});
-fs.readFile(__dirname + "/src/assets/data.json", 'utf8', (err, data) => {
-    console.log(data);
-    sourceData = JSON.parse(data);
-});
+desc = prepareMetadata();
+sourceData = prepareSourceData();
 let html = '';
 fs.readFile(__dirname + '/dist/index.html', 'utf8', (err, data) => {
     if (err) {
@@ -49,6 +44,7 @@ app.use('/image', express.static(__dirname + '/dist/image/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
 app.use('/js', express.static(__dirname + '/dist/js/'));
 app.get('/*', (req, res) => {
+    console.log("request received");
     if (req.path === "/robots.txt") {
         res.sendFile(__dirname + "/public/robots.txt");
         return;
@@ -57,13 +53,12 @@ app.get('/*', (req, res) => {
         res.sendFile(__dirname + "/public/sitemap.xml");
         return;
     }
-    if (req.path.indexOf(".") > -1) return;
-    var d = resolveData(req.path);
-    console.log(d);
+    const d = pager(req.path);
     let htmlTmp = html;
     if (d) {
-        htmlTmp = html.replace("<title></title>", "<title>" + (d.title !== "" ? d.title + " | 22清陵祭『花笑み』公式HP 横浜国立大学大学祭" : "22清陵祭『花笑み』公式HP 横浜国立大学大学祭") + "</title>")
-            .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>");
+        htmlTmp = html.replace("<title></title>", "<title>" + resolveTitle(d) + "</title>")
+            .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>")
+            .replace("<meta property=\"twitter:title\" content=\"\"/>", "<meta property=\"twitter:title\" content=\"" + resolveTitle(d) + "\"/>");
     }
     res.send(htmlTmp);
 });
@@ -71,6 +66,19 @@ app.get('/*', (req, res) => {
 const PORT = parseInt(process.env.PORT) || 8080;
 
 app.listen(PORT, () => console.log('Example app listening on port ' + PORT));
+
+
+function pager(entry) {
+    if (entry.indexOf(".") > -1) {
+        return {"title": "Not Found", "description": "お探しのページは見つかりませんでした"};
+    }
+    return resolveData(entry);
+}
+
+
+function resolveTitle(d) {
+    return (d.title !== "" ? d.title + " | 22清陵祭『花笑み』公式HP 横浜国立大学大学祭" : "22清陵祭『花笑み』公式HP 横浜国立大学大学祭")
+}
 
 
 function resolveData(entry) {
@@ -98,8 +106,26 @@ function processSpecial(entry) {
 }
 
 function resolveNormal(entry) {
-    console.log(desc);
     console.log("resolveNormal");
-    console.log(desc[entry])
     return desc[entry];
 }
+
+function prepareMetadata() {
+    try {
+        return JSON.parse(fs.readFileSync(__dirname + '/description.json', 'utf8'));
+    } catch (err) {
+        console.log("error on loading metadata");
+        console.log(err);
+    }
+}
+
+function prepareSourceData() {
+    try {
+        return JSON.parse(fs.readFileSync(__dirname + "/src/assets/data.json", 'utf8'));
+    } catch (err) {
+        console.log("file load error");
+        console.log(err);
+    }
+}
+
+// module.exports(app);
