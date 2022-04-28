@@ -53,9 +53,7 @@ app.get('/*', (req, res) => {
         res.sendFile(__dirname + "/public/sitemap.xml");
         return;
     }
-    if (req.path.indexOf(".") > -1) return;
-    const d = resolveData(req.path);
-
+    const d = pager(req.path);
     let htmlTmp = html;
     if (d) {
         htmlTmp = html.replace("<title></title>", "<title>" + resolveTitle(d) + "</title>")
@@ -68,6 +66,14 @@ app.get('/*', (req, res) => {
 const PORT = parseInt(process.env.PORT) || 8080;
 
 app.listen(PORT, () => console.log('Example app listening on port ' + PORT));
+
+
+function pager(entry) {
+    if (entry.indexOf(".") > -1) {
+        return {"title": "Not Found", "description": "お探しのページは見つかりませんでした"};
+    }
+    return resolveData(entry);
+}
 
 
 function resolveTitle(d) {
