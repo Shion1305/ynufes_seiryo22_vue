@@ -58,19 +58,26 @@ app.get('/*', (req, res) => {
         return;
     }
     if (req.path.indexOf(".") > -1) return;
-    var d = resolveData(req.path);
+    const d = resolveData(req.path);
     console.log(d);
     let htmlTmp = html;
     if (d) {
-        htmlTmp = html.replace("<title></title>", "<title>" + (d.title !== "" ? d.title + " | 22清陵祭『花笑み』公式HP 横浜国立大学大学祭" : "22清陵祭『花笑み』公式HP 横浜国立大学大学祭") + "</title>")
-            .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>");
+        htmlTmp = html.replace("<title></title>", "<title>" + resolveTitle(d) + "</title>")
+            .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>")
+            .replace("<meta property=\"twitter:title\" content=\"\"/>", "<meta property=\"twitter:title\" content=\"" + resolveTitle(d) + "\"/>");
     }
+    console.log(htmlTmp);
+    console.log(d.title);
     res.send(htmlTmp);
 });
 
 const PORT = parseInt(process.env.PORT) || 8080;
 
 app.listen(PORT, () => console.log('Example app listening on port ' + PORT));
+
+function resolveTitle(d) {
+    return (d.title !== "" ? d.title + " | 22清陵祭『花笑み』公式HP 横浜国立大学大学祭" : "22清陵祭『花笑み』公式HP 横浜国立大学大学祭")
+}
 
 
 function resolveData(entry) {
