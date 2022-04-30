@@ -20,9 +20,7 @@
           params: { type: 1 },
         }">
             <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
-            <div>
-              <div><p>全ての<br>企画</p></div>
-            </div>
+            <div><p>全ての<br>企画</p></div>
           </router-link>
           <div class="button_events_other">
             <router-link class="button_events_part hover-to-shrink1" :to="{
@@ -31,9 +29,7 @@
         }">
               <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
               <div>
-                <div>
-                  <p>本部企画</p>
-                </div>
+                <p>本部企画</p>
               </div>
             </router-link>
             <router-link class="button_events_part hover-to-shrink1" :to="{
@@ -41,10 +37,7 @@
           params: { type: 3 },
         }">
               <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
-              <div
-              >
-                <div><p>団体企画</p></div>
-              </div>
+              <div><p>団体企画</p></div>
             </router-link>
           </div>
         </div>
@@ -60,9 +53,7 @@
     <div class="button_section_1">
       <router-link id="poster_button" class="hover-to-shrink1" to="/poster">
         <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
-        <div>
-          <div>ポスター展覧会</div>
-        </div>
+        <div>ポスター展覧会</div>
       </router-link>
       <router-link id="hama_fes" class="hover-to-shrink1" to="/hama_fes">
         <img src="@/assets/home/hama_fes.jpg" alt="浜フェス"/>
@@ -223,22 +214,15 @@
         }
 
         > div {
-          box-sizing: border-box;
           position: absolute;
           right: 0;
           top: 0;
           left: 0;
           bottom: 0;
-
-          > div {
-            box-sizing: border-box;
-            padding: 20% 10% 14% 20%;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
+          padding: 20% 10% 14% 20%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
 
@@ -269,15 +253,10 @@
             top: 0;
             left: 0;
             bottom: 0;
-
-            > div {
-              box-sizing: border-box;
-              padding: 11% 10% 10% 15%;
-              height: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
+            padding: 11% 10% 10% 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
@@ -429,6 +408,7 @@
       }
     }
   }
+
 }
 
 .button_section_1 {
@@ -458,12 +438,9 @@
     top: 0;
     left: 0;
     bottom: 0;
-
-    > div {
-      padding-top: 23%;
-      box-sizing: border-box;
-      text-align: center;
-    }
+    padding-top: 23%;
+    box-sizing: border-box;
+    text-align: center;
   }
 
 
