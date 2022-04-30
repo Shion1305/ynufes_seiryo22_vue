@@ -19,7 +19,7 @@
           }"
           class="adsSwiper">
 
-    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id"><img :src="`${ad.image.url}`" alt=""/>
+    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id"><a :href="`${ad.url}`" target="_blank" rel="noopener noreferrer"><img :src="`${ad.image.url}`" alt=""/></a>
     </swiper-slide>
   </swiper>
 </template>
