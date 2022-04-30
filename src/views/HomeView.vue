@@ -78,8 +78,8 @@
         <h1>更新情報</h1>
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
-          <router-link class="more_updates hover-to-shrink" to="/updates">
-            <div v-show="this.$store.state.updates.length>=3">更新情報をもっとみる</div>
+          <router-link class="hover-to-shrink1" to="/updates">
+            <div class="more_updates" >更新情報をもっとみる</div>
           </router-link>
         </div>
       </div>
@@ -562,7 +562,9 @@
       flex-direction: column;
       gap: 0.3rem;
 
-
+      a{
+        text-decoration: none;
+      }
       .more_updates {
         margin: 0.6rem auto 0 auto;
         border-radius: 1.5rem;
@@ -572,12 +574,8 @@
         justify-content: center;
         align-items: center;
         color: #EF60A3;
-        text-decoration: none;
         font-size: 1.6rem;
-
-        > div {
-          padding: 0 1.5rem;
-        }
+        padding: 0 1.5rem;
       }
     }
   }
