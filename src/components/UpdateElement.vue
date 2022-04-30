@@ -1,5 +1,5 @@
 <template>
-  <div class="news hover-to-shrink">
+  <div class="news">
     <div class="date_field">
       <div class="date">{{ this.getDate() }}</div>
       <div class="time">{{ this.getTime() }}</div>
@@ -12,6 +12,7 @@
 </template>
 <style lang="scss" scoped>
 .news {
+  transition: all 0.1s linear;
   box-sizing: border-box;
   display: flex;
   height: 5rem;
@@ -22,6 +23,10 @@
   border-color: white;
   width: 100%;
   align-items: center;
+
+  &:hover {
+    transform: scale(0.97);
+  }
 
   .date_field {
     display: flex;

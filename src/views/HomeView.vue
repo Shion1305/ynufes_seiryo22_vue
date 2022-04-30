@@ -3,9 +3,9 @@
     <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
   </div>
   <div class="content-frame">
-<!--    <div class="ads-area fadeUp">-->
-<!--      <AdsBlock/>-->
-<!--    </div>-->
+    <!--    <div class="ads-area fadeUp">-->
+    <!--      <AdsBlock/>-->
+    <!--    </div>-->
     <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
@@ -15,43 +15,34 @@
       </div>
       <div class="content1-home">
         <div class="home_events">
-          <div class="button_events_all hover-to-shrink">
-            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
-            <router-link
-                :to="{
+          <router-link class="button_events_all hover-to-shrink1" :to="{
           name: 'event_list',
           params: { type: 1 },
         }">
-              <div><p>全ての<br>企画</p></div>
-            </router-link>
-          </div>
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
+            <div><p>全ての<br>企画</p></div>
+          </router-link>
           <div class="button_events_other">
-            <div class="button_events_part hover-to-shrink">
-              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
-              <router-link
-                  :to="{
+            <router-link class="button_events_part hover-to-shrink1" :to="{
           name: 'event_list',
           params: { type: 2 },
         }">
-                <div>
-                  <p>本部企画</p>
-                </div>
-              </router-link>
-            </div>
-            <div class="button_events_part hover-to-shrink">
-              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
-              <router-link
-                  :to="{
+              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
+              <div>
+                <p>本部企画</p>
+              </div>
+            </router-link>
+            <router-link class="button_events_part hover-to-shrink1" :to="{
           name: 'event_list',
           params: { type: 3 },
         }">
-                <div><p>団体企画</p></div>
-              </router-link>
-            </div>
+              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
+              <div><p>団体企画</p></div>
+            </router-link>
           </div>
         </div>
         <hr class="border_in_events">
-        <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
+        <router-link class="pamphlet_block hover-to-shrink1" to="/pamphlet">
           <img src="@/assets/home/pamphlet_here.webp" alt="デジタルパンフレット"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
@@ -59,35 +50,25 @@
         </router-link>
       </div>
     </div>
-    <div class="button_section_1">
-      <div id="poster_button" class="hover-to-shrink">
+    <div class="fadeUp button_section_1">
+      <router-link id="poster_button" class="hover-to-shrink1" to="/poster">
         <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
-        <router-link to="/poster">
-          <!--          <div style="height: 50%"></div>-->
-          <div>ポスター展覧会</div>
-        </router-link>
-      </div>
-      <div id="hama_fes" class="hover-to-shrink">
-        <img src="@/assets/home/hama_fes.jpg" alt="ポスター展覧会"/>
-        <router-link to="/hama_fes">
-          <!--          <div style="height: 50%"></div>-->
+        <div>ポスター展覧会</div>
+      </router-link>
+      <router-link id="hama_fes" class="hover-to-shrink1" to="/hama_fes">
+        <img src="@/assets/home/hama_fes.jpg" alt="浜フェス"/>
+        <div>
           <div>はまフェス投票</div>
-        </router-link>
-      </div>
-      <!--      <div>-->
-      <!--        <img/>-->
-      <!--        <div>-->
-      <!--          <div>浜フェス投票</div>-->
-      <!--        </div>-->
-      <!--      </div>-->
+        </div>
+      </router-link>
     </div>
-    <div class="update_block">
+    <div class="fadeUp update_block">
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
-          <router-link class="more_updates hover-to-shrink" to="/updates">
-            <div v-show="this.$store.state.updates.length>=3">更新情報をもっとみる</div>
+          <router-link class="hover-to-shrink1" to="/updates" v-show="this.$store.state.updates.length>=3">
+            <div class="more_updates">更新情報をもっとみる</div>
           </router-link>
         </div>
       </div>
@@ -130,7 +111,7 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-  animation-delay: 1.0s;
+  animation-delay: 0.7s;
 
   a {
     display: flex;
@@ -158,7 +139,7 @@
   background: #ffffff44;
   margin: 20px 0;
   border-radius: 40px;
-  animation-delay: 1.2s;
+  animation-delay: 0.9s;
 
   .section_title {
     display: flex;
@@ -232,23 +213,16 @@
           position: relative;
         }
 
-        > a {
-          box-sizing: border-box;
+        > div {
           position: absolute;
           right: 0;
           top: 0;
           left: 0;
           bottom: 0;
-
-          > div {
-            box-sizing: border-box;
-            padding: 20% 10% 14% 20%;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
+          padding: 20% 10% 14% 20%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
 
@@ -272,22 +246,17 @@
             position: relative;
           }
 
-          > a {
+          > div {
             box-sizing: border-box;
             position: absolute;
             right: 0;
             top: 0;
             left: 0;
             bottom: 0;
-
-            > div {
-              box-sizing: border-box;
-              padding: 11% 10% 10% 15%;
-              height: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
+            padding: 11% 10% 10% 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
@@ -439,9 +408,11 @@
       }
     }
   }
+
 }
 
 .button_section_1 {
+  animation-delay: 1.1s;
   display: flex;
   width: 100%;
   max-width: 70rem;
@@ -460,7 +431,7 @@
     position: relative;
   }
 
-  > a {
+  > div {
     color: white;
     text-decoration: none;
     position: absolute;
@@ -468,12 +439,9 @@
     top: 0;
     left: 0;
     bottom: 0;
-
-    > div {
-      padding-top: 23%;
-      box-sizing: border-box;
-      text-align: center;
-    }
+    padding-top: 23%;
+    box-sizing: border-box;
+    text-align: center;
   }
 
 
@@ -501,7 +469,7 @@
     position: relative;
   }
 
-  > a {
+  > div {
     color: white;
     text-decoration: none;
     position: absolute;
@@ -531,6 +499,7 @@
 
 
 .update_block {
+  animation-delay: 1.3s;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
@@ -570,6 +539,9 @@
       flex-direction: column;
       gap: 0.3rem;
 
+      a {
+        text-decoration: none;
+      }
 
       .more_updates {
         margin: 0.6rem auto 0 auto;
@@ -580,12 +552,8 @@
         justify-content: center;
         align-items: center;
         color: #EF60A3;
-        text-decoration: none;
         font-size: 1.6rem;
-
-        > div {
-          padding: 0 1.5rem;
-        }
+        padding: 0 1.5rem;
       }
     }
   }
@@ -616,6 +584,8 @@
     flex-basis: auto;
   }
 }
+
+
 </style>
 <script>
 
@@ -655,7 +625,7 @@ export default {
     this.scrollTop();
   },
   setup() {
-    useMeta({title: '',description:'横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'})
+    useMeta({title: '', description: '横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'})
   }
 }
 </script>
