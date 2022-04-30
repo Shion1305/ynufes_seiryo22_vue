@@ -50,7 +50,7 @@
         </router-link>
       </div>
     </div>
-    <div class="button_section_1">
+    <div class="fadeUp button_section_1">
       <router-link id="poster_button" class="hover-to-shrink1" to="/poster">
         <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
         <div>ポスター展覧会</div>
@@ -62,7 +62,7 @@
         </div>
       </router-link>
     </div>
-    <div class="update_block">
+    <div class="fadeUp update_block">
       <div class="updates_area">
         <h1>更新情報</h1>
         <div class="updates_frame">
@@ -111,7 +111,7 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-  animation-delay: 1.0s;
+  animation-delay: 0.7s;
 
   a {
     display: flex;
@@ -139,7 +139,7 @@
   background: #ffffff44;
   margin: 20px 0;
   border-radius: 40px;
-  animation-delay: 1.2s;
+  animation-delay: 0.9s;
 
   .section_title {
     display: flex;
@@ -412,6 +412,7 @@
 }
 
 .button_section_1 {
+  animation-delay: 1.1s;
   display: flex;
   width: 100%;
   max-width: 70rem;
@@ -498,6 +499,7 @@
 
 
 .update_block {
+  animation-delay: 1.3s;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
