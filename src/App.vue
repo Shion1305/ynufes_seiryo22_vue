@@ -1,7 +1,10 @@
 <template>
   <!--  vue-meta expression starts from here-->
   <metainfo>
-    <template v-slot:title="{ content }">{{ content ? `${content} | 22清陵祭公式ホームページ 横浜国立大学大学祭` : `22清陵祭公式ホームページ 横浜国立大学大学祭` }}</template>
+    <template v-slot:title="{ content }">{{
+        content ? `${content} | 22清陵祭公式ホームページ 横浜国立大学大学祭` : `22清陵祭公式ホームページ 横浜国立大学大学祭`
+      }}
+    </template>
   </metainfo>
   <!--  vue-meta expression ends here-->
   <div class="wrapper">
@@ -130,15 +133,6 @@
   z-index: -10;
 }
 
-.hover-to-shrink {
-  //animation-delay: 0.02s;
-  transition: all 0.1s linear;
-}
-
-.hover-to-shrink:hover {
-  transform: scale(0.9);
-}
-
 .hover-underline-animation {
   display: inline-block;
   position: relative;
@@ -233,6 +227,15 @@
   transform: scale(0.9);
 }
 
+.hover-to-shrink1 > * {
+  transition: all 0.1s linear;
+}
+
+.hover-to-shrink1:hover > * {
+  transform: scale(0.95);
+}
+
+
 .hover-underline-animation {
   display: inline-block;
   position: relative;
@@ -312,11 +315,11 @@ export default {
       this.getLatestSlides();
     }
   },
-  setup(){
+  setup() {
     document.querySelector("[name='description']").remove()
     useMeta({
       title: '',
-      htmlAttrs: { lang: 'ja', amp: true },
+      htmlAttrs: {lang: 'ja', amp: true},
       description: ''
     })
   }

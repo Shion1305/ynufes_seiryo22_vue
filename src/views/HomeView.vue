@@ -49,7 +49,7 @@
           </div>
         </div>
         <hr class="border_in_events">
-        <router-link class="pamphlet_block hover-to-shrink" to="/pamphlet">
+        <router-link class="pamphlet_block hover-to-shrink1" to="/pamphlet">
           <img src="@/assets/home/pamphlet_here.webp" alt="デジタルパンフレット"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
@@ -58,20 +58,18 @@
       </div>
     </div>
     <div class="button_section_1">
-      <div id="poster_button" class="hover-to-shrink">
+      <router-link id="poster_button" class="hover-to-shrink1" to="/poster">
         <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
-        <router-link to="/poster">
-          <!--          <div style="height: 50%"></div>-->
+        <div>
           <div>ポスター展覧会</div>
-        </router-link>
-      </div>
-      <div id="hama_fes" class="hover-to-shrink">
-        <img src="@/assets/home/hama_fes.jpg" alt="ポスター展覧会"/>
-        <router-link to="/hama_fes">
-          <!--          <div style="height: 50%"></div>-->
+        </div>
+      </router-link>
+      <router-link id="hama_fes" class="hover-to-shrink1" to="/hama_fes">
+        <img src="@/assets/home/hama_fes.jpg" alt="浜フェス"/>
+        <div>
           <div>はまフェス投票</div>
-        </router-link>
-      </div>
+        </div>
+      </router-link>
     </div>
     <div class="update_block">
       <div class="updates_area">
@@ -79,7 +77,7 @@
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
           <router-link class="hover-to-shrink1" to="/updates">
-            <div class="more_updates" >更新情報をもっとみる</div>
+            <div class="more_updates">更新情報をもっとみる</div>
           </router-link>
         </div>
       </div>
@@ -452,7 +450,7 @@
     position: relative;
   }
 
-  > a {
+  > div {
     color: white;
     text-decoration: none;
     position: absolute;
@@ -493,7 +491,7 @@
     position: relative;
   }
 
-  > a {
+  > div {
     color: white;
     text-decoration: none;
     position: absolute;
@@ -562,9 +560,10 @@
       flex-direction: column;
       gap: 0.3rem;
 
-      a{
+      a {
         text-decoration: none;
       }
+
       .more_updates {
         margin: 0.6rem auto 0 auto;
         border-radius: 1.5rem;
@@ -607,15 +606,7 @@
   }
 }
 
-.hover-to-shrink1 {
-  & > * {
-    transition: all 0.1s linear;
-  }
 
-  &:hover > * {
-    transform: scale(0.95);
-  }
-}
 </style>
 <script>
 
