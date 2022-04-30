@@ -3,9 +3,9 @@
     <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
   </div>
   <div class="content-frame">
-<!--    <div class="ads-area fadeUp">-->
-<!--      <AdsBlock/>-->
-<!--    </div>-->
+    <!--    <div class="ads-area fadeUp">-->
+    <!--      <AdsBlock/>-->
+    <!--    </div>-->
     <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
@@ -15,39 +15,37 @@
       </div>
       <div class="content1-home">
         <div class="home_events">
-          <div class="button_events_all hover-to-shrink">
-            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
-            <router-link
-                :to="{
+          <router-link class="button_events_all hover-to-shrink1" :to="{
           name: 'event_list',
           params: { type: 1 },
         }">
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
+            <div>
               <div><p>全ての<br>企画</p></div>
-            </router-link>
-          </div>
+            </div>
+          </router-link>
           <div class="button_events_other">
-            <div class="button_events_part hover-to-shrink">
-              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
-              <router-link
-                  :to="{
+            <router-link class="button_events_part hover-to-shrink1" :to="{
           name: 'event_list',
           params: { type: 2 },
         }">
+              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
+              <div>
                 <div>
                   <p>本部企画</p>
                 </div>
-              </router-link>
-            </div>
-            <div class="button_events_part hover-to-shrink">
-              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
-              <router-link
-                  :to="{
+              </div>
+            </router-link>
+            <router-link class="button_events_part hover-to-shrink1" :to="{
           name: 'event_list',
           params: { type: 3 },
         }">
+              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
+              <div
+              >
                 <div><p>団体企画</p></div>
-              </router-link>
-            </div>
+              </div>
+            </router-link>
           </div>
         </div>
         <hr class="border_in_events">
@@ -74,12 +72,6 @@
           <div>はまフェス投票</div>
         </router-link>
       </div>
-      <!--      <div>-->
-      <!--        <img/>-->
-      <!--        <div>-->
-      <!--          <div>浜フェス投票</div>-->
-      <!--        </div>-->
-      <!--      </div>-->
     </div>
     <div class="update_block">
       <div class="updates_area">
@@ -232,7 +224,7 @@
           position: relative;
         }
 
-        > a {
+        > div {
           box-sizing: border-box;
           position: absolute;
           right: 0;
@@ -272,7 +264,7 @@
             position: relative;
           }
 
-          > a {
+          > div {
             box-sizing: border-box;
             position: absolute;
             right: 0;
@@ -616,6 +608,16 @@
     flex-basis: auto;
   }
 }
+
+.hover-to-shrink1 {
+  & > * {
+    transition: all 0.1s linear;
+  }
+
+  &:hover > * {
+    transform: scale(0.95);
+  }
+}
 </style>
 <script>
 
@@ -655,7 +657,7 @@ export default {
     this.scrollTop();
   },
   setup() {
-    useMeta({title: '',description:'横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'})
+    useMeta({title: '', description: '横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'})
   }
 }
 </script>
