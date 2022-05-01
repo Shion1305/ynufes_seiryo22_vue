@@ -19,7 +19,11 @@
           }"
           class="adsSwiper">
 
-    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id"><img :src="`${ad.image.url}`" alt=""/>
+    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id">
+      <a :href="`${ad.url}`" target="_blank"
+         v-on:click="access(`${ad.sponsor}`)"
+         rel="noopener noreferrer"><img
+          :src="`${ad.image.url}`" alt=""/></a>
     </swiper-slide>
   </swiper>
 </template>
@@ -33,7 +37,7 @@ import 'swiper/css/autoplay'
 
 // import Swiper core and required modules
 import SwiperCore, {Autoplay} from 'swiper';
-
+import axios from "axios";
 // install Swiper modules
 SwiperCore.use([Autoplay]);
 
@@ -51,6 +55,9 @@ export default {
       return rand.sort(function () {
         return 0.5 - Math.random()
       });
+    },
+    async access(id) {
+      axios.get("https://shion1305.com/seiryo22/request?target=" + id);
     }
   },
   props: {}

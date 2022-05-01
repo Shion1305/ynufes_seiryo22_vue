@@ -68,7 +68,7 @@ const routes = [
         name: 'HamaFes',
         component: () => import('../views/UnderConstruction'),
     },
-    {path: '/404', component: () => import('../views/NotFoundView'),meta:{title:"404 ページが存在しません。", desc: "対象のページは見つかりm戦でした。。"}},
+    {path: '/404', component: () => import('../views/NotFoundView')},
     {path: '/:pathMatch(.*)*', redirect: '/404'},
 ]
 
