@@ -90,7 +90,8 @@ export default {
   flex-direction: row;
   width: fit-content;
   border-radius: 20px;
-  background: #e810b2;
+  background: linear-gradient(90deg,#e810b2,#f25ad4);
+
   margin: 0 auto;
   padding: 5px;
   color: white;
