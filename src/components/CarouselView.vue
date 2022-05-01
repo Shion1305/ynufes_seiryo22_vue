@@ -28,10 +28,6 @@
           <img :src="slide.slide.url" alt="">
         </a>
       </swiper-slide>
-      <!--            <swiper-slide><img src="@/assets/imgs/test2.png"></swiper-slide>-->
-      <!--      <swiper-slide><img src="@/assets/imgs/test3.png"></swiper-slide>-->
-      <!--      <swiper-slide><img src="@/assets/imgs/test4.png"></swiper-slide>-->
-      <!--      <swiper-slide><img src="@/assets/imgs/test5.png"></swiper-slide>-->
     </swiper>
   </div>
 </template>
