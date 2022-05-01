@@ -52,9 +52,12 @@ export default {
   },
   methods: {
     randomList: function (rand) {
-      return rand.sort(function () {
-        return 0.5 - Math.random()
-      });
+      return rand.map(value => ({value, sort: Math.random()}))
+          .sort((a, b) => a.sort - b.sort)
+          .map(({value}) => value);
+      // return rand.sort(function () {
+      //   return 0.5 - Math.random()
+      // });
     },
     async access(id) {
       axios.get("https://shion1305.com/seiryo22/request?target=" + id);
