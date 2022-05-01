@@ -60,6 +60,7 @@ app.get('/*', (req, res) => {
             .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>")
             .replace("<meta property=\"twitter:title\" content=\"\"/>", "<meta property=\"twitter:title\" content=\"" + resolveTitle(d) + "\"/>");
     }
+    res.header('Access-Control-Allow-Origin', 'https://shion1305.com')
     res.send(htmlTmp);
 });
 
