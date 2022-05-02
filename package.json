@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.22.1",
     "express": "^4.18.0",
+    "gsap": "^3.10.4",
     "microcms-js-sdk": "^2.0.0",
     "vue": "^3.2.33",
     "vue-meta": "3.0.0-alpha.10",
