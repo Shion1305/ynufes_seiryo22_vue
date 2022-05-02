@@ -60,6 +60,12 @@ export default {
       // });
     },
     async access(id) {
+      if (process.env.NODE_ENV === "production") {
+        this.$gtag.event("sponsor:click", {
+          event_category: "id",
+          event_label: id,
+        });
+      }
       axios.get("https://shion1305.com/seiryo22/request?target=" + id);
     }
   },

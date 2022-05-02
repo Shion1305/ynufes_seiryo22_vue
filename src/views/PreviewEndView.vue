@@ -12,6 +12,11 @@ export default {
   name: "PreviewEndView",
   setup() {
     useMeta({title: 'プレビュー',description:'企画団体用のプレビューサイトです。プレビューサイトの公開は終了しました。'})
+  },
+  mounted() {
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:preview_end");
+    }
   }
 }
 </script>

@@ -18,6 +18,12 @@ export default {
       title: "作成中...",
       description: "このページは作成中です!公開までしばらくお待ちください"
     })
+  },
+  mounted() {
+
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:under_construction");
+    }
   }
 }
 </script>

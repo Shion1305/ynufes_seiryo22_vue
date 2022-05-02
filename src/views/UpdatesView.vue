@@ -15,6 +15,12 @@ export default {
       type: Number,
       required: false,
     }
+  },
+  mounted() {
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:updates");
+    }
+
   }
 }
 </script>

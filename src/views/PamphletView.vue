@@ -17,10 +17,13 @@ import {useMeta} from "vue-meta";
 export default {
   name: "PamphletView",
   mounted() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("pamphlet");
+    }
   },
   setup() {
-    useMeta({title: 'デジタルパンフレット',description:'22清陵祭のデジタルパンフレットを掲載しています。'})
+    useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。'})
   }
 }
 </script>
@@ -54,7 +57,7 @@ export default {
 }
 
 @media screen and (max-width: 550px) {
-  #main>div{
+  #main > div {
     font-size: 55px;
   }
 }

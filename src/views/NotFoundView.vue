@@ -18,6 +18,11 @@ export default {
       title: "404 ページが見つかりませんでした",
       description: "お探しのページは見つかりませんでした"
     })
+  },
+  mounted() {
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:not_found");
+    }
   }
 }
 </script>

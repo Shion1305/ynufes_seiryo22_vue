@@ -618,6 +618,9 @@ export default {
   },
   props: {},
   mounted() {
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:home");
+    }
     this.scrollTop();
     // document.addEventListener('backbutton', this.scrollTop, false);
   },

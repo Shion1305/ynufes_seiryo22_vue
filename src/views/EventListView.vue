@@ -56,6 +56,9 @@ export default {
     } else {
       this.mode = this.type
     }
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:event_list_" + this.mode + "_initial");
+    }
     const events_block = document.getElementById("events_block");
     document.getElementById("type_selector").addEventListener("click", function () {
       events_block.classList.remove("fadeUp");
@@ -68,6 +71,9 @@ export default {
     setType(t) {
       if (this.mode !== t) {
         this.mode = t;
+      }
+      if (process.env.NODE_ENV === "production") {
+        this.$gtag.event("page:event_list_" + this.mode);
       }
     },
   },

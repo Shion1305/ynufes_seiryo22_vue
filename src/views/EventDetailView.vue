@@ -67,6 +67,14 @@ export default {
       title: event.event_name + "(" + event.org_name + ")の企画詳細",
       description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
     })
+  },
+  mounted() {
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:event_detail", {
+        event_category: "id",
+        event_label: this.id,
+      });
+    }
   }
 }
 </script>

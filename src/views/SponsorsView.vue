@@ -104,6 +104,12 @@ export default {
       title: "ご協賛について",
       description: "「22清陵祭」を開催するにあたりご協賛くださった企業の一覧を掲載しています。数多くの企業の皆様に多大なご協力を賜りました。心より感謝申し上げます。"
     })
+  },
+  mounted() {
+
+    if (process.env.NODE_ENV === "production") {
+      this.$gtag.event("page:sponsors");
+    }
   }
 }
 </script>
