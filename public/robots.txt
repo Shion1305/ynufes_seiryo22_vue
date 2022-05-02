@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://seiryo22.ynu-fes.yokohama/sitemap.xml
+Sitemap: https://seiryo22.ynu-fes.yokohama/sitemap.xml
