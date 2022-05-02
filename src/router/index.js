@@ -25,7 +25,7 @@ const routes = [
         path: '/events/:id',
         name: 'event_detail',
         component: () => import(/* webpackChunkName: "event_detail" */ '../views/EventDetailView'),
-        props: (route) => ({...route.params, id: parseInt(route.params.id)})
+        props: (route) => ({...route.params, eventId: parseInt(route.params.id)})
     },
     {
         path: '/pamphlet',
@@ -76,6 +76,5 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
 })
-// router.redirect({'*': '404'});
 
 export default router

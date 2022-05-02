@@ -1,3 +1,22 @@
+<script setup>
+import sourceData from "@/assets/data.json"
+import {defineProps} from "vue";
+import {useMeta} from "vue-meta";
+const props = defineProps({
+  eventId: {type: Number, required: true},
+});
+const event = sourceData.find((data) => data.id === props.eventId);
+useMeta({
+  title: event.event_name + "(" + event.org_name + ")の企画詳細",
+  description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
+});
+if (process.env.NODE_ENV === "production") {
+  this.$gtag.event("page:event_detail", {
+    event_category: "id",
+    event_label: props.eventId,
+  });
+}
+</script>
 <template>
   <div class="content-frame">
     <div class="content-block fadeUp">
@@ -41,43 +60,6 @@
     </div>
   </div>
 </template>
-
-<script>
-
-import sourceData from "@/assets/data.json"
-import {useMeta} from "vue-meta";
-
-export default {
-  name: "EventDetailView",
-  props: {
-    id: {
-      type: Number,
-      required: true,
-    }
-  },
-  computed: {
-    event() {
-      return sourceData.find(
-          (data) => data.id === this.id
-      );
-    }
-  },
-  setup() {
-    useMeta({
-      title: event.event_name + "(" + event.org_name + ")の企画詳細",
-      description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
-    })
-  },
-  mounted() {
-    if (process.env.NODE_ENV === "production") {
-      this.$gtag.event("page:event_detail", {
-        event_category: "id",
-        event_label: this.id,
-      });
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .willBeHere {
