@@ -1,3 +1,15 @@
+<script setup>
+import {Swiper, SwiperSlide} from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import store from "@/store";
+import {Autoplay, Navigation, Pagination} from "swiper";
+
+const modules = [Autoplay, Pagination, Navigation];
+
+</script>
 <template>
   <div class="wrapper">
     <swiper
@@ -20,7 +32,7 @@
           <img src="@/assets/imgs/top_slide.webp" alt="トップスライド">
         </router-link>
       </swiper-slide>
-      <swiper-slide v-for="slide in this.$store.state.slides" :key="slide.id">
+      <swiper-slide v-for="slide in store.state.slides" :key="slide.id">
         <router-link :to="slide.link" v-if="slide.isRouterLink">
           <img :src="slide.slide.url" alt="">
         </router-link>
@@ -35,27 +47,7 @@
     </swiper>
   </div>
 </template>
-<script>
-import {Swiper, SwiperSlide} from "swiper/vue";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/autoplay";
-import {Autoplay, Navigation, Pagination} from "swiper";
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {
-      modules: [Autoplay, Pagination, Navigation],
-    };
-  },
-  computed: {
-  },
-};
-</script>
+
 <style lang="scss">
 /*html {*/
 /*  position: relative;*/

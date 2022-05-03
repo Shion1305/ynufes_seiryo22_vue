@@ -264,6 +264,7 @@ import {createClient} from "microcms-js-sdk"; //ES6
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {useMeta} from 'vue-meta';
+import store from "@/store";
 
 const client = createClient({
   serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
@@ -284,7 +285,7 @@ export default {
       client.get({
         endpoint: 'updates',
       }).then((data) => {
-        this.$store.commit('setUpdates', data.contents);
+        store.commit('setUpdates', data.contents);
         // this.updates = data.contents.slice(0, 3);
       });
     },
@@ -292,7 +293,7 @@ export default {
       client.get({
         endpoint: 'slides'
       }).then((data) => {
-            this.$store.commit('setSlide', data.contents)
+            store.commit('setSlide', data.contents)
           }
       );
     },
@@ -300,7 +301,7 @@ export default {
       client.get({
         endpoint: 'ads'
       }).then((data) => {
-            this.$store.commit('setAds', data.contents);
+            store.commit('setAds', data.contents);
           }
       );
     }

@@ -1,3 +1,16 @@
+<script setup>
+import {useMeta} from "vue-meta";
+import {event} from "vue-gtag";
+
+useMeta({
+  title: "作成中...",
+  description: "このページは作成中です!公開までしばらくお待ちください"
+})
+
+if (process.env.NODE_ENV === "production") {
+  event("page:under_construction");
+}
+</script>
 <template>
   <div class="content-frame fadeUp" style="animation-delay: 0.2s">
     <div class="fadeUp" style="animation-delay: 0.4s">
@@ -8,19 +21,6 @@
   </div>
 </template>
 
-<script>
-import {useMeta} from "vue-meta";
-
-export default {
-  name: "NotFoundView",
-  setup() {
-    useMeta({
-      title: "作成中...",
-      description: "このページは作成中です!公開までしばらくお待ちください"
-    })
-  }
-}
-</script>
 
 <style scoped>
 #not-found {
