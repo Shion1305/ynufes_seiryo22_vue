@@ -13,18 +13,18 @@ import VueGtag from "vue-gtag";
 if (process.env.NODE_ENV === "production") {
     createApp(App).use(store)
         .use(createMetaManager())
-        // .use(TwitterFeed)
         .use(router)
+        .use(
+            VueGtag,
+            {
+                config: {id: "G-88XSGWF51S"},
+            }
+        )
         .mount('#app')
 } else {
-createApp(App).use(store)
-    .use(createMetaManager())
-    .use(router)
-    .use(
-        VueGtag,
-        {
-            config: {id: "G-88XSGWF51S"},
-        }
-    )
-    .mount('#app')
+    createApp(App).use(store)
+        .use(createMetaManager())
+        .use(router)
+        .mount('#app')
+    console.log("This is NOT a production build")
 }
