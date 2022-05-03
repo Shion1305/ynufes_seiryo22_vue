@@ -1,9 +1,8 @@
 import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import {store} from './store'
 import {createMetaManager} from 'vue-meta'
-// import TwitterFeed from "vuejs-twitter-feed";
 import VueGtag from "vue-gtag";
 
 /**
@@ -18,14 +17,14 @@ if (process.env.NODE_ENV === "production") {
         .use(router)
         .mount('#app')
 } else {
-    createApp(App).use(store)
-        .use(createMetaManager())
-        // .use(TwitterFeed)
-        .use(router)
-        .use(
-            VueGtag,
-            {
-                config: {id: "G-88XSGWF51S"},
-            }
-        ).mount('#app')
+createApp(App).use(store)
+    .use(createMetaManager())
+    .use(router)
+    .use(
+        VueGtag,
+        {
+            config: {id: "G-88XSGWF51S"},
+        }
+    )
+    .mount('#app')
 }

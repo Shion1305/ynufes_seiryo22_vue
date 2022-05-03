@@ -1,14 +1,14 @@
 <template>
   <div class="event_widget">
-    <img :src="`/icon/${this.event.img}`" :alt="`icon for ${this.event.event_name} by ${this.event.org_name}`"/>
-    <div class="type" :style="`background: ${this.event.tag_color};`" v-if="Boolean(this.event.type)">{{ this.event.type }}</div>
+    <img :src="`/icon/${this.eventData.img}`" :alt="`icon for ${this.eventData.event_name} by ${this.eventData.org_name}`"/>
+    <div class="type" :style="`background: ${this.eventData.tag_color};`" v-if="Boolean(this.eventData.type)">{{ this.eventData.type }}</div>
     <div class="meta_area">
       <h2>
-        {{ event.event_name }}
+        {{ eventData.event_name }}
       </h2>
       <hr>
       <div class="org_name">
-        {{ event.org_name }}
+        {{ eventData.org_name }}
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
 export default {
   name: "EventTile",
   props: {
-    event: {
+    eventData: {
       type: Object,
       required: true
     }

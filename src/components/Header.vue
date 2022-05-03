@@ -25,7 +25,10 @@
             <li class="hover-underline-animation">清陵祭とは</li>
           </router-link>
           <router-link active-class="header_active" :to="{
-            name:'event_list'
+            name:'event_list',
+            params:{
+              type:1
+            }
           }">
             <li class="hover-underline-animation">企画を見る</li>
           </router-link>

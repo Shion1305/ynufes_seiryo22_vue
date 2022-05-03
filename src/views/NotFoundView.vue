@@ -8,22 +8,15 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {useMeta} from "vue-meta";
-
-export default {
-  name: "NotFoundView",
-  setup() {
-    useMeta({
-      title: "404 ページが見つかりませんでした",
-      description: "お探しのページは見つかりませんでした"
-    })
-  },
-  mounted() {
-    if (process.env.NODE_ENV === "production") {
-      this.$gtag.event("page:not_found");
-    }
-  }
+import {event} from "vue-gtag";
+useMeta({
+  title: "404 ページが見つかりませんでした",
+  description: "お探しのページは見つかりませんでした"
+});
+if (process.env.NODE_ENV === "production") {
+  event("page:not_found");
 }
 </script>
 

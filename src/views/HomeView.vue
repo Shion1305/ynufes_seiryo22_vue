@@ -1,11 +1,39 @@
+<script setup>
+
+import CarouselView from "@/components/CarouselView";
+import AdsBlock from "@/components/AdsBlock";
+import TwitterTimeline from "@/components/TwitterTimeline";
+import UpdateElement from "@/components/UpdateElement";
+import store from "@/store";
+import {useMeta} from "vue-meta";
+import {onBeforeRouteLeave} from 'vue-router';
+import {event} from "vue-gtag";
+const getNewestUpdate = function () {
+  return store.state.updates.slice(0, 3);
+};
+const scrollTop = async function () {
+  window.scrollTo(0, 0);
+};
+if (process.env.NODE_ENV === "production") {
+  event("page:home");
+}
+scrollTop();
+// document.addEventListener('backbutton', this.scrollTop, false);
+useMeta({title: '', description: '横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'});
+onBeforeRouteLeave(() => {
+  scrollTop();
+});
+</script>
+
+
 <template>
   <div class="carouselView">
     <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
   </div>
   <div class="content-frame">
-        <div class="ads-area fadeUp">
-          <AdsBlock/>
-        </div>
+    <div class="ads-area fadeUp">
+      <AdsBlock/>
+    </div>
     <div class="fadeUp events_search_block">
       <div class="section_title">
         <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
@@ -67,7 +95,7 @@
         <h1>更新情報</h1>
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
-          <router-link class="hover-to-shrink1" to="/updates" v-show="this.$store.state.updates.length>=3">
+          <router-link class="hover-to-shrink1" to="/updates" v-show="store.state.updates.length>=3">
             <div class="more_updates">更新情報をもっとみる</div>
           </router-link>
         </div>
@@ -587,51 +615,7 @@
 
 
 </style>
-<script>
 
-import CarouselView from "@/components/CarouselView";
-import AdsBlock from "@/components/AdsBlock";
-import TwitterTimeline from "@/components/TwitterTimeline";
-import UpdateElement from "@/components/UpdateElement";
-import {useMeta} from "vue-meta";
-
-export default {
-  name: 'HomeView',
-  components: {
-    TwitterTimeline,
-    // eslint-disable-next-line vue/no-unused-components
-    AdsBlock,
-    // eslint-disable-next-line vue/no-unused-components
-    CarouselView,
-    UpdateElement
-  },
-  data() {
-    return {}
-  },
-  methods: {
-    getNewestUpdate() {
-      return this.$store.state.updates.slice(0, 3);
-    },
-    async scrollTop() {
-      window.scrollTo(0, 0);
-    }
-  },
-  props: {},
-  mounted() {
-    if (process.env.NODE_ENV === "production") {
-      this.$gtag.event("page:home");
-    }
-    this.scrollTop();
-    // document.addEventListener('backbutton', this.scrollTop, false);
-  },
-  beforeRouteLeave() {
-    this.scrollTop();
-  },
-  setup() {
-    useMeta({title: '', description: '横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'})
-  }
-}
-</script>
 <style lang="scss" scoped>
 
 .carouselView {

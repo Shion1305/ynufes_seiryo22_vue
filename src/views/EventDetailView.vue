@@ -2,16 +2,17 @@
 import sourceData from "@/assets/data.json"
 import {defineProps} from "vue";
 import {useMeta} from "vue-meta";
+import { event } from 'vue-gtag';
 const props = defineProps({
   eventId: {type: Number, required: true},
 });
-const event = sourceData.find((data) => data.id === props.eventId);
+const eventData = sourceData.find((data) => data.id === props.eventId);
 useMeta({
-  title: event.event_name + "(" + event.org_name + ")の企画詳細",
-  description: "22清陵祭オンライン企画『" + event.event_name + "』(" + event.org_name + ") の企画詳細ページです。" + event.event_description
+  title: eventData.event_name + "(" + eventData.org_name + ")の企画詳細",
+  description: "22清陵祭オンライン企画『" + eventData.event_name + "』(" + eventData.org_name + ") の企画詳細ページです。" + eventData.event_description
 });
 if (process.env.NODE_ENV === "production") {
-  this.$gtag.event("page:event_detail", {
+  event("page:event_detail", {
     event_category: "id",
     event_label: props.eventId,
   });
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
         <div class="icon_title_block">
           <div class="icon_area">
             <img
-                :src="`/icon/${event.img}`"
+                :src="`/icon/${eventData.img}`"
                 class="icon"
                 alt="icon"
             />
@@ -32,19 +33,19 @@ if (process.env.NODE_ENV === "production") {
           <div class="space_between_icon_title"></div>
           <div class="title_block">
             <div class="title">
-              {{ event.event_name }}
+              {{ eventData.event_name }}
             </div>
             <hr/>
-            <div class="organization_name">{{ event.org_name }}</div>
+            <div class="organization_name">{{ eventData.org_name }}</div>
             <div class="tag_frame">
-              <div class="tag" :style="`background: ${event.tag_color}`"><p>{{ event.type }}</p></div>
+              <div class="tag" :style="`background: ${eventData.tag_color}`"><p>{{ eventData.type }}</p></div>
             </div>
           </div>
         </div>
       </div>
       <div class="detail_block fadeLeft">
         <h1>企画説明</h1>
-        {{ event.event_description }}
+        {{ eventData.event_description }}
       </div>
       <div class="willBeHere">企画コンテンツは<br>順次公開されます</div>
       <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
