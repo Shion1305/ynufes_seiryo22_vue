@@ -25,8 +25,7 @@ const randomList = function (rand) {
 const access = async function (id) {
   if (process.env.NODE_ENV === "production") {
     event("sponsor:click", {
-      event_category: "id",
-      event_label: id,
+      sponsor_id: id,
     });
   }
   axios.get("https://shion1305.com/seiryo22/request?target=" + id);

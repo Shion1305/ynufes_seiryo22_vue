@@ -13,8 +13,7 @@ useMeta({
 });
 if (process.env.NODE_ENV === "production") {
   event("page:event_detail", {
-    event_category: "id",
-    event_label: props.eventId,
+    event_id: props.eventId,
   });
 }
 </script>
