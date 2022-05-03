@@ -461,22 +461,11 @@
 <script>
 import {useMeta} from "vue-meta";
 import FlowerFrame from "@/components/FlowerFrame";
-// typical import
-import gsap from "gsap";
-
-// get other plugins:
-// import ScrollTrigger from "gsap/ScrollTrigger";
-
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: {FlowerFrame},
   setup() {
-
     useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催するにあたりご協賛くださった企業の一覧を掲載しています。数多くの企業の皆様に多大なご協力を賜りました。心より感謝申し上げます。"})
-    gsap.to(".test", {
-      scrollTrigger: ".test", // ".box"がビューポートに入ったらアニメーション開始 (一度だけ)
-      x: 500
-    });
   }
 }
 </script>
