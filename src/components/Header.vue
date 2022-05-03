@@ -85,7 +85,6 @@ export default {
   name: "Header",
   methods: {
     toggleMenu() {
-      console.log("toggled");
       this.mToggled = !this.mToggled;
     },
     closeMenu() {
