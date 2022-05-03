@@ -1,81 +1,81 @@
+<script setup>
+import EventTile from "@/components/EventTile";
+import data from "@/assets/data.json";
+import {useMeta} from "vue-meta";
+import {event} from "vue-gtag";
+import {computed, defineProps, reactive, onMounted} from "vue";
+
+let mode = reactive({id: 0});
+const eventData = computed(() => {
+  switch (mode.id) {
+    case 3:
+      return data.filter(x => x.id < 2000);
+    case 2:
+      return data.filter(x => x.id > 2000);
+    case 1:
+    default:
+      return data;
+  }
+});
+const props = defineProps({
+  type: {
+    type: Number,
+    required: false
+  }
+});
+
+if (isNaN(props.type)) {
+  mode.id = 1;
+} else {
+  // eslint-disable-next-line vue/no-setup-props-destructure
+  mode.id = props.type
+}
+if (process.env.NODE_ENV === "production") {
+  event("page:event_list_" + mode.id + "_initial");
+}
+
+onMounted(() => {
+  const events_block = document.getElementById("events_block");
+  document.getElementById("type_selector").addEventListener("click", function () {
+    events_block.classList.remove("fadeUp");
+    setTimeout(function () {
+      events_block.classList.add("fadeUp");
+    });
+  })
+});
+useMeta({title: '企画一覧', description: '22清陵祭で開催するオンライン企画を一覧で紹介しています。それぞれの企画を選択するとその詳細を確認できます。'})
+
+function setType(t) {
+  if (mode.id !== t) {
+    mode.id = t;
+  }
+  if (process.env.NODE_ENV === "production") {
+    event("page:event_list_" + mode.id);
+  }
+}
+</script>
 <template>
   <div class="content-frame">
     <div id="controller">
       <div id="type_selector" class="fadeUp">
-        <div :class="{'active-type':this.mode===1}" @click="setType(1)">全て</div>
-        <div :class="{'active-type':this.mode===2}" @click="setType(2)">本部企画</div>
-        <div :class="{'active-type':this.mode===3}" @click="setType(3)">団体企画</div>
+        <div :class="{'active-type':mode.id===1}" @click="setType(1)">全て</div>
+        <div :class="{'active-type':mode.id===2}" @click="setType(2)">本部企画</div>
+        <div :class="{'active-type':mode.id===3}" @click="setType(3)">団体企画</div>
       </div>
     </div>
     <div id="events_block" class="fadeUp">
-      <router-link :key="event.key" v-for="event in eventData"
+      <router-link :key="eventItem.key" v-for="eventItem in eventData"
                    :to="{
           name: 'event_detail',
-          params: { id: event.id },
+          params: { id: eventItem.id },
         }">
-        <EventTile :event="event"></EventTile>
+        <EventTile :eventData="eventItem"></EventTile>
       </router-link>
     </div>
-    <!--      </router-link>-->
   </div>
 </template>
 
-<script>
-import EventTile from "@/components/EventTile";
-import data from "@/assets/data.json";
-import {useMeta} from "vue-meta";
 
-export default {
-  name: "EventListView",
-  components: {EventTile},
-  data() {
-    return {mode: 0}
-  },
-  computed: {
-    eventData() {
-      switch (this.mode) {
-        case 3:
-          return data.filter(x => x.id < 2000);
-        case 2:
-          return data.filter(x => x.id > 2000);
-        case 1:
-        default:
-          return data;
-      }
-    }
-  },
-  props: {
-    type: {
-      type: Number,
-      required: false
-    }
-  },
-  mounted() {
-    if (isNaN(this.type)) {
-      this.mode = 1;
-    } else {
-      this.mode = this.type
-    }
-    const events_block = document.getElementById("events_block");
-    document.getElementById("type_selector").addEventListener("click", function () {
-      events_block.classList.remove("fadeUp");
-      setTimeout(function () {
-        events_block.classList.add("fadeUp");
-      });
-    })
-  },
-  methods: {
-    setType(t) {
-      if (this.mode !== t) {
-        this.mode = t;
-      }
-    },
-  },
-  setup() {
-    useMeta({title: '企画一覧', description: '22清陵祭で開催するオンライン企画を一覧で紹介しています。それぞれの企画を選択するとその詳細を確認できます。'})
-  }
-}
-</script>
 <style lang="scss" scoped>
 #controller {
   display: flex;

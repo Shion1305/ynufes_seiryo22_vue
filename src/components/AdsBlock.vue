@@ -1,5 +1,38 @@
+<script setup>
+// Import Swiper Vue.js components
+import {Swiper, SwiperSlide} from 'swiper/vue';
+import {event} from "vue-gtag";
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/autoplay'
+
+// import Swiper core and required modules
+import SwiperCore, {Autoplay} from 'swiper';
+import axios from "axios";
+import store from "@/store";
+// install Swiper modules
+SwiperCore.use([Autoplay]);
+
+const randomList = function (rand) {
+  return rand.map(value => ({value, sort: Math.random()}))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({value}) => value);
+  // return rand.sort(function () {
+  //   return 0.5 - Math.random()
+  // });
+}
+
+const access = async function (id) {
+  if (process.env.NODE_ENV === "production") {
+    event("sponsor:click", {
+      sponsor_id: id,
+    });
+  }
+  axios.get("https://shion1305.com/seiryo22/request?target=" + id);
+}
+</script>
 <template>
-  <swiper v-if="this.$store.state.ads.length!==0" :slidesPerView="2" :spaceBetween="10"
+  <swiper v-if="store.state.ads.length!==0" :slidesPerView="2" :spaceBetween="10"
           :slidesPerGroup="2"
           :loop="true"
           :autoplay="{
@@ -19,7 +52,7 @@
           }"
           class="adsSwiper">
 
-    <swiper-slide v-for="ad in randomList(this.$store.state.ads)" :key="ad.id">
+    <swiper-slide v-for="ad in randomList(store.state.ads)" :key="ad.id">
       <a :href="`${ad.url}`" target="_blank"
          v-on:click="access(`${ad.sponsor}`)"
          rel="noopener noreferrer"><img
@@ -27,45 +60,7 @@
     </swiper-slide>
   </swiper>
 </template>
-<script>
-// Import Swiper Vue.js components
-import {Swiper, SwiperSlide} from 'swiper/vue';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/autoplay'
-
-// import Swiper core and required modules
-import SwiperCore, {Autoplay} from 'swiper';
-import axios from "axios";
-// install Swiper modules
-SwiperCore.use([Autoplay]);
-
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  data() {
-    return {};
-  },
-  methods: {
-    randomList: function (rand) {
-      return rand.map(value => ({value, sort: Math.random()}))
-          .sort((a, b) => a.sort - b.sort)
-          .map(({value}) => value);
-      // return rand.sort(function () {
-      //   return 0.5 - Math.random()
-      // });
-    },
-    async access(id) {
-      axios.get("https://shion1305.com/seiryo22/request?target=" + id);
-    }
-  },
-  props: {}
-}
-</script>
 <style lang="scss">
 
 .swiper {

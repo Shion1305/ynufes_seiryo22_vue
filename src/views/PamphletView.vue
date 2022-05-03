@@ -1,3 +1,16 @@
+<script setup>
+import {useMeta} from "vue-meta";
+import {event} from "vue-gtag";
+import {onMounted} from "vue";
+
+if (process.env.NODE_ENV === "production") {
+  event("pamphlet");
+}
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
+useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。'})
+</script>
 <template>
   <div id="main" class="fadeUp">
     <img src="@/assets/imgs/image1.webp" alt="背景画像"/>
@@ -10,20 +23,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import {useMeta} from "vue-meta";
-
-export default {
-  name: "PamphletView",
-  mounted() {
-    window.scrollTo(0,0);
-  },
-  setup() {
-    useMeta({title: 'デジタルパンフレット',description:'22清陵祭のデジタルパンフレットを掲載しています。'})
-  }
-}
-</script>
 
 <style scoped>
 #main {
@@ -54,7 +53,7 @@ export default {
 }
 
 @media screen and (max-width: 550px) {
-  #main>div{
+  #main > div {
     font-size: 55px;
   }
 }

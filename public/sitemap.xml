@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://seiryo22.ynu-fes.yokohama/</loc>
-        <lastmod>2022-04-27</lastmod>
-        <priority>0.8</priority>
+        <lastmod>2022-05-03</lastmod>
+        <priority>1.0</priority>
     </url>
     <url>
         <loc>https://seiryo22.ynu-fes.yokohama/events</loc>
-        <lastmod>2022-04-27</lastmod>
+        <lastmod>2022-05-03</lastmod>
         <priority>0.7</priority>
     </url>
     <url>
@@ -25,7 +25,7 @@
         <loc>https://seiryo22.ynu-fes.yokohama/pamphlet</loc>
         <lastmod>2022-04-27</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://seiryo22.ynu-fes.yokohama/sponsors</loc>

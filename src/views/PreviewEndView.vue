@@ -1,3 +1,11 @@
+<script setup>
+import {useMeta} from "vue-meta";
+import {event} from "vue-gtag";
+useMeta({title: 'プレビュー', description: '企画団体用のプレビューサイトです。プレビューサイトの公開は終了しました。'})
+if (process.env.NODE_ENV === "production") {
+  event("page:preview_end");
+}
+</script>
 <template>
   <div>
     <h1>企画担当者の皆様へ</h1>
@@ -5,19 +13,8 @@
   </div>
 </template>
 
-<script>
-import {useMeta} from "vue-meta";
-
-export default {
-  name: "PreviewEndView",
-  setup() {
-    useMeta({title: 'プレビュー',description:'企画団体用のプレビューサイトです。プレビューサイトの公開は終了しました。'})
-  }
-}
-</script>
-
 <style scoped>
-div{
+div {
   text-align: center;
   width: 60rem;
   border-radius: 5rem;
