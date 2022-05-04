@@ -1,4 +1,31 @@
+<script setup>
+import {useMeta} from "vue-meta";
+import FlowerFrame from "@/components/FlowerFrame";
+import {Swiper, SwiperSlide} from "swiper/vue";
+import {Autoplay, Navigation} from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import AdsBlock from "@/components/AdsBlock";
+import {onMounted} from "vue";
+import {onBeforeRouteLeave} from "vue-router";
+
+onBeforeRouteLeave(() => {
+  window.scrollTo(0, 0);
+
+})
+
+onMounted(() => {
+  console.log("onmounted");
+  // scrollToTop();
+})
+useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催するにあたりご協賛くださった企業の一覧を掲載しています。数多くの企業の皆様に多大なご協力を賜りました。心より感謝申し上げます。"})
+</script>
+
 <template>
+  <div class="ads fadeUp">
+    <AdsBlock/>
+  </div>
   <div class="about-head-wrapper">
     <div class="about-head fadeUp">
       <div class="about-head-text">
@@ -36,87 +63,82 @@
 
 
   <div class="about-content fadeUp">
-    <h1 class="section-title">清陵祭とは?</h1>
+    <h1 class="section-title">清陵祭ってなに?</h1>
     <p>横浜国立大学の大学祭は、例年は一年間に2回開催されます。
       春に行われるものが『清陵祭(せいりょうさい)』、秋に行われるものが『常盤祭(ときわさい)』です。
       今回の清陵祭は新型コロナウイルス感染拡大状況に鑑み、オンライン上で開催いたします。</p>
-    <ul class="departments-structure">
-      <li>
-        <ul>
-          <li>機械・材料・海洋系学科
-            <ul>
-              <li>機械工学EP</li>
-              <li>材料工学EP</li>
-              <li>海洋空間のシステムデザインEP</li>
-            </ul>
-          </li>
-          <li>化学・生命系学科
-            <ul>
-              <li>化学EP</li>
-              <li>化学応用EP</li>
-              <li>バイオEP</li>
-            </ul>
-          </li>
-          <li>
-            数物・電子情報系学科
-            <ul>
-              <li>
-                数理科学EP
-              </li>
-              <li>
-                物理工学EP
-              </li>
-              <li>
-                電子情報システムEP
-              </li>
-              <li>
-                情報工学EP
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div>理工学部</div>
-      </li>
-      <li>
-        <ul>
-
-
-        </ul>
-
-
-      </li>
-    </ul>
-    <img src="/image/twitter_ogp.jpg" style="height: 300px; width: 300px; background: black" class="test"/>
+    <h1>過去の大学祭の様子</h1>
+    <p>2019年の清陵祭の様子です。</p>
+    <div style="position: relative">
+      <Swiper :modules="[Navigation,Autoplay]"
+              :autoplay="{delay: 5000,
+  disableOnInteraction: false,
+  }"
+              :loop="true"
+              :navigation="true" class="picSwiper">
+        <SwiperSlide><img src="/image/about1.webp" alt="2019年清陵祭の様子(1)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about2.webp" alt="2019年清陵祭の様子(2)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about3.webp" alt="2019年清陵祭の様子(3)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about4.webp" alt="2019年清陵祭の様子(4)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about5.webp" alt="2019年清陵祭の様子(5)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about6.webp" alt="2019年清陵祭の様子(6)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about7.webp" alt="2019年清陵祭の様子(7)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about8.webp" alt="2019年清陵祭の様子(8)"/></SwiperSlide>
+        <SwiperSlide><img src="/image/about9.webp" alt="2019年清陵祭の様子(9)"/></SwiperSlide>
+      </Swiper>
+    </div>
+    <h1>横国についてもっと知りたい!!</h1>
+    <p>横間国立大学に関するサイトを紹介します。<br>
+      <a href="https://www.whystudyat.ynu.ac.jp">Why study at YNU? 高校生向け大学案内</a><br>
+      <a href="https://www.ynu.ac.jp">横浜国立大学ホームページ</a><br>
+      <a href="https://www.ynu.ac.jp/about/public/publish/guide/">大学案内「横浜国立大学2022」</a>
+    </p>
   </div>
 </template>
 <style lang="scss" scoped>
+.ads {
+  animation-delay: 3s;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.picSwiper {
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
 :root {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.departments-structure {
-  list-style: none;
 
-  ul {
-    list-style: none;
-  }
-}
-
-//.departments-structure {
-//  box-sizing: border-box;
-//
-//  > li {
-//    box-sizing: border-box;
-//  }
-//
-//  > li > div {
-//    height: 100%;
-//    position: absolute;
-//    transform: translateY(-50%);
-//  }
-//}
 @keyframes head-extract {
   from {
     aspect-ratio: 1;
@@ -127,15 +149,14 @@
 }
 
 .about-head-wrapper {
+  margin: 2em 0 0 0;
   color: white;
   font-size: 20px;
   box-sizing: border-box;
   height: unquote("min(50vw - 2.5em, 25rem)");
-  aspect-ratio: 2;
   display: flex;
   z-index: 10;
   padding: 0;
-  margin: 0;
 
   .about-head {
     animation: 0.5s ease-in-out 1s forwards running head-extract, 0.5s ease-in-out forwards 0.3s fadeUpAnime;
@@ -282,7 +303,7 @@
   }
   @media screen and (max-width: 615px) {
     font-size: 20px;
-
+    height: auto;
     @keyframes head-extract {
       from {
         aspect-ratio: 1;
@@ -321,6 +342,7 @@
           animation: 0.4s ease-out 2.15s forwards running itemSlideIn;
           flex-direction: row;
           gap: 1em;
+
           .arrow {
             width: 1.05em;
             position: relative;
@@ -411,61 +433,33 @@
 }
 
 
-@keyframes content-fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(0px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(-150px);
-  }
-}
-@media screen and (max-width: 615px) {
-  @keyframes content-fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(500px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(330px);
-    }
-  }
-}
-
 .about-content {
-  margin-bottom: 400px;
-  animation: 0.5s ease-in-out 2s forwards content-fadeUp;
+  margin-bottom: 5em;
+  animation-delay: 2s;
+  font-size: 1.2rem;
   box-sizing: border-box;
   border-radius: 5rem;
-  transform: translateY(-100px);
+  margin-top: -100px;
   width: unquote("min(100% - 2rem, 70rem)");
   background: white;
-  padding: 150px 3rem 3rem 3rem;
+  padding: 150px 0 5em 0;
   box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
   0 5px 6.1px rgba(0, 0, 0, 0.076),
   0 10.1px 11.4px rgba(0, 0, 0, 0.086),
   0 19.2px 19.8px rgba(0, 0, 0, 0.092),
   0 38.4px 34.8px rgba(0, 0, 0, 0.1);
 
+  p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 50em;
+    padding: 0 2em 2em 2em;
+  }
+
   h1 {
+    color: #ff7cd3;
+    text-decoration: underline;
     text-align: center;
   }
 }
 </style>
-
-
-<script>
-import {useMeta} from "vue-meta";
-import FlowerFrame from "@/components/FlowerFrame";
-export default {
-  // eslint-disable-next-line vue/no-unused-components
-  components: {FlowerFrame},
-  setup() {
-    useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催するにあたりご協賛くださった企業の一覧を掲載しています。数多くの企業の皆様に多大なご協力を賜りました。心より感謝申し上げます。"})
-  }
-}
-</script>
