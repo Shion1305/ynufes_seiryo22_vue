@@ -15,6 +15,30 @@ onBeforeRouteLeave(() => {
 
 })
 
+
+
+
+// eslint-disable-next-line no-unused-vars
+function getShuffledImages() {
+  const target = [
+    {url: "/image/about1.webp", alt: "2019年度清陵祭の画像(1)", id: 1},
+    {url: "/image/about2.webp", alt: "2019年度清陵祭の画像(2)", id: 2},
+    {url: "/image/about3.webp", alt: "2019年度清陵祭の画像(3)", id: 3},
+    {url: "/image/about4.webp", alt: "2019年度清陵祭の画像(4)", id: 4},
+    {url: "/image/about5.webp", alt: "2019年度清陵祭の画像(5)", id: 5},
+    {url: "/image/about6.webp", alt: "2019年度清陵祭の画像(6)", id: 6},
+    {url: "/image/about7.webp", alt: "2019年度清陵祭の画像(7)", id: 7},
+    {url: "/image/about8.webp", alt: "2019年度清陵祭の画像(8)", id: 8},
+    {url: "/image/about9.webp", alt: "2019年度清陵祭の画像(9)", id: 9},
+  ]
+  return target.map(value => ({value, sort: Math.random()}))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({value}) => value);
+  // return images;
+}
+
+// console.log(getShuffledImages())
+
 onMounted(() => {
   console.log("onmounted");
   // scrollToTop();
@@ -71,24 +95,16 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
     <p>2019年の清陵祭の様子です。</p>
     <div style="position: relative">
       <Swiper :modules="[Navigation,Autoplay]"
-              :autoplay="{delay: 5000,
-  disableOnInteraction: false,
-  }"
+              :autoplay="{delay: 5000,disableOnInteraction: false}"
               :loop="true"
               :navigation="true" class="picSwiper">
-        <SwiperSlide><img src="/image/about1.webp" alt="2019年清陵祭の様子(1)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about2.webp" alt="2019年清陵祭の様子(2)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about3.webp" alt="2019年清陵祭の様子(3)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about4.webp" alt="2019年清陵祭の様子(4)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about5.webp" alt="2019年清陵祭の様子(5)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about6.webp" alt="2019年清陵祭の様子(6)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about7.webp" alt="2019年清陵祭の様子(7)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about8.webp" alt="2019年清陵祭の様子(8)"/></SwiperSlide>
-        <SwiperSlide><img src="/image/about9.webp" alt="2019年清陵祭の様子(9)"/></SwiperSlide>
+        <SwiperSlide v-for="image in getShuffledImages()" :key="image.id"><img :src="image.url" :alt="image.alt"/>
+        </SwiperSlide>
+        <!--              <SwiperSlide><img src="/image/about1.webp"></SwiperSlide>-->
       </Swiper>
     </div>
     <h1>横国についてもっと知りたい!!</h1>
-    <p>横間国立大学に関するサイトを紹介します。<br>
+    <p>横浜国立大学に関するサイトを紹介します。<br>
       <a href="https://www.whystudyat.ynu.ac.jp">Why study at YNU? 高校生向け大学案内</a><br>
       <a href="https://www.ynu.ac.jp">横浜国立大学ホームページ</a><br>
       <a href="https://www.ynu.ac.jp/about/public/publish/guide/">大学案内「横浜国立大学2022」</a>
