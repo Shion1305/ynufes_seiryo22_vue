@@ -74,7 +74,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
           <div class="property">配信<br>期間</div>
           <div class="value">5/21(土)・5/22(日)<br>～6/12(日)24:00まで</div>
         </div>
-        <div class="note">※企画ごとに公開開始時刻が異なります。 詳細な公開スケジュールは清陵祭パンフレットのp.3「〇〇」をご覧ください。</div>
+        <div class="note">※企画ごとに公開開始時刻が異なります。 詳細な公開スケジュールは清陵祭パンフレットのp.3をご覧ください。</div>
         <div class="follow-down">
           <div class="arrow">
             <div/>
@@ -113,7 +113,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
 </template>
 <style lang="scss" scoped>
 .ads {
-  animation-delay: 3s;
+  animation-delay: 2.1s;
 }
 
 .swiper-slide {
@@ -175,7 +175,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
   padding: 0;
 
   .about-head {
-    animation: 0.5s ease-in-out 1s forwards running head-extract, 0.5s ease-in-out forwards 0.3s fadeUpAnime;
+    animation: 0.5s ease-in-out 0.9s forwards running head-extract, 0.5s ease-in-out forwards 0.3s fadeUpAnime;
     flex-shrink: 0;
     border-radius: 2.5rem;
     aspect-ratio: 1;
@@ -289,18 +289,18 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
       }
 
       .item:nth-child(2) {
-        animation: 0.4s ease-out 1.6s forwards running itemSlideIn;
+        animation: 0.4s ease-out 1.57s forwards running itemSlideIn;
       }
 
       .item:nth-child(3) {
-        animation: 0.4s ease-out 1.75s forwards running itemSlideIn;
+        animation: 0.4s ease-out 1.69s forwards running itemSlideIn;
       }
 
       .note {
         opacity: 0;
         font-size: 0.8em;
         color: black;
-        animation: 0.4s ease-out 1.9s forwards running itemSlideIn;
+        animation: 0.4s ease-out 1.81s forwards running itemSlideIn;
       }
 
       .follow-down {
@@ -451,7 +451,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
 
 .about-content {
   margin-bottom: 5em;
-  animation-delay: 2s;
+  animation-delay: 1.9s;
   font-size: 1.2rem;
   box-sizing: border-box;
   border-radius: 5rem;
