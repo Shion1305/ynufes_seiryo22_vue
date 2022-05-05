@@ -9,7 +9,7 @@
   <!--  vue-meta expression ends here-->
   <div class="wrapper">
     <div id="loader" style="color: white;font-family: 'Kaisei Decol', serif;">
-      <div style="font-size: 7rem;font-family: 'Kaisei Decol', serif;">花笑み</div>
+      <div style="font-size: 6rem;font-family: 'Kaisei Decol', serif;">花笑み</div>
       <div style="font-size: 3rem; text-align: center;">22清陵祭</div>
       <div style="font-size: 1.5rem; line-height: 1.1; text-align: center; padding-bottom: 2rem">横浜国立大学<br>オンライン大学祭
       </div>
