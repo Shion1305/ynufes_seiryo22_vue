@@ -85,7 +85,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         <h1>更新情報</h1>
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
-          <router-link class="hover-to-shrink1" to="/updates" v-show="store.state.updates.length>=3">
+          <router-link class="hover-to-shrink1" to="/update" v-show="store.state.updates.length>=3">
             <div class="more_updates">更新情報をもっとみる</div>
           </router-link>
         </div>
