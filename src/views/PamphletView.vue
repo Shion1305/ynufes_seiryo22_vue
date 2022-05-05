@@ -1,14 +1,10 @@
 <script setup>
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
-import {onMounted} from "vue";
 
 if (process.env.NODE_ENV === "production") {
   event("pamphlet");
 }
-onMounted(() => {
-  window.scrollTo(0, 0);
-});
 useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。'})
 </script>
 <template>
