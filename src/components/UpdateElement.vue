@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <router-link class="news" :to="{path:'/update', hash:`#${update.id}` }">
     <div class="date_field">
       <div class="date">{{ this.getDate() }}</div>
       <div class="time">{{ this.getTime() }}</div>
@@ -8,10 +8,12 @@
       <div class="title">{{ update.title }}</div>
       <div class="summary">{{ update.summary }}</div>
     </div>
-  </div>
+  </router-link>
 </template>
 <style lang="scss" scoped>
 .news {
+  text-decoration: none;
+  color: white;
   transition: all 0.1s linear;
   box-sizing: border-box;
   display: flex;
