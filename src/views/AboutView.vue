@@ -8,15 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import AdsBlock from "@/components/AdsBlock";
 import {onMounted} from "vue";
-import {onBeforeRouteLeave} from "vue-router";
-
-onBeforeRouteLeave(() => {
-  window.scrollTo(0, 0);
-
-})
-
-
-
 
 // eslint-disable-next-line no-unused-vars
 function getShuffledImages() {

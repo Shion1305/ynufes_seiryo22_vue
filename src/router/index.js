@@ -50,7 +50,7 @@ const routes = [
     {
         path: '/update',
         name: 'updates',
-        component: () => import('../views/UnderConstruction'),
+        component: () => import('../views/UpdatesView'),
     },
     {
         path: '/others',
@@ -74,7 +74,17 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
-    routes
+    routes: routes,
+    scrollBehavior(to) {
+        if (to.hash) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({el: to.hash, behavior: 'smooth'})
+                }, 500)
+            })
+        }
+        return {top: 0}
+    }
 })
 
 export default router
