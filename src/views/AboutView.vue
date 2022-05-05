@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import AdsBlock from "@/components/AdsBlock";
+import {event} from 'vue-gtag';
 
 function getShuffledImages() {
   const target = [
@@ -23,6 +24,9 @@ function getShuffledImages() {
   return target.map(value => ({value, sort: Math.random()}))
       .sort((a, b) => a.sort - b.sort)
       .map(({value}) => value);
+}
+if (process.env.NODE_ENV === "production") {
+  event("page:about");
 }
 
 useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催するにあたりご協賛くださった企業の一覧を掲載しています。数多くの企業の皆様に多大なご協力を賜りました。心より感謝申し上げます。"})
