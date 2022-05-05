@@ -24,6 +24,7 @@ function getTime(d) {
 </script>
 <template>
   <div id="content-frame">
+    <h1 class="fadeUp">更新情報一覧</h1>
     <div class="updateItem fadeUp" v-for="update in getUpdate()" :key="update.id" :id="`${update.id.toString()}`">
       <h1>{{ update.title }}</h1>
       <div>{{ getDate(update.date) }} {{ getTime(update.date) }}</div>
@@ -44,6 +45,15 @@ function getTime(d) {
   width: unquote("min(100% - 2rem, 50rem)");
   margin-inline: auto;
   justify-content: center;
+  h1{
+    animation-delay: 0.2s;
+    margin: 0 auto 0.5em auto;
+    padding: 0.5em;
+    background: linear-gradient(120deg, #e861a7, #ff75a8);
+    color: white;
+    border-radius: 1rem;
+    width: fit-content;
+  }
 }
 
 .updateItem {
@@ -96,18 +106,18 @@ function getTime(d) {
 }
 
 .updateItem:first-child {
-  animation-delay: 0.2s;
+  animation-delay: 0.25s;
 }
 
 .updateItem:nth-child(2) {
-  animation-delay: 0.3s;
+  animation-delay: 0.35s;
 }
 
 .updateItem:nth-child(3) {
-  animation-delay: 0.4s;
+  animation-delay: 0.45s;
 }
 
 .updateItem:nth-child(4) {
-  animation-delay: 0.5s;
+  animation-delay: 0.55s;
 }
 </style>
