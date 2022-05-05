@@ -10,15 +10,15 @@ import AdsBlock from "@/components/AdsBlock";
 
 function getShuffledImages() {
   const target = [
-    {url: "/image/about1.webp", alt: "2019年度清陵祭の画像(1)", id: 1},
-    {url: "/image/about2.webp", alt: "2019年度清陵祭の画像(2)", id: 2},
-    {url: "/image/about3.webp", alt: "2019年度清陵祭の画像(3)", id: 3},
-    {url: "/image/about4.webp", alt: "2019年度清陵祭の画像(4)", id: 4},
-    {url: "/image/about5.webp", alt: "2019年度清陵祭の画像(5)", id: 5},
-    {url: "/image/about6.webp", alt: "2019年度清陵祭の画像(6)", id: 6},
-    {url: "/image/about7.webp", alt: "2019年度清陵祭の画像(7)", id: 7},
-    {url: "/image/about8.webp", alt: "2019年度清陵祭の画像(8)", id: 8},
-    {url: "/image/about9.webp", alt: "2019年度清陵祭の画像(9)", id: 9},
+    {url: "/image/about1.webp", alt: "2019年度清陵祭の画像(1)"},
+    {url: "/image/about2.webp", alt: "2019年度清陵祭の画像(2)"},
+    {url: "/image/about3.webp", alt: "2019年度清陵祭の画像(3)"},
+    {url: "/image/about4.webp", alt: "2019年度清陵祭の画像(4)"},
+    {url: "/image/about5.webp", alt: "2019年度清陵祭の画像(5)"},
+    {url: "/image/about6.webp", alt: "2019年度清陵祭の画像(6)"},
+    {url: "/image/about7.webp", alt: "2019年度清陵祭の画像(7)"},
+    {url: "/image/about8.webp", alt: "2019年度清陵祭の画像(8)"},
+    {url: "/image/about9.webp", alt: "2019年度清陵祭の画像(9)"},
   ]
   return target.map(value => ({value, sort: Math.random()}))
       .sort((a, b) => a.sort - b.sort)
@@ -78,7 +78,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
               :loop="true"
               :modules="[Navigation,Autoplay]"
               :navigation="true" class="picSwiper">
-        <SwiperSlide v-for="image in getShuffledImages()" :key="image.id"><img :alt="image.alt" :src="image.url"/>
+        <SwiperSlide v-for="image in getShuffledImages()" :key="image.index"><img :alt="image.alt" :src="image.url"/>
         </SwiperSlide>
         <!--              <SwiperSlide><img src="/image/about1.webp"></SwiperSlide>-->
       </Swiper>
