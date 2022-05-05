@@ -1,5 +1,5 @@
 <template>
-  <router-link class="hover-to-shrink1" :to="{path:'/update', hash:`#${update.id}` }">
+  <router-link :to="{path:'/update', hash:`#${update.id}` }" class="hover-to-shrink1">
     <div class="news">
       <div class="date_field">
         <div class="date">{{ this.getDate() }}</div>

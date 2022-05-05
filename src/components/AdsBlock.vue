@@ -32,14 +32,10 @@ const access = async function (id) {
 }
 </script>
 <template>
-  <swiper v-if="store.state.ads.length!==0" :slidesPerView="2" :spaceBetween="10"
-          :slidesPerGroup="2"
-          :loop="true"
-          :autoplay="{
+  <swiper v-if="store.state.ads.length!==0" :autoplay="{
   delay: 4500,
   disableOnInteraction: false,
-  }"
-          :breakpoints="{
+  }" :breakpoints="{
           430: {
           slidesPerView: 3,
           spaceBetween: 5,
@@ -50,12 +46,16 @@ const access = async function (id) {
           },
 
           }"
+          :loop="true"
+          :slidesPerGroup="2"
+          :slidesPerView="2"
+          :spaceBetween="10"
           class="adsSwiper">
 
     <swiper-slide v-for="ad in randomList(store.state.ads)" :key="ad.id">
-      <a :href="`${ad.url}`" target="_blank"
-         v-on:click="access(`${ad.sponsor}`)"
-         rel="noopener noreferrer"><img
+      <a :href="`${ad.url}`" rel="noopener noreferrer"
+         target="_blank"
+         v-on:click="access(`${ad.sponsor}`)"><img
           :src="`${ad.image.url}`" alt=""/></a>
     </swiper-slide>
   </swiper>

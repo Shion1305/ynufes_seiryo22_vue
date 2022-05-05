@@ -7,9 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import AdsBlock from "@/components/AdsBlock";
-import {onMounted} from "vue";
 
-// eslint-disable-next-line no-unused-vars
 function getShuffledImages() {
   const target = [
     {url: "/image/about1.webp", alt: "2019年度清陵祭の画像(1)", id: 1},
@@ -25,15 +23,8 @@ function getShuffledImages() {
   return target.map(value => ({value, sort: Math.random()}))
       .sort((a, b) => a.sort - b.sort)
       .map(({value}) => value);
-  // return images;
 }
 
-// console.log(getShuffledImages())
-
-onMounted(() => {
-  console.log("onmounted");
-  // scrollToTop();
-})
 useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催するにあたりご協賛くださった企業の一覧を掲載しています。数多くの企業の皆様に多大なご協力を賜りました。心より感謝申し上げます。"})
 </script>
 
@@ -85,11 +76,11 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
     <h1>過去の大学祭の様子</h1>
     <p>2019年の清陵祭の様子です。</p>
     <div style="position: relative">
-      <Swiper :modules="[Navigation,Autoplay]"
-              :autoplay="{delay: 5000,disableOnInteraction: false}"
+      <Swiper :autoplay="{delay: 5000,disableOnInteraction: false}"
               :loop="true"
+              :modules="[Navigation,Autoplay]"
               :navigation="true" class="picSwiper">
-        <SwiperSlide v-for="image in getShuffledImages()" :key="image.id"><img :src="image.url" :alt="image.alt"/>
+        <SwiperSlide v-for="image in getShuffledImages()" :key="image.id"><img :alt="image.alt" :src="image.url"/>
         </SwiperSlide>
         <!--              <SwiperSlide><img src="/image/about1.webp"></SwiperSlide>-->
       </Swiper>

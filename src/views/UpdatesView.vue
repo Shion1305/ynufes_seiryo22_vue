@@ -25,13 +25,13 @@ function getTime(d) {
 <template>
   <div id="content-frame">
     <h1 class="fadeUp">更新情報一覧</h1>
-    <div class="updateItem fadeUp" v-for="update in getUpdate()" :key="update.id" :id="`${update.id.toString()}`">
+    <div v-for="update in getUpdate()" :id="`${update.id.toString()}`" :key="update.id" class="updateItem fadeUp">
       <h1>{{ update.title }}</h1>
       <div>{{ getDate(update.date) }} {{ getTime(update.date) }}</div>
       <hr>
       <div class="updateContent">
         <p v-html="`${update.content}`"></p>
-        <router-link class="reference" :to="`${update.reference}`" v-if="update.reference && update.referenceName">
+        <router-link v-if="update.reference && update.referenceName" :to="`${update.reference}`" class="reference">
           {{ update.referenceName }}
         </router-link>
       </div>
@@ -45,7 +45,8 @@ function getTime(d) {
   width: unquote("min(100% - 2rem, 50rem)");
   margin-inline: auto;
   justify-content: center;
-  h1{
+
+  > h1 {
     animation-delay: 0.2s;
     margin: 0 auto 0.5em auto;
     padding: 0.5em;

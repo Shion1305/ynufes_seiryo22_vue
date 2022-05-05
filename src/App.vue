@@ -20,7 +20,7 @@
     </div>
     <img alt="" class="background_img" src="@/assets/background_img.jpg"/>
     <Header v-show="loaded" class="fadeUp"/>
-    <div id="body-frame" v-show="loaded">
+    <div v-show="loaded" id="body-frame">
       <router-view/>
       <Footer/>
     </div>

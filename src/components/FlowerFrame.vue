@@ -48,7 +48,7 @@ export default {
 }
 
 
-.petal:nth-child(2n)::after{
+.petal:nth-child(2n)::after {
   transform-origin: top right;
   transform: rotate(20deg);
 }

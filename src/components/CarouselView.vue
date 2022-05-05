@@ -29,11 +29,11 @@ const modules = [Autoplay, Pagination, Navigation];
         class="mainSwiper">
       <swiper-slide>
         <router-link to="/about">
-          <img src="@/assets/imgs/top_slide.webp" alt="トップスライド">
+          <img alt="トップスライド" src="@/assets/imgs/top_slide.webp">
         </router-link>
       </swiper-slide>
       <swiper-slide v-for="slide in store.state.slides" :key="slide.id">
-        <router-link :to="slide.link" v-if="slide.isRouterLink">
+        <router-link v-if="slide.isRouterLink" :to="slide.link">
           <img :src="slide.slide.url" alt="">
         </router-link>
         <a v-else :href="slide.link">

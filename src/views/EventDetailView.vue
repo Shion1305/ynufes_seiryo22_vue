@@ -2,7 +2,8 @@
 import sourceData from "@/assets/data.json"
 import {defineProps} from "vue";
 import {useMeta} from "vue-meta";
-import { event } from 'vue-gtag';
+import {event} from 'vue-gtag';
+
 const props = defineProps({
   eventId: {type: Number, required: true},
 });
@@ -25,8 +26,8 @@ if (process.env.NODE_ENV === "production") {
           <div class="icon_area">
             <img
                 :src="`/icon/${eventData.img}`"
-                class="icon"
                 alt="icon"
+                class="icon"
             />
           </div>
           <div class="space_between_icon_title"></div>
@@ -37,7 +38,7 @@ if (process.env.NODE_ENV === "production") {
             <hr/>
             <div class="organization_name">{{ eventData.org_name }}</div>
             <div class="tag_frame">
-              <div class="tag" :style="`background: ${eventData.tag_color}`"><p>{{ eventData.type }}</p></div>
+              <div :style="`background: ${eventData.tag_color}`" class="tag"><p>{{ eventData.type }}</p></div>
             </div>
           </div>
         </div>

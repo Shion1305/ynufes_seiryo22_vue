@@ -9,7 +9,7 @@ useMeta({title: 'デジタルパンフレット', description: '22清陵祭の�
 </script>
 <template>
   <div id="main" class="fadeUp">
-    <img src="@/assets/imgs/image1.webp" alt="背景画像"/>
+    <img alt="背景画像" src="@/assets/imgs/image1.webp"/>
     <div>
       <div>Coming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Soon...
       </div>

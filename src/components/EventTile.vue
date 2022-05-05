@@ -1,7 +1,10 @@
 <template>
   <div class="event_widget">
-    <img :src="`/icon/${this.eventData.img}`" :alt="`icon for ${this.eventData.event_name} by ${this.eventData.org_name}`"/>
-    <div class="type" :style="`background: ${this.eventData.tag_color};`" v-if="Boolean(this.eventData.type)">{{ this.eventData.type }}</div>
+    <img :alt="`icon for ${this.eventData.event_name} by ${this.eventData.org_name}`"
+         :src="`/icon/${this.eventData.img}`"/>
+    <div v-if="Boolean(this.eventData.type)" :style="`background: ${this.eventData.tag_color};`" class="type">
+      {{ this.eventData.type }}
+    </div>
     <div class="meta_area">
       <h2>
         {{ eventData.event_name }}

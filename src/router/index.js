@@ -57,12 +57,6 @@ const routes = [
         name: 'other',
         component: () => import(/* webpackChunkName: "others" */ '../views/UnderConstruction'),
     },
-    // {
-    //     path:'/update/:id',
-    //     name: 'update_detail',
-    //     component: () => import(/* webpackChunkName: "update_detail" */ '../views/EventDetailView.vue'),
-    //     props: (route) => ({...route.params, id: parseInt(route.params.id)})
-    // },
     {
         path: '/hama_fes',
         name: 'HamaFes',

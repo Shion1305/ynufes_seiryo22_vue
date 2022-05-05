@@ -24,12 +24,12 @@
           <router-link active-class="header_active" to="/about">
             <li class="hover-underline-animation">清陵祭とは</li>
           </router-link>
-          <router-link active-class="header_active" :to="{
+          <router-link :to="{
             name:'event_list',
             params:{
               type:1
             }
-          }">
+          }" active-class="header_active">
             <li class="hover-underline-animation">企画を見る</li>
           </router-link>
           <router-link active-class="header_active" to="/pamphlet">
@@ -42,24 +42,24 @@
       </nav>
     </header>
     <div>
-      <div id="mobile_menu" v-show="mToggled">
+      <div v-show="mToggled" id="mobile_menu">
         <div>
-          <router-link active-class="mLink-active" @click="closeMenu" to="/">
+          <router-link active-class="mLink-active" to="/" @click="closeMenu">
             <div>ホーム</div>
           </router-link>
-          <router-link active-class="mLink-active" @click="closeMenu" to="/about">
+          <router-link active-class="mLink-active" to="/about" @click="closeMenu">
             <div>清陵祭とは</div>
           </router-link>
-          <router-link active-class="mLink-active" @click="closeMenu" to="/events">
+          <router-link active-class="mLink-active" to="/events" @click="closeMenu">
             <div>企画を探す</div>
           </router-link>
-          <router-link active-class="mLink-active" @click="closeMenu" to="/pamphlet">
+          <router-link active-class="mLink-active" to="/pamphlet" @click="closeMenu">
             <div>パンフレット</div>
           </router-link>
-          <router-link active-class="mLink-active" @click="closeMenu" to="/sponsors">
+          <router-link active-class="mLink-active" to="/sponsors" @click="closeMenu">
             <div>ご協賛について</div>
           </router-link>
-          <router-link active-class="mLink-active" @click="toggleMenu" to="/others">
+          <router-link active-class="mLink-active" to="/others" @click="toggleMenu">
             <div>他大学リンク</div>
           </router-link>
         </div>

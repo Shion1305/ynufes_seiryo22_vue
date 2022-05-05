@@ -7,6 +7,7 @@ import UpdateElement from "@/components/UpdateElement";
 import store from "@/store";
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+
 const getNewestUpdate = function () {
   return store.state.updates.slice(0, 3);
 };
@@ -18,7 +19,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
 
 <template>
   <div class="carouselView">
-    <CarouselView id="carousel" style="animation-delay: 0.5s" class="fadeUp"/>
+    <CarouselView id="carousel" class="fadeUp" style="animation-delay: 0.5s"/>
   </div>
   <div class="content-frame">
     <div class="ads-area fadeUp">
@@ -26,34 +27,34 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
     </div>
     <div class="fadeUp events_search_block">
       <div class="section_title">
-        <img src="@/assets/home/section_min.webp" alt="企画紹介"/>
+        <img alt="企画紹介" src="@/assets/home/section_min.webp"/>
         <h1>
           企画紹介
         </h1>
       </div>
       <div class="content1-home">
         <div class="home_events">
-          <router-link class="button_events_all hover-to-shrink1" :to="{
+          <router-link :to="{
           name: 'event_list',
           params: { type: 1 },
-        }">
+        }" class="button_events_all hover-to-shrink1">
             <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
             <div><p>全ての<br>企画</p></div>
           </router-link>
           <div class="button_events_other">
-            <router-link class="button_events_part hover-to-shrink1" :to="{
+            <router-link :to="{
           name: 'event_list',
           params: { type: 2 },
-        }">
+        }" class="button_events_part hover-to-shrink1">
               <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
               <div>
                 <p>本部企画</p>
               </div>
             </router-link>
-            <router-link class="button_events_part hover-to-shrink1" :to="{
+            <router-link :to="{
           name: 'event_list',
           params: { type: 3 },
-        }">
+        }" class="button_events_part hover-to-shrink1">
               <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
               <div><p>団体企画</p></div>
             </router-link>
@@ -61,7 +62,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         </div>
         <hr class="border_in_events">
         <router-link class="pamphlet_block hover-to-shrink1" to="/pamphlet">
-          <img src="@/assets/home/pamphlet_here.webp" alt="デジタルパンフレット"/>
+          <img alt="デジタルパンフレット" src="@/assets/home/pamphlet_here.webp"/>
           <div>
             <div>デジタル<br>パンフレットは<br>こちらから</div>
           </div>
@@ -70,11 +71,11 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
     </div>
     <div class="fadeUp button_section_1">
       <router-link id="poster_button" class="hover-to-shrink1" to="/poster">
-        <img src="@/assets/home/poster.webp" alt="ポスター展覧会"/>
+        <img alt="ポスター展覧会" src="@/assets/home/poster.webp"/>
         <div>ポスター展覧会</div>
       </router-link>
       <router-link id="hama_fes" class="hover-to-shrink1" to="/hama_fes">
-        <img src="@/assets/home/hama_fes.jpg" alt="浜フェス"/>
+        <img alt="浜フェス" src="@/assets/home/hama_fes.jpg"/>
         <div>
           <div>はまフェス投票</div>
         </div>
@@ -85,7 +86,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         <h1>更新情報</h1>
         <div class="updates_frame">
           <UpdateElement v-for="update in getNewestUpdate()" :key="update.id" :update="update"/>
-          <router-link class="hover-to-shrink1" to="/update" v-show="store.state.updates.length>=3">
+          <router-link v-show="store.state.updates.length>=3" class="hover-to-shrink1" to="/update">
             <div class="more_updates">更新情報をもっとみる</div>
           </router-link>
         </div>

@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
 </script>
 <template>
   <div class="content-frame fadeUp">
-    <img src="@/assets/imgs/image3.webp" alt="背景画像"/>
+    <img alt="背景画像" src="@/assets/imgs/image3.webp"/>
     <div id="page_top">
       <h1 class="title">ご協賛企業一覧</h1>
       <div>「22清陵祭」を開催するにあたり、多くの企業の皆様より多大なご協力を賜りました。この場をお借りいたしまして、心より感謝申し上げます。ご協賛いただきました企業を以下に掲載させていただきます。
