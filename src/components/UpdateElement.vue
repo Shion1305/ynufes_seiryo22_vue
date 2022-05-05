@@ -1,12 +1,14 @@
 <template>
-  <router-link class="news" :to="{path:'/update', hash:`#${update.id}` }">
-    <div class="date_field">
-      <div class="date">{{ this.getDate() }}</div>
-      <div class="time">{{ this.getTime() }}</div>
-    </div>
-    <div class="label">
-      <div class="title">{{ update.title }}</div>
-      <div class="summary">{{ update.summary }}</div>
+  <router-link class="hover-to-shrink1" :to="{path:'/update', hash:`#${update.id}` }">
+    <div class="news">
+      <div class="date_field">
+        <div class="date">{{ this.getDate() }}</div>
+        <div class="time">{{ this.getTime() }}</div>
+      </div>
+      <div class="label">
+        <div class="title">{{ update.title }}</div>
+        <div class="summary">{{ update.summary }}</div>
+      </div>
     </div>
   </router-link>
 </template>
@@ -25,10 +27,6 @@
   border-color: white;
   width: 100%;
   align-items: center;
-
-  &:hover {
-    transform: scale(0.97);
-  }
 
   .date_field {
     display: flex;
