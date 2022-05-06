@@ -71,7 +71,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
     </div>
   </div>
   <div class="about-content fadeUp">
-    <h1 class="section-title">清陵祭ってなに?</h1>
+    <h1>清陵祭ってなに?</h1>
     <p style="text-align: left">&emsp;横浜国立大学の大学祭は、例年は一年間に2回開催されます。
       春に行われるものが『清陵祭(せいりょうさい)』、秋に行われるものが『常盤祭(ときわさい)』です。
       今回の清陵祭は新型コロナウイルス感染拡大状況に鑑み、オンライン上で開催いたします。</p>
@@ -87,7 +87,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
         <!--              <SwiperSlide><img src="/image/about1.webp"></SwiperSlide>-->
       </Swiper>
     </div>
-    <h1>横国についてもっと知りたい!!</h1>
+    <h1>横国について<br>もっと知りたい!!</h1>
     <p>横浜国立大学に関するサイトを紹介します。<br>
       <a href="https://www.whystudyat.ynu.ac.jp">Why study at YNU? 高校生向け大学案内</a><br>
       <a href="https://www.ynu.ac.jp">横浜国立大学ホームページ</a><br>
@@ -442,7 +442,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
   margin-top: -100px;
   width: unquote("min(100% - 2rem, 70rem)");
   background: white;
-  padding: 110px 0 5em 0;
+  padding: 180px 0 5em 0;
   box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
   0 5px 6.1px rgba(0, 0, 0, 0.076),
   0 10.1px 11.4px rgba(0, 0, 0, 0.086),
@@ -457,14 +457,20 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
   }
 
   h1 {
-    width: fit-content;
+    width: calc(100% - 1em);
+    box-sizing: border-box;
     font-size: 1.5em;
-    padding: 0.3em 0.5em;
+    padding: 1em 0.5em;
     margin: 1em auto 0.5em auto;
     background: linear-gradient(90deg, #ff7cd3, #ff6498);
     text-align: center;
     color: white;
-    border-radius: 2em;
+    border-radius: 5px;
+    hr{
+      margin: 0;
+      color: white;
+      background: white;
+    }
   }
 }
 </style>
