@@ -1,24 +1,3 @@
-// 'use strict';
-//
-// // [START gae_node_request_example]
-// const express = require('express');
-//
-// const app = express();
-//
-// app.get('/', (req, res) => {
-//     res.status(200).send('Hello, world!').end();
-// });
-//
-// // Start the server
-// const PORT = parseInt(process.env.PORT) || 8080;
-// app.listen(PORT, () => {
-//     console.log(`App listening on port ${PORT}`);
-//     console.log('Press Ctrl+C to quit.');
-// });
-// // [END gae_node_request_example]
-//
-// module.exports = app;
-
 'use strict';
 
 const express = require('express')
@@ -57,8 +36,8 @@ app.get('/*', (req, res) => {
     let htmlTmp = html;
     if (d) {
         htmlTmp = html.replace("<title></title>", "<title>" + resolveTitle(d) + "</title>")
-            .replace("<meta name=\"description\" content=\"\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>")
-            .replace("<meta property=\"twitter:title\" content=\"\"/>", "<meta property=\"twitter:title\" content=\"" + resolveTitle(d) + "\"/>");
+            .replace("<meta content=\"\" name=\"description\"/>", "<meta name=\"description\" content=\"" + (d.description !== '' ? d.description : "22清陵祭公式HP") + "\"/>")
+            .replace("<meta content=\"\" property=\"twitter:title\"/>", "<meta property=\"twitter:title\" content=\"" + resolveTitle(d) + "\"/>");
     }
     res.header('Access-Control-Allow-Origin', 'https://shion1305.com')
     res.send(htmlTmp);
@@ -128,5 +107,3 @@ function prepareSourceData() {
         console.log(err);
     }
 }
-
-// module.exports(app);
