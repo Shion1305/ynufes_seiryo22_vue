@@ -6,7 +6,6 @@ function getUpdate() {
   return store.state.updates;
 }
 
-console.log(getUpdate())
 if (process.env.NODE_ENV === "production") {
   event("page:updates");
 }
