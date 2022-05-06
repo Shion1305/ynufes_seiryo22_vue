@@ -8,27 +8,7 @@ let mToggled = ref(false);
 
 function toggleMenu() {
   mToggled.value = !mToggled.value;
-  // document.getElementById("mobile_menu").classList.add("menu_show");
-  console.log(mToggled.value);
 }
-
-// function check1(){
-//   console.log("test1");
-// }
-// function check2(){
-//   console.log("test2");
-// }
-// function check3(){
-//   console.log("test3");
-// }
-// function check4(){
-//   console.log("test4");
-// }
-
-
-// function isToggled() {
-//   return mToggled;
-// }
 
 function closeMenu() {
   mToggled.value = false;
@@ -86,7 +66,8 @@ watch(route, () => {
         <router-link active-class="selected" to="/" @click="closeMenu">ホーム</router-link>
         <router-link active-class="selected" to="/about" @click="closeMenu">清陵祭とは</router-link>
         <router-link active-class="selected" to="/update" @click="closeMenu">更新情報</router-link>
-        <router-link active-class="selected" :to="{name:'event_list',params:{type:1}}" @click="closeMenu">企画を見る</router-link>
+        <router-link active-class="selected" :to="{name:'event_list',params:{type:1}}" @click="closeMenu">企画を見る
+        </router-link>
         <router-link active-class="selected" to="/pamphlet" @click="closeMenu">パンフレット</router-link>
         <router-link active-class="selected" to="/sponsors" @click="closeMenu">ご協賛について</router-link>
         <router-link active-class="selected" to="/others" @click="closeMenu">他大学祭の紹介</router-link>

@@ -15,7 +15,6 @@ fs.readFile(__dirname + '/dist/index.html', 'utf8', (err, data) => {
         return;
     }
     html = data;
-    // console.log(data);
 });
 app.use('/icon', express.static(__dirname + '/dist/icon/'));
 app.use('/img', express.static(__dirname + '/dist/img/'));

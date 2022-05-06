@@ -25,6 +25,7 @@ function getShuffledImages() {
       .sort((a, b) => a.sort - b.sort)
       .map(({value}) => value);
 }
+
 if (process.env.NODE_ENV === "production") {
   event("page:about");
 }
@@ -466,7 +467,8 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
     text-align: center;
     color: white;
     border-radius: 5px;
-    hr{
+
+    hr {
       margin: 0;
       color: white;
       background: white;
