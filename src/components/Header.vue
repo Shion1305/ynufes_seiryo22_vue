@@ -50,7 +50,7 @@
           <router-link active-class="mLink-active" to="/about" @click="closeMenu">
             <div>清陵祭とは</div>
           </router-link>
-          <router-link active-class="mLink-active" to="/events" @click="closeMenu">
+          <router-link active-class="mLink-active" :to="{name:'event_list',params:{type:1}}" @click="closeMenu">
             <div>企画を探す</div>
           </router-link>
           <router-link active-class="mLink-active" to="/pamphlet" @click="closeMenu">
