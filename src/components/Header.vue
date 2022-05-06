@@ -12,7 +12,6 @@ function toggleMenu() {
 
 function closeMenu() {
   mToggled.value = false;
-  console.log(mToggled.value);
 }
 
 const route = useRoute();
