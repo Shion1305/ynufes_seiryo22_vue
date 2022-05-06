@@ -30,17 +30,17 @@ function getLatestSlides() {
   );
 }
 
-function getLatestAds() {
+function getLatestSponsors() {
   client.get({
     endpoint: 'ads'
   }).then((data) => {
-        store.commit('setAds', data.contents);
+        store.commit('setSponsors', data.contents);
       }
   );
 }
 
 onMounted(() => {
-  getLatestAds();
+  getLatestSponsors();
   getLatestUpdate();
   window.onload = () => {
     const loader = document.getElementById('loader');

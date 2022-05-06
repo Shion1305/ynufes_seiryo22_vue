@@ -1,7 +1,7 @@
 <script setup>
 
 import CarouselView from "@/components/CarouselView";
-import AdsBlock from "@/components/AdsBlock";
+import SponsorBlock from "@/components/SponsorBlock";
 import TwitterTimeline from "@/components/TwitterTimeline";
 import UpdateElement from "@/components/UpdateElement";
 import store from "@/store";
@@ -22,8 +22,8 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
     <CarouselView id="carousel" class="fadeUp" style="animation-delay: 0.5s"/>
   </div>
   <div class="content-frame">
-    <div class="ads-area fadeUp">
-      <AdsBlock/>
+    <div class="sponsor-area fadeUp">
+      <SponsorBlock/>
     </div>
     <div class="fadeUp events_search_block">
       <div class="section_title">
@@ -125,7 +125,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
   align-items: center;
 }
 
-.ads-area {
+.sponsor-area {
   width: fit-content;
   display: flex;
   flex-direction: row;

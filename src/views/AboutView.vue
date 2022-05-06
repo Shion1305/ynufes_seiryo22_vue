@@ -6,7 +6,7 @@ import {Autoplay, Navigation} from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import AdsBlock from "@/components/AdsBlock";
+import SponsorBlock from "@/components/SponsorBlock";
 import {event} from 'vue-gtag';
 
 function getShuffledImages() {
@@ -34,8 +34,8 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
 </script>
 
 <template>
-  <div class="ads fadeUp">
-    <AdsBlock/>
+  <div class="sponsor_block fadeUp">
+    <SponsorBlock/>
   </div>
   <div class="about-head-wrapper">
     <div class="about-head fadeUp">
@@ -97,7 +97,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
   </div>
 </template>
 <style lang="scss" scoped>
-.ads {
+.sponsor_block {
   animation-delay: 2.1s;
 }
 

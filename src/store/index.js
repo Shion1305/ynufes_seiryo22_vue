@@ -3,7 +3,7 @@ import {createStore} from 'vuex'
 export default createStore({
     state: {
         slides: [{slide: {url: "/image/loading.png"}}],
-        ads: [{image: {url: "/image/loading1.png"}}],
+        sponsors: [{image: {url: "/image/loading1.png"}}],
         updates: []
     },
     getters: {},
@@ -11,8 +11,8 @@ export default createStore({
         setSlide(state, newSlides) {
             state.slides = newSlides;
         },
-        setAds(state, newAds) {
-            state.ads = newAds;
+        setSponsors(state, newSponsors) {
+            state.sponsors = newSponsors;
         },
         setUpdates(state, newUpdates) {
             state.updates = newUpdates;
