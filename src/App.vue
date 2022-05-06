@@ -1,3 +1,64 @@
+<script setup>
+import {createClient} from "microcms-js-sdk"; //ES6
+import {useMeta} from 'vue-meta';
+import store from "@/store";
+import {onMounted, ref} from "vue";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const client = createClient({
+  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
+  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
+});
+const loaded = ref(false);
+
+function getLatestUpdate() {
+  client.get({
+    endpoint: 'updates',
+  }).then((data) => {
+    store.commit('setUpdates', data.contents);
+    // this.updates = data.contents.slice(0, 3);
+  });
+}
+
+function getLatestSlides() {
+  client.get({
+    endpoint: 'slides'
+  }).then((data) => {
+        store.commit('setSlide', data.contents)
+      }
+  );
+}
+
+function getLatestAds() {
+  client.get({
+    endpoint: 'ads'
+  }).then((data) => {
+        store.commit('setAds', data.contents);
+      }
+  );
+}
+
+onMounted(() => {
+  getLatestAds();
+  getLatestUpdate();
+  window.onload = () => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('loaded');
+    loaded.value = true;
+    getLatestSlides();
+  }
+});
+useMeta({
+  title: '',
+  htmlAttrs: {lang: 'ja', amp: true},
+  description: ''
+});
+</script>
+<!--setupは複数回実行される可能性があるのに対し、scriptタグ内は1回のみ実行される。-->
+<script>
+document.querySelector("[name='description']").remove()
+</script>
 <template>
   <!--  vue-meta expression starts from here-->
   <metainfo>
@@ -19,7 +80,7 @@
       </div>
     </div>
     <img alt="" class="background_img" src="@/assets/background_img.jpg"/>
-    <Header v-show="loaded" class="fadeUp"/>
+    <Header v-show="loaded" class="fadeUp" id="header"/>
     <div v-show="loaded" id="body-frame">
       <router-view/>
       <Footer/>
@@ -28,6 +89,11 @@
 </template>
 
 <style lang="scss" scoped>
+#header {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+}
 
 @keyframes fadeOut {
   from {
@@ -42,7 +108,7 @@
 
 #loader {
   z-index: 110;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   display: flex;
@@ -259,70 +325,3 @@
   transform-origin: bottom left;
 }
 </style>
-<script>
-import {createClient} from "microcms-js-sdk"; //ES6
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import {useMeta} from 'vue-meta';
-import store from "@/store";
-
-const client = createClient({
-  serviceDomain: "ynufes-seiryo22", // YOUR_DOMAIN is the XXXX part of XXXX.microcms.io
-  apiKey: "26191c4b25ad49f1a00e982735c5831e5ab5",
-});
-
-export default {
-  components: {Header, Footer},
-  // data() {
-  //   return {loading: true};
-  // },
-  props: {},
-  data() {
-    return {loaded: false};
-  },
-  methods: {
-    getLatestUpdate() {
-      client.get({
-        endpoint: 'updates',
-      }).then((data) => {
-        store.commit('setUpdates', data.contents);
-        // this.updates = data.contents.slice(0, 3);
-      });
-    },
-    getLatestSlides() {
-      client.get({
-        endpoint: 'slides'
-      }).then((data) => {
-            store.commit('setSlide', data.contents)
-          }
-      );
-    },
-    getLatestAds() {
-      client.get({
-        endpoint: 'ads'
-      }).then((data) => {
-            store.commit('setAds', data.contents);
-          }
-      );
-    }
-  },
-  mounted() {
-    this.getLatestAds();
-    this.getLatestUpdate();
-    window.onload = () => {
-      const loader = document.getElementById('loader');
-      loader.classList.add('loaded');
-      this.loaded = true;
-      this.getLatestSlides();
-    }
-  },
-  setup() {
-    document.querySelector("[name='description']").remove()
-    useMeta({
-      title: '',
-      htmlAttrs: {lang: 'ja', amp: true},
-      description: ''
-    })
-  }
-}
-</script>
