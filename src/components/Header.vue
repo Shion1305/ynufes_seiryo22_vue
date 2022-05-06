@@ -190,7 +190,7 @@ header {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  background: linear-gradient(120deg, #ff85efdd, #ff66d4dd);
+  background: linear-gradient(155deg, #ff7cd3e5, #ff6498e5);
 
   a {
     color: white;
