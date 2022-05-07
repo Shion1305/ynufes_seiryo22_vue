@@ -3,7 +3,7 @@ import EventTile from "@/components/EventTile";
 import data from "@/assets/data.json";
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
-import {computed, defineProps, reactive, onMounted} from "vue";
+import {computed, defineProps, onMounted, reactive} from "vue";
 
 let mode = reactive({id: 0});
 const eventData = computed(() => {
@@ -64,7 +64,7 @@ function setType(t) {
       </div>
     </div>
     <div id="events_block" class="fadeUp">
-      <router-link :key="eventItem.key" v-for="eventItem in eventData"
+      <router-link v-for="eventItem in eventData" :key="eventItem.key"
                    :to="{
           name: 'event_detail',
           params: { id: eventItem.id },
@@ -90,7 +90,8 @@ function setType(t) {
   flex-direction: row;
   width: fit-content;
   border-radius: 20px;
-  background: #e810b2;
+  background: linear-gradient(90deg, #e810b2, #f25ad4);
+
   margin: 0 auto;
   padding: 5px;
   color: white;

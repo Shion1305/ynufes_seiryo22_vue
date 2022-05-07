@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
 <template>
   <div class="content-frame fadeUp" style="animation-delay: 0.2s">
     <div class="fadeUp" style="animation-delay: 0.4s">
-      <img src="@/assets/kamome_sempai/writing.webp" alt="かもめ先輩、勉強中!"/>
+      <img alt="かもめ先輩、勉強中!" src="@/assets/kamome_sempai/writing.webp"/>
       <div style="font-size: 1.5rem">Under Construction...</div>
       <div id="not-found">このページは作成中です!<br>公開までしばらくお待ちください</div>
     </div>

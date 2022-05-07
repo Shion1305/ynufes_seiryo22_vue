@@ -13,10 +13,16 @@ const routes = [
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/UnderConstruction')
+        component: () => import(/* webpackChunkName: "about" */ '../views/AboutView')
     },
     {
         path: '/events',
+        name: 'event_list',
+        component: () => import(/* webpackChunkName: "events" */ '../views/EventListView'),
+        props: (route) => ({...route.params, type: parseInt(route.params.type)})
+    },
+    {
+        path: '/events/type/:type',
         name: 'event_list',
         component: () => import(/* webpackChunkName: "events" */ '../views/EventListView'),
         props: (route) => ({...route.params, type: parseInt(route.params.type)})
@@ -50,19 +56,13 @@ const routes = [
     {
         path: '/update',
         name: 'updates',
-        component: () => import('../views/UnderConstruction'),
+        component: () => import('../views/UpdatesView'),
     },
     {
         path: '/others',
         name: 'other',
         component: () => import(/* webpackChunkName: "others" */ '../views/UnderConstruction'),
     },
-    // {
-    //     path:'/update/:id',
-    //     name: 'update_detail',
-    //     component: () => import(/* webpackChunkName: "update_detail" */ '../views/EventDetailView.vue'),
-    //     props: (route) => ({...route.params, id: parseInt(route.params.id)})
-    // },
     {
         path: '/hama_fes',
         name: 'HamaFes',
@@ -74,7 +74,17 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
-    routes
+    routes: routes,
+    scrollBehavior(to) {
+        if (to.hash) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({el: to.hash, behavior: 'smooth'})
+                }, 500)
+            })
+        }
+        return {top: 0}
+    }
 })
 
 export default router

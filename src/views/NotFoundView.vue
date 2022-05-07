@@ -1,7 +1,7 @@
 <template>
   <div class="content-frame fadeUp">
     <div class="fadeUp" style="animation-delay: 0.4s">
-      <img src="@/assets/kamome_sempai/ojigi.webp" alt="かもめ先輩のお辞儀"/>
+      <img alt="かもめ先輩のお辞儀" src="@/assets/kamome_sempai/ojigi.webp"/>
       <div style="font-size: 3rem">404</div>
       <div id="not-found">お探しのページは<br>見つかりませんでした</div>
     </div>
@@ -11,6 +11,7 @@
 <script setup>
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+
 useMeta({
   title: "404 ページが見つかりませんでした",
   description: "お探しのページは見つかりませんでした"

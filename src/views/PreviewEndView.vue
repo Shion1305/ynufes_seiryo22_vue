@@ -1,6 +1,7 @@
 <script setup>
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+
 useMeta({title: 'プレビュー', description: '企画団体用のプレビューサイトです。プレビューサイトの公開は終了しました。'})
 if (process.env.NODE_ENV === "production") {
   event("page:preview_end");
