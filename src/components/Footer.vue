@@ -133,24 +133,19 @@ footer {
 
         img {
           height: 3rem;
-          @media screen and (max-width: 470px) {
-            height: 2rem;
-          }
         }
       }
-
 
       @media screen and (max-width: 470px) {
         flex-direction: column;
         margin-left: 0;
         .sns {
           flex-direction: row;
+
+          img {
+            height: 2rem;
+          }
         }
-        > img {
-          width: 9rem;
-        }
-      }
-      @media screen and (max-width: 470px) {
         > img {
           margin-bottom: 1rem;
           width: 7rem;
