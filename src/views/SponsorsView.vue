@@ -26,6 +26,7 @@ if (process.env.NODE_ENV === "production") {
           <h2>物品協賛</h2>
           <hr>
           <ul>
+            <li>岩井の胡麻油株式会社</li>
             <li>エスエスケイフーズ株式会社</li>
             <li>カツウラ化粧品株式会社</li>
             <li>株式会社アートプリントジャパン</li>
