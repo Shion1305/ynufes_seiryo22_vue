@@ -1,17 +1,15 @@
 <script setup>
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+import {ref} from "vue";
 
 if (process.env.NODE_ENV === "production") {
   event("pamphlet");
 }
 useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。'})
-const iframeLoaded = function () {
-  console.log("iframe loaded")
-}
-
+const showPDF = ref(true);
 const iframeError = function () {
-  console.log("error in iframe")
+  showPDF.value=false;
 }
 </script>
 <template>
@@ -20,14 +18,16 @@ const iframeError = function () {
       <img id="section-back" src="@/assets/home/section_min.webp"/>
       <h1>パンフレット</h1>
     </div>
-    <div id="download-area">
+    <div id="download-area" >
       <a class="hover-to-shrink1">
         <div>軽量版<br>x.xMB</div>
       </a>
-      <a class="hover-to-shrink1" href="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf" target="_blank" rel="noreferrer noopener">
+      <a class="hover-to-shrink1"
+         href="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf"
+         target="_blank" rel="noreferrer noopener">
         <div>標準版<br>x.xMB</div>
       </a>
-      <a href="#pamphlet-jump" class="hover-to-shrink1">
+      <a href="#pamphlet-jump" class="hover-to-shrink1" v-if="showPDF">
         <div>画像<br>でみる</div>
       </a>
     </div>
@@ -35,7 +35,7 @@ const iframeError = function () {
 
   <object id="pdf-area"
           data="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf"
-          type="application/pdf" @load="iframeLoaded" @error="iframeError">
+          type="application/pdf" @error="iframeError" v-if="showPDF">
     <p>Oops! Your browser doesn't support PDFs!</p>
     <p><a
         href="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf">Download
@@ -79,17 +79,19 @@ const iframeError = function () {
 </template>
 
 <style lang="scss" scoped>
-.anchor{
+.anchor {
   display: block;
   position: relative;
   top: -200px;
   visibility: hidden;
 }
+
 #download-area {
   margin: auto;
   display: flex;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 3%;
   width: unquote("min(100% - 2rem,600px)");
 
   > a {
