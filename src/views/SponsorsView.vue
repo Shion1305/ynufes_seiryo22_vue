@@ -28,9 +28,9 @@ if (process.env.NODE_ENV === "production") {
           <ul>
             <li>岩井の胡麻油株式会社</li>
             <li>エスエスケイフーズ株式会社</li>
-            <li>カツウラ化粧品株式会社</li>
             <li>株式会社アートプリントジャパン</li>
             <li>株式会社伊豆シャボテン公園</li>
+            <li>株式会社カツウラ化粧品株式会社</li>
             <li>株式会社ザ・キッス</li>
             <li>株式会社セザンヌ化粧品</li>
             <li>株式会社タスカジ</li>
@@ -100,7 +100,7 @@ if (process.env.NODE_ENV === "production") {
             <h2>寄付</h2>
             <hr>
             <ul>
-              <li>現代不動産</li>
+              <li>有限会社 現代不動産</li>
             </ul>
           </div>
         </section>
