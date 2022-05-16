@@ -66,7 +66,7 @@ const routes = [
     {
         path: '/hama_fes',
         name: 'HamaFes',
-        component: () => import('../views/UnderConstruction'),
+        component: () => import('../views/HamaFes'),
     },
     {path: '/404', component: () => import('../views/NotFoundView')},
     {path: '/:pathMatch(.*)*', redirect: '/404'},
