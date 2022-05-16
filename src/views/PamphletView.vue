@@ -16,7 +16,7 @@ function downloadL() {
 }
 </script>
 <template>
-  <div style="background: #fff6; padding: 1rem; border-radius: 3rem; text-align: center">
+  <div class="fadeUp" style="background: #fff6; padding: 1rem; border-radius: 3rem; text-align: center; animation-delay: 0.3s">
     <div id="section-title">
       <img alt="section background" id="section-back" src="@/assets/home/section_min.webp"/>
       <h1>パンフレット</h1>
@@ -40,16 +40,16 @@ function downloadL() {
   </div>
   <div id="main">
     <div class="page-holder">
-      <div class="page">
+      <div class="page fadeUp">
         <img alt="パンフレットページ1枚目" src="/image/pamphlet/pamphlet1.webp"/>
       </div>
-      <div class="page">
+      <div class="page fadeUp">
         <img alt="パンフレットページ2枚目" src="/image/pamphlet/pamphlet2.webp"/>
       </div>
-      <div class="page">
+      <div class="page fadeUp">
         <img alt="パンフレットページ3枚目" src="/image/pamphlet/pamphlet3.webp"/>
       </div>
-      <div class="page">
+      <div class="page fadeUp">
         <img alt="パンフレットページ4枚目" src="/image/pamphlet/pamphlet4.webp"/>
       </div>
       <div class="page">
@@ -152,6 +152,18 @@ function downloadL() {
   img {
     width: 100%;
     object-fit: cover;
+  }
+  &:nth-child(1){
+    animation-delay: 0.4s;
+  }
+  &:nth-child(2){
+    animation-delay: 0.48s;
+  }
+  &:nth-child(3){
+    animation-delay: 0.56s;
+  }
+  &:nth-child(4){
+    animation-delay: 0.64s;
   }
 }
 
