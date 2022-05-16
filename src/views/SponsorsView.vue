@@ -26,10 +26,11 @@ if (process.env.NODE_ENV === "production") {
           <h2>物品協賛</h2>
           <hr>
           <ul>
+            <li>岩井の胡麻油株式会社</li>
             <li>エスエスケイフーズ株式会社</li>
-            <li>カツウラ化粧品株式会社</li>
             <li>株式会社アートプリントジャパン</li>
             <li>株式会社伊豆シャボテン公園</li>
+            <li>株式会社カツウラ化粧品株式会社</li>
             <li>株式会社ザ・キッス</li>
             <li>株式会社セザンヌ化粧品</li>
             <li>株式会社タスカジ</li>
@@ -41,10 +42,11 @@ if (process.env.NODE_ENV === "production") {
             <li>ケンミン食品株式会社</li>
             <li>スカイスパYOKOHAMA</li>
             <li>セイコーモータースクール</li>
+            <li>セメダイン株式会社</li>
             <li>そごう美術館</li>
             <li>体感型動物園iZoo</li>
             <li>箱根ラリック美術館</li>
-            <li>はまぎん こども美術館</li>
+            <li>はまぎん こども宇宙科学館</li>
             <li>マクセル株式会社</li>
             <li>みたけ食品工業株式会社</li>
             <li>三菱みなとみらい技術館</li>
@@ -71,7 +73,7 @@ if (process.env.NODE_ENV === "production") {
               <li>ソフィア英数セミナー</li>
               <li>鶴ヶ峰自動車学校</li>
               <li>寺田倉庫株式会社</li>
-              <li>ねぎしフードサービス</li>
+              <li>株式会社ねぎしフードサービス</li>
               <li>ユニゾン英語学院</li>
               <li>横浜弁当</li>
             </ul>
@@ -85,9 +87,9 @@ if (process.env.NODE_ENV === "production") {
             <ul>
               <li>株式会社アットヨコハマ</li>
               <li>株式会社中萬学院</li>
+              <li>株式会社横浜岡田屋</li>
               <li>JOINUS</li>
-              <li>Uni coffee roastery</li>
-              <li>横浜モアーズ</li>
+              <li>UNI COFFEE ROASTERY</li>
               <li>LocaliST株式会社</li>
             </ul>
           </div>
@@ -98,7 +100,7 @@ if (process.env.NODE_ENV === "production") {
             <h2>寄付</h2>
             <hr>
             <ul>
-              <li>現代不動産</li>
+              <li>有限会社 現代不動産</li>
             </ul>
           </div>
         </section>

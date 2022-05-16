@@ -284,18 +284,9 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         }
       }
 
-      @media screen and (max-width: 1080px) {
-        .button_events_all p {
-          font-size: 3rem;
-          line-height: 1.8;
-        }
-        .button_events_part p {
-          font-size: 2.8rem;
-        }
-      }
       @media screen and (max-width: 1000px) {
         .button_events_all p {
-          font-size: 2.7rem;
+          font-size: 2.8rem;
           line-height: 1.8;
         }
         .button_events_part p {
@@ -312,7 +303,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           font-size: 2.3rem;
         }
       }
-      @media screen and (max-width: 820px) {
+      @media screen and (max-width: 800px) {
         .button_events_all p {
           font-size: 2.2rem;
           line-height: 1.7;
@@ -340,7 +331,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         }
       }
 
-      @media screen and (max-width: 460px) {
+      @media screen and (max-width: 470px) {
         .button_events_all p {
           font-size: 2.5rem;
           line-height: 1.8;
@@ -577,7 +568,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
     }
   }
 
-  @media screen and (max-width: 710px) {
+  @media screen and (max-width: 700px) {
     .twitter_embeds {
       display: none;
     }
