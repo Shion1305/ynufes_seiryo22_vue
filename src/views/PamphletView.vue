@@ -6,6 +6,14 @@ if (process.env.NODE_ENV === "production") {
   event("pamphlet");
 }
 useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。ぜひご利用ください。'})
+
+function download() {
+  event("pamphlet:download");
+}
+
+function downloadL() {
+  event("pamphlet:downloadL");
+}
 </script>
 <template>
   <div style="background: #fff6; padding: 1rem; border-radius: 3rem; text-align: center">
@@ -18,12 +26,14 @@ useMeta({title: 'デジタルパンフレット', description: '22清陵祭の�
     <div id="download-area">
       <a class="hover-to-shrink1"
          href="/data/22清陵祭_パンフレット_軽量版.pdf"
-         target="_blank" rel="noreferrer noopener">
+         target="_blank" rel="noreferrer noopener"
+         @click="downloadL">
         <div>PDF<br>軽量版<br>8.9MB</div>
       </a>
       <a class="hover-to-shrink1"
          href="/data/22清陵祭_パンフレット.pdf"
-         target="_blank" rel="noreferrer noopener">
+         target="_blank" rel="noreferrer noopener"
+         @click="download">
         <div>PDF<br>標準版<br>16.4MB</div>
       </a>
     </div>
