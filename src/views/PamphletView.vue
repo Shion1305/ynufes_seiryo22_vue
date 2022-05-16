@@ -1,78 +1,67 @@
 <script setup>
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
-import {ref} from "vue";
 
 if (process.env.NODE_ENV === "production") {
   event("pamphlet");
 }
-useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。'})
-const showPDF = ref(true);
-const iframeError = function () {
-  showPDF.value=false;
-}
+useMeta({title: 'デジタルパンフレット', description: '22清陵祭のデジタルパンフレットを掲載しています。ぜひご利用ください。'})
 </script>
 <template>
-  <div style="background: #fff6; padding: 1rem; border-radius: 3rem">
+  <div style="background: #fff6; padding: 1rem; border-radius: 3rem; text-align: center">
     <div id="section-title">
-      <img id="section-back" src="@/assets/home/section_min.webp"/>
+      <img alt="section background" id="section-back" src="@/assets/home/section_min.webp"/>
       <h1>パンフレット</h1>
     </div>
-    <div id="download-area" >
-      <a class="hover-to-shrink1">
-        <div>軽量版<br>x.xMB</div>
+    2022/05/16更新 Ver. 2.0<br>
+    22清陵祭のパンフレットはこちらからダウンロードできます。
+    <div id="download-area">
+      <a class="hover-to-shrink1"
+         href="/data/22清陵祭_パンフレット_軽量版.pdf"
+         target="_blank" rel="noreferrer noopener">
+        <div>PDF<br>軽量版<br>8.9MB</div>
       </a>
       <a class="hover-to-shrink1"
-         href="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf"
+         href="/data/22清陵祭_パンフレット.pdf"
          target="_blank" rel="noreferrer noopener">
-        <div>標準版<br>x.xMB</div>
-      </a>
-      <a href="#pamphlet-jump" class="hover-to-shrink1" v-if="showPDF">
-        <div>画像<br>でみる</div>
+        <div>PDF<br>標準版<br>16.4MB</div>
       </a>
     </div>
   </div>
-
-  <object id="pdf-area"
-          data="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf"
-          type="application/pdf" @error="iframeError" v-if="showPDF">
-    <p>Oops! Your browser doesn't support PDFs!</p>
-    <p><a
-        href="https://www-next.ynu-fes.yokohama/wp-content/uploads/2021/12/21%E5%B8%B8%E7%9B%A4%E7%A5%AD%E3%83%91%E3%83%B3%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf">Download
-      Instead</a></p>
-  </object>
-  <a class="anchor" id="pamphlet-jump"></a>
   <div id="main">
     <div class="page-holder">
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ1枚目" src="/image/pamphlet/pamphlet1.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ2枚目" src="/image/pamphlet/pamphlet2.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ3枚目" src="/image/pamphlet/pamphlet3.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ4枚目" src="/image/pamphlet/pamphlet4.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ5枚目" src="/image/pamphlet/pamphlet5.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ6枚目" src="/image/pamphlet/pamphlet6.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ7枚目" src="/image/pamphlet/pamphlet7.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ8枚目" src="/image/pamphlet/pamphlet8.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ9枚目" src="/image/pamphlet/pamphlet9.webp"/>
       </div>
       <div class="page">
-        <img src="/image/pamphlet/test_page.jpg"/>
+        <img alt="パンフレットページ10枚目" src="/image/pamphlet/pamphlet10.webp"/>
+      </div>
+      <div class="page">
+        <img alt="パンフレットページ11枚目" src="/image/pamphlet/pamphlet11.webp"/>
       </div>
     </div>
   </div>
@@ -98,7 +87,7 @@ const iframeError = function () {
     text-decoration: none;
     font-size: 1.5em;
     color: white;
-    width: 30%;
+    width: 50%;
 
     > div {
       box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
@@ -120,7 +109,7 @@ const iframeError = function () {
 
 #main {
   animation-delay: 0.2s;
-  width: 100%;
+  width: unquote("min(calc(100% - 2rem), 80rem)");
   margin-inline: auto;
   position: relative;
 }
