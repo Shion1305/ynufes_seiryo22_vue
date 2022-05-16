@@ -1,5 +1,15 @@
 <script setup>
+import {useMeta} from "vue-meta";
+import {event} from "vue-gtag";
 
+useMeta({
+  title: "はまキャラグランプリ",
+  description: "はまフェスの公式キャラクターを計4点のエントリーから投票によって決定します! 皆さんの投票お待ちしております!!"
+})
+
+if (process.env.NODE_ENV === "production") {
+  event("page:sponsors");
+}
 </script>
 <template>
   <div class="main-container">
