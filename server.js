@@ -21,6 +21,7 @@ app.use('/img', express.static(__dirname + '/dist/img/'));
 app.use('/image', express.static(__dirname + '/dist/image/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
 app.use('/js', express.static(__dirname + '/dist/js/'));
+app.use('/data', express.static(__dirname + '/dist/data/'));
 app.get('/*', (req, res) => {
     console.log("request received");
     if (req.path === "/robots.txt") {
