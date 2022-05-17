@@ -229,7 +229,7 @@ document.querySelector("[name='description']").remove()
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: clip;
+  overflow: hidden;
   min-height: 100vh;
   box-sizing: border-box;
   padding-top: 170px;
