@@ -562,8 +562,12 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         justify-content: center;
         align-items: center;
         color: #EF60A3;
-        font-size: 1.6rem;
+        font-size: 1.6em;
         padding: 0 1.5rem;
+        white-space: nowrap;
+        @media screen and (max-width: 350px){
+          font-size: 17px;
+        }
       }
     }
   }
