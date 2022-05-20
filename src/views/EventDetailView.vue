@@ -83,7 +83,9 @@ function pdfError() {
           </a>
         </div>
         <div v-if="eventData.org_description!=''">
-          <h1>団体紹介</h1>
+          <div id="org_title">団体紹介
+            <div>{{ eventData.org_name }}</div>
+          </div>
           {{ eventData.org_description }}
         </div>
       </div>
@@ -225,11 +227,6 @@ function pdfError() {
 }
 
 .detail_block {
-  h1 {
-    width: fit-content;
-    margin: 1em auto 0.5em auto;
-  }
-
   animation-delay: 0.6s;
   padding-bottom: 2rem;
   white-space: pre-wrap;
@@ -237,7 +234,31 @@ function pdfError() {
   width: 100%;
   font-size: large;
 
+  h1 {
+    background: #EF60A3;
+    color: white;
+    padding: 0.3em 1em;
+    border-radius: 0.3em;
+    width: fit-content;
+    margin: 1em auto 0.5em auto;
+  }
+}
 
+#org_title {
+  font-size: 2em;
+  background: #EF60A3;
+  color: white;
+  width: fit-content;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  margin: 1em auto 0.5em auto;
+  > div {
+    border-radius: 0.3em;
+    color: #EF60A3;
+    font-size: 0.9em;
+    background: white;
+    padding: 0.1em;
+  }
 }
 
 #contents-area-pdf {
