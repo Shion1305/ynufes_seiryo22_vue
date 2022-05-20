@@ -66,8 +66,8 @@ const routes = [
     },
     {
         path: '/others',
-        name: 'other',
-        component: () => import(/* webpackChunkName: "others" */ '../views/UnderConstruction'),
+        name: 'other_fes',
+        component: () => import(/* webpackChunkName: "others" */ '../views/OtherFes'),
     },
     {
         path: '/hama_fes',
