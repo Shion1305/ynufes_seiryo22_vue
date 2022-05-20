@@ -58,24 +58,27 @@ function pdfError() {
           <h1>企画説明</h1>
           {{ eventData.event_description }}
         </div>
-        <div id="contents-area-pdf">
-          <a href="/data/test.pdf" class="standard-button hover-to-shrink1" target="_blank" rel="noopener noreferer">
+        <div id="contents-area-pdf" v-if="eventData.event_type===1">
+          <a :href="`/data/${eventData.pdf}`" class="standard-button hover-to-shrink1" target="_blank"
+             rel="noopener noreferer">
             <div>企画コンテンツ<br>(PDF)をみる!</div>
           </a>
           <object id="pdf-preview" v-if="previewPDF" @load="pdfLoaded" @error="pdfError" type="application/pdf"
-                  data="/data/test.pdf" width="100%" height="500">
+                  :data="`/data/${eventData.pdf}`" width="100%" height="500">
             <p></p>
           </object>
         </div>
-        <div id="contents-area-youtube">
-          <iframe id="youtube-iframe" width="100%" height="auto" src="https://www.youtube.com/embed/tDZVSm2bv-E"
+        <div id="contents-area-youtube" v-if="eventData.event_type===2">
+          <iframe id="youtube-iframe" width="100%" height="auto"
+                  :src="`https://www.youtube.com/embed/${eventData.youtube}`"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
-          <div>動画の公開期間は</div>
+          <div>動画の公開期間は6/12(日)24:00までです。</div>
         </div>
-        <div id="contents-area-link">
-          <a href="/data/test.pdf" class="standard-button hover-to-shrink1" target="_blank" rel="noopener noreferer">
+        <div id="contents-area-link" v-if="eventData.event_type===3">
+          <a :href="`${eventData.link}`" class="standard-button hover-to-shrink1" target="_blank"
+             rel="noopener noreferer">
             <div>企画ページを<br>みる!(外部サイト)</div>
           </a>
         </div>
@@ -84,16 +87,6 @@ function pdfError() {
           {{ eventData.org_description }}
         </div>
       </div>
-      <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
-      <!--      <h3 style="text-align: center">(↓Youtube(WEB展示)の場合)</h3>-->
-      <!--      <div class="youtube_area">-->
-      <!--        <iframe width="560" height="315" src="https://www.youtube.com/embed/S-s4LtLFQEo"-->
-      <!--                title="YouTube video player"-->
-      <!--                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
-      <!--                allowfullscreen></iframe>-->
-      <!--      </div>-->
-      <!--      <h3 style="text-align: center">(↓PDF(Web展示)の場合)</h3>-->
-      <!--      <iframe src="/test_pdf.pdf" class="pdf_area"></iframe>-->
     </div>
   </div>
 </template>
@@ -278,6 +271,9 @@ function pdfError() {
 }
 
 #contents-area-youtube {
+  text-align: center;
+  margin: 3em 0;
+
   #youtube-iframe {
     aspect-ratio: 1.78;
   }
