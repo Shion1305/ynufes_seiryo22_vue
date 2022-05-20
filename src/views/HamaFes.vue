@@ -8,7 +8,7 @@ useMeta({
 })
 
 if (process.env.NODE_ENV === "production") {
-  event("page:sponsors");
+  event("page:hama_fes");
 }
 
 function moveGForm() {
