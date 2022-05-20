@@ -2,10 +2,10 @@
 
 </script>
 <template>
-  <h1>他大学祭のご紹介</h1>
+  <h1 id="page-title">他大学祭のご紹介</h1>
   <div class="cell-holder">
     <a href="https://ohdaisai.jp" rel="noopener" target="_blank" class="fes-cell">
-      <img src="/image/about1.webp"/>
+      <img src="@/assets/other_fes/taisho_univ.webp"/>
       <div class="text-area">
         <div class="info-area">
           <div class="info-upper">
@@ -15,7 +15,7 @@
           <div class="info-down">
             <hr>
             <h2>6/5,6</h2>
-            <h2>対面にて開催</h2>
+            <h2>対面開催</h2>
           </div>
         </div>
         <div class="jump-area">
@@ -23,37 +23,18 @@
         </div>
       </div>
     </a>
-    <a href="https://ohdaisai.jp" rel="noopener" target="_blank" class="fes-cell">
-      <img src="/image/about1.webp"/>
+    <a href="https://yokohama-fest.com/2022/" rel="noopener" target="_blank" class="fes-cell">
+      <img src="@/assets/other_fes/tokyocity_univ.webp"/>
       <div class="text-area">
         <div class="info-area">
           <div class="info-upper">
-            <h1>鴨台祭</h1>
-            <h2>大正大学</h2>
+            <h1>横浜祭</h1>
+            <h2>東京都市大学</h2>
           </div>
           <div class="info-down">
             <hr>
-            <h2>6/5,6</h2>
-            <h2>対面にて開催</h2>
-          </div>
-        </div>
-        <div class="jump-area">
-          <div>公式サイト<br>を見る</div>
-        </div>
-      </div>
-    </a>
-    <a href="https://ohdaisai.jp" rel="noopener" target="_blank" class="fes-cell">
-      <img src="/image/about1.webp"/>
-      <div class="text-area">
-        <div class="info-area">
-          <div class="info-upper">
-            <h1>鴨台祭</h1>
-            <h2>大正大学</h2>
-          </div>
-          <div class="info-down">
-            <hr>
-            <h2>6/5,6</h2>
-            <h2>対面にて開催</h2>
+            <h2>6/11,12</h2>
+            <h2>ハイブリッド開催</h2>
           </div>
         </div>
         <div class="jump-area">
@@ -65,6 +46,13 @@
 </template>
 
 <style lang="scss" scoped>
+
+#page-title{
+  background: linear-gradient(90deg, #ff7cd3, #ff6498);
+  border-radius: 1em;
+  padding: 1em;
+  color: white;
+}
 .cell-holder {
   width: unquote("min(100% - 1rem, 80rem)");
   justify-content: center;
@@ -158,7 +146,7 @@
         h2 {
           font-style: normal;
           margin: 0;
-          font-size: 2em;
+          font-size: 1.8em;
           width: 100%;
           text-align: center;
         }
