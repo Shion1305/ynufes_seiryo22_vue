@@ -74,7 +74,7 @@ function pdfError() {
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
-          <div>動画の公開期間は6/12(日)24:00までです。</div>
+          <div>一部動画は公開まで非公開の状態となっております。<br>動画の公開期間は6/12(日)24:00までです。</div>
         </div>
         <div id="contents-area-link" v-if="eventData.event_type===3">
           <a :href="`${eventData.link}`" class="standard-button hover-to-shrink1" target="_blank"
@@ -87,6 +87,20 @@ function pdfError() {
             <div>{{ eventData.org_name }}</div>
           </div>
           {{ eventData.org_description }}
+          <div id="sns-area">
+            <a class="sns_block hover-to-shrink1" :href="`https://twitter.com/${eventData.twitter.replace('@','')}`" target="_blank"
+               v-if="eventData.twitter!==''">
+              <img src="@/assets/sns/twitter_logo.webp" alt="twitter_logo"/>
+            </a>
+            <a class="sns_block hover-to-shrink1" :href="`https://instagram.com/${eventData.instagram.replace('@','')}`" target="_blank"
+            v-if="eventData.instagram!==''">
+              <img src="@/assets/sns/instagram_logo.webp" alt="twitter_logo"/>
+            </a>
+            <a class="sns_block hover-to-shrink1" :href="`${eventData.website}`" target="_blank"
+               v-if="eventData.website!==''">
+              <img src="/icon/icon_link.png" alt="twitter_logo"/>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -103,10 +117,10 @@ function pdfError() {
   align-items: center;
   min-height: calc(100vh - 140px - 220px);
   font-size: 14px;
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     font-size: 12px;
   }
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 400px) {
     font-size: 10px;
   }
 }
@@ -167,8 +181,10 @@ function pdfError() {
     margin: 0;
     padding: 0;
     min-height: 3em;
+    font-weight: bold;
     @media screen and (max-width: 768px) {
       font-size: 2em;
+      min-height: 0;
     }
     right: 0;
   }
@@ -253,9 +269,10 @@ function pdfError() {
   gap: 0 0.3em;
   align-items: center;
 
-  p{
+  p {
     margin: 0 auto;
   }
+
   > div {
     margin: 0 auto;
     border-radius: 0.3em;
@@ -331,4 +348,23 @@ function pdfError() {
   }
 }
 
+#sns-area {
+  display: flex;
+  justify-content: center;
+  font-size: unquote("min(1vw,15px)");
+
+  .sns_block {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+
+    img {
+      margin: auto;
+      width: unquote("min(80px,25vw)");
+      object-fit: cover;
+    }
+
+  }
+}
 </style>
