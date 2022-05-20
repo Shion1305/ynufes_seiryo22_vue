@@ -75,12 +75,18 @@ const showNoImage = function (e) {
       padding: 0;
       margin: 0;
     }
+
+    > hr {
+      margin: 2px;
+      padding: 0;
+      width: 100%;
+      height: 2px;
+      border: 0;
+      border-radius: 1px;
+      background: linear-gradient(to right, #85858555 0%, #a3a2a255 50%, #85858555 100%);
+    }
   }
 
-  > hr {
-    margin: 0;
-    padding: 0;
-  }
 
   .tag_area {
     margin-top: 0.3rem;
