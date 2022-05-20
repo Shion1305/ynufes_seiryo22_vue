@@ -1,7 +1,7 @@
 [
   {
     "id": 1001,
-    "type": "Web企画",
+    "type": "Youtube企画",
     "tag_color": "#e010c1",
     "img": "1001.webp",
     "event_name": "茶道研究会　活動の記録",
@@ -10,12 +10,15 @@
     "org_description": "私達のサークル、茶道研究会は「研究会」とついていますが他の大学で言う茶道部と同じ活動をしています。 活動場所は主に大学会館4階の奥の｢かもめ｣という和室です。 基本的に月水金の放課後に活動しているので、 気軽に遊びに来てください。",
     "twitter": "@yokokoku_chaken",
     "instagram": "",
-    "facebook": "",
-    "website": "https://ynuchaken.tyanoyu.net/"
+    "website": "https://ynuchaken.tyanoyu.net/",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "HjuxDdxdIPw",
+    "link": ""
   },
   {
     "id": 1002,
-    "type": "Web企画",
+    "type": "Youtube企画",
     "tag_color": "#e010c1",
     "img": "1002.jpeg",
     "event_name": "合唱の演奏動画",
@@ -24,36 +27,45 @@
     "org_description": "私たちDancing Dolphinsは、横浜国立大学唯一の女声合唱団です！　美しいアンサンブルを目指して、週に一度のペースで活動しています。団員はいつでも募集中なので、ご興味のある方はお気軽にご連絡ください。また、団のYouTubeチャンネルでは他の演奏動画を公開していますので、そちらもぜひご覧ください！",
     "twitter": "@YNU_girls_sing",
     "instagram": "@ynu_girls_sing",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "qdZjkgL4d8s",
+    "link": ""
   },
   {
     "id": 1003,
-    "type": "Web企画",
+    "type": "Youtube企画",
     "tag_color": "#e010c1",
     "img": "1003.jpeg",
     "event_name": "清陵コンサート2022",
     "org_name": "横浜国立大学吹奏楽団",
     "event_description": "横浜国立大学吹奏楽団です！今年の清陵祭では4月に神奈川公会堂にて新歓の一環として開催いたしました、スプリングコンサートの模様をお届けさせていただきます。迫力あるYNUSBのサウンドをどうぞお楽しみください！！",
-    "org_description": "横浜国立大学吹奏楽団です！今年の清陵祭では4月に神奈川公会堂にて新歓の一環として開催いたしました、スプリングコンサートの模様をお届けさせていただきます。迫力あるYNUSBのサウンドをどうぞお楽しみください！！",
+    "org_description": "",
     "twitter": "@ynusb_main",
     "instagram": "@ynusb_main",
-    "facebook": "",
-    "website": "http://ynusb.ciao.jp/"
+    "website": "http://ynusb.ciao.jp/",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "wnOr2ZPaY7M",
+    "link": ""
   },
   {
     "id": 1004,
-    "type": "Web企画",
+    "type": "Youtube企画",
     "tag_color": "#e010c1",
     "img": "1004.jpg",
     "event_name": "三味線合奏",
     "org_name": "津軽三味線愛好会 悠久音",
     "event_description": "三味線の合奏をお届けします",
-    "org_description": "三味線の合奏をお届けします",
+    "org_description": "津軽三味線愛好会 悠久音は日本の伝統楽器である津軽三味線を用い、伝統×現代を軸に”津軽三味線で遊ぶ”をモットーに活動している公認三味線サークルです",
     "twitter": "@yukene_shamisen",
     "instagram": "@yukune_shamisen",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "tDZVSm2bv-E",
+    "link": ""
   },
   {
     "id": 1005,
@@ -66,12 +78,15 @@
     "org_description": "横浜国立大学現代視覚文化研究会(略称:横国げんしけん、\ngsk他)とは、現在100人前後の会員が所属している\n横浜国立大学公認のオタクサークルです。\n\n2009年から活動を開始し、徐々に規模を大きくしています。\n参加目的は気軽に趣味の話がしたい、\nプレイヤー仲間が欲しい、イベント運営がしたいなど\n会員により様々です。\n\n私たちと一緒に、サークルとしてできること、\nあなたのやりたいことを探しましょう！",
     "twitter": "@YNU_genshiken",
     "instagram": "",
-    "facebook": "",
-    "website": "https://ynugsk.wixsite.com/ynu-genshiken"
+    "website": "https://ynugsk.wixsite.com/ynu-genshiken",
+    "event_type": 3,
+    "pdf": "",
+    "youtube": "",
+    "link": "https://ynugsk.wixsite.com/ynu-genshiken/archive"
   },
   {
     "id": 1006,
-    "type": "Web企画",
+    "type": "PDF企画",
     "tag_color": "#e010c1",
     "img": "1006.jpeg",
     "event_name": "ミヂカなニュース",
@@ -80,12 +95,15 @@
     "org_description": "横国フェリス放送研究会は現在、マリンFMという、アプリリスラジで聴くことができるコミュニティラジオ局で、毎週土曜13:00〜13:15に高校生・大学生向けの番組を放送中です！！\n他にもミスコンやイベントの司会、アナウンスのお仕事等、活動内容が盛り沢山！！\nいつでも入会できますので、気軽にご連絡くださいー！",
     "twitter": "@yfhouken_2020",
     "instagram": "@ynu_fu_houken",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 1,
+    "pdf": "横国フェリス放送研究会_Web展示.pdf",
+    "youtube": "",
+    "link": ""
   },
   {
     "id": 1007,
-    "type": "web企画",
+    "type": "Web企画",
     "tag_color": "#e010c1",
     "img": "1007.webp",
     "event_name": "リモートアカペラ「sabotage」",
@@ -93,13 +111,16 @@
     "event_description": "1月に開催したStairways Winterlive 2021 「音ヲメクル」の全体曲「sabotage」を過去の活動風景を織り交ぜながらお送りします！コロナ禍で活動が制限された中、リモートアカペラで作り上げました！お楽しみください♪\n※マスクを外して歌っている写真はコロナ禍以前のものです。",
     "org_description": "こんにちは！横浜国立大学アカペラサークルStairwaysです♪\nStairwaysは色々な大学からアカペラや歌うことが好きな人、ボイスパーカッションが得意な人など多種多様な人が集まって構成されています。\n活動が制限される中、感染症対策をしながら学内ライブや外部でのサークルライブを開催してきました。\nStairwaysは今年20周年を迎えます！これからもStairwaysをよろしくお願いします♪",
     "twitter": "@stair_shinkan_",
-    "instagram": "@stair_shinkan_",
-    "facebook": "",
-    "website": ""
+    "instagram": "",
+    "website": "",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "bG3uCX69FhM",
+    "link": ""
   },
   {
     "id": 1008,
-    "type": "web企画",
+    "type": "Youtube企画",
     "tag_color": "#e010c1",
     "img": "1008.webp",
     "event_name": "横国キャップ野球ピッチング集",
@@ -108,22 +129,28 @@
     "org_description": "横国生のみで構成された「キャップ野球」をする団体です✨\nキャップ野球とは、ペットボトルのキャップを使った野球形式のニュースポーツです❗️",
     "twitter": "@beach_sounds",
     "instagram": "ynucapbaseball",
-    "facebook": "",
-    "website": "https://soundsonbeach.wixsite.com/-site"
+    "website": "https://soundsonbeach.wixsite.com/-site",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "KOFGKlabDjQ",
+    "link": ""
   },
   {
     "id": 1009,
-    "type": "web企画",
+    "type": "Web企画",
     "tag_color": "#e010c1",
-    "img": "1009.webp",
+    "img": "1009.wep",
     "event_name": "部誌の展示",
     "org_name": "漫画・イラスト研究部",
     "event_description": "清陵祭のテーマ「花笑み」とは別に「自撮り」というテーマを決めて、それに沿って部員が制作した作品を展示します！テーマが作品にどのように反映されているのか、注目してご覧ください！！",
     "org_description": "創作という一つの目標に向かって、部員全員で切磋琢磨している団体です",
     "twitter": "＠ynuclz",
     "instagram": "",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 3,
+    "pdf": "",
+    "youtube": "",
+    "link": "https://ynucl.github.io/ynucl.github.iossd/"
   },
   {
     "id": 2001,
@@ -136,22 +163,28 @@
     "org_description": "",
     "twitter": "",
     "instagram": "",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "nOiDb3rf3tY",
+    "link": ""
   },
   {
     "id": 2002,
     "type": "本部企画",
     "tag_color": "#00a0f1",
-    "img": "2002.webp",
+    "img": "noimage.png",
     "event_name": "5日後に清陵祭が気になるカウントダウン",
     "org_name": "清陵祭実行委員会",
     "event_description": "大学及び、大学祭を紹介する30秒から40秒程度の動画を作成し、5日後から動画内でカウントダウンを行う。大学祭当日は10分程度のダイジェストを大学祭公式YouTubeに公開する。",
     "org_description": "",
     "twitter": "",
     "instagram": "",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "DxKESL6KTu0",
+    "link": ""
   },
   {
     "id": 2003,
@@ -164,8 +197,11 @@
     "org_description": "",
     "twitter": "",
     "instagram": "",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 2,
+    "pdf": "",
+    "youtube": "1qlivoU_GLQ",
+    "link": ""
   },
   {
     "id": 2004,
@@ -178,21 +214,10 @@
     "org_description": "",
     "twitter": "",
     "instagram": "",
-    "facebook": "",
-    "website": ""
-  },
-  {
-    "id": 2005,
-    "type": "本部企画",
-    "tag_color": "#00a0f3",
-    "img": "2005.webp",
-    "event_name": "横浜エコ国立大学 入学試験",
-    "org_name": "清陵祭実行委員会",
-    "event_description": "今年の清陵祭では環境にまつわるエコ企画を行います！\uD83D\uDC4F\n大学祭公式ホームページ上にて、環境に関する高難易度(?)クイズ、『横浜エコ国立大学 入学試験』を実施します！\uD83D\uDCD6\n君は、横浜エコ国立大学に無事入学することはできるかな‥‥？",
-    "org_description": "",
-    "twitter": "",
-    "instagram": "",
-    "facebook": "",
-    "website": ""
+    "website": "",
+    "event_type": 0,
+    "pdf": "",
+    "youtube": "",
+    "link": ""
   }
 ]
