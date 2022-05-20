@@ -11,9 +11,9 @@ if (process.env.NODE_ENV === "production") {
   event("page:sponsors");
 }
 
-function moveGForm(){
-  const el=document.getElementById("gform_iframe");
-  el.scrollIntoView({behavior:"smooth"})
+function moveGForm() {
+  const el = document.getElementById("gform_iframe");
+  el.scrollIntoView({behavior: "smooth"})
 }
 
 </script>
@@ -22,6 +22,12 @@ function moveGForm(){
     <div class="head-area">
       <h1>はまキャラグランプリ</h1>
       <div>
+        <div id="head-frame">
+          <img alt="キャラクター候補1" src="/image/hamafes/character1.webp"/>
+          <img alt="キャラクター候補2" src="/image/hamafes/character2.webp"/>
+          <img alt="キャラクター候補3" src="/image/hamafes/character3.webp"/>
+          <img alt="キャラクター候補4" src="/image/hamafes/character4.webp"/>
+        </div>
         横浜市内の大学祭の集まり「はまフェス」のキャラクターを決めることになりました！各大学からノミネートされたキャラクターのなかから、投票で公式キャラクターが決定します。<br>
         あなたのお好きなキャラクターに一票を！皆さんの投票お待ちしております！！<br>
         投票締め切り：2022年5月28日 23時59分<br>
@@ -43,29 +49,23 @@ function moveGForm(){
       </div>
       <div>
         <h2>【はまフェスとは？】</h2>
-        はまフェスは、横浜市内にある5つの大学の大学祭で構成された団体です！これから様々な企画を各大学祭で開催する予定です。ぜひご注目ください！<br>
-        &emsp;&emsp;[横国] 清陵祭/常盤祭<br>
-        &emsp;&emsp;[神大] 神大フェスタ<br>
-        &emsp;&emsp;[フェリス] Ferris Festival<br>
-        &emsp;&emsp;[横市] 浜大祭<br>
-        &emsp;&emsp;[慶應] 矢上祭
+        「はまフェス」とは、横浜にキャンパスを持つ神奈川大学、慶應義塾大学、フェリス女学院大学、横浜市立大学、横浜国立大学の大学祭実行委員会で構成された団体です。これから様々な企画を各大学祭で開催する予定です。ぜひご注目ください！<br>
+        &emsp;[横国] 清陵祭/常盤祭<br>
+        &emsp;[神大] 神大フェスタ<br>
+        &emsp;[フェリス] Ferris Festival<br>
+        &emsp;[横市] 浜大祭<br>
+        &emsp;[慶應] 矢上祭
       </div>
       <div style="text-align: center">
         <h2>【お問い合わせ】</h2>
         メール(hamafes.univ@gmail.com)<br>または、はまフェス公式SNSから!
       </div>
     </div>
-    <div id="head-frame">
-      <img src="/image/hamafes/character1.webp"/>
-      <img src="/image/hamafes/character2.webp"/>
-      <img src="/image/hamafes/character3.webp"/>
-      <img src="/image/hamafes/character4.webp"/>
-    </div>
     <div class="characters-detail-holder">
       <div class="character-detail">
         <div class="character-icon">
           エントリー①
-          <img src="/image/hamafes/character1.webp"/>
+          <img src="/image/hamafes/character1.webp" alt="キャラクター候補1"/>
         </div>
         <div class="description-area">
           <div>
@@ -81,7 +81,7 @@ function moveGForm(){
       <div class="character-detail">
         <div class="character-icon">
           エントリー②
-          <img src="/image/hamafes/character2-2.webp"/>
+          <img src="/image/hamafes/character2-2.webp" alt="キャラクター候補2"/>
         </div>
         <div class="description-area">
           <div>
@@ -98,7 +98,7 @@ function moveGForm(){
       <div class="character-detail">
         <div class="character-icon">
           エントリー③
-          <img src="/image/hamafes/character3.webp"/>
+          <img src="/image/hamafes/character3.webp" alt="キャラクター候補3"/>
         </div>
         <div class="description-area">
           <div>
@@ -114,7 +114,7 @@ function moveGForm(){
       <div class="character-detail">
         <div class="character-icon">
           エントリー④
-          <img src="/image/hamafes/character4.webp"/>
+          <img src="/image/hamafes/character4.webp" alt="キャラクター候補4"/>
         </div>
         <div class="description-area">
           <div>
@@ -131,7 +131,7 @@ function moveGForm(){
     <iframe
         id="gform_iframe"
         src="https://docs.google.com/forms/d/e/1FAIpQLSe-48A5DAbCP9HtUCbQYIELyAZFUZE55GyKLQ-OUfrX6Tuzow/viewform?embedded=true"
-        width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…
+        width="100%" height="600">Loading…
     </iframe>
   </div>
 </template>
@@ -140,7 +140,6 @@ function moveGForm(){
 .main-container {
   width: unquote("min(100% - 2rem, 70rem)");
   font-size: 12px;
-
 
   .characters-detail-holder {
     display: flex;
@@ -152,7 +151,6 @@ function moveGForm(){
     0 5px 6.1px rgba(0, 0, 0, 0.076),
     0 10.1px 11.4px rgba(0, 0, 0, 0.086);
     background: #fff5;
-    box-sizing: border-box;
     border-radius: 3rem;
     overflow: hidden;
     color: black;
@@ -161,7 +159,6 @@ function moveGForm(){
 
     h1 {
       color: white;
-      //background: linear-gradient(120deg, #ff5ecc, #ff75a8);
       padding: 0.5em 0 0 0;
       text-align: center;
       margin: 0;
@@ -200,18 +197,18 @@ function moveGForm(){
       h2 {
         margin: 0 auto;
         width: fit-content;
-        border-radius: 5px;
         color: #ff5ecc;
-        //background: linear-gradient(120deg, #ff5ecc, #ff75a8);
+        white-space: nowrap;
       }
     }
   }
 
   #head-frame {
-    width: 100%;
+    background: white;
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
+    box-sizing: border-box;
 
     img {
       width: 25%;
