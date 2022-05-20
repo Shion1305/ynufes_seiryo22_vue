@@ -1,9 +1,25 @@
+<script setup>
+import {defineProps} from "vue"
+
+const props = defineProps({
+  eventData: {
+    type: Object,
+    required: true
+  }
+})
+const showNoImage = function (e) {
+  e.target.onerror = null;
+  e.target.src = '/icon/noimage.png'
+}
+</script>
+
 <template>
   <div class="event_widget">
-    <img :alt="`icon for ${this.eventData.event_name} by ${this.eventData.org_name}`"
-         :src="`/icon/${this.eventData.img}`"/>
-    <div v-if="Boolean(this.eventData.type)" :style="`background: ${this.eventData.tag_color};`" class="type">
-      {{ this.eventData.type }}
+    <img :alt="`icon for ${props.eventData.event_name} by ${props.eventData.org_name}`"
+         :src="`/icon/${props.eventData.img}`"
+         @error="showNoImage"/>
+    <div v-if="Boolean(props.eventData.type)" :style="`background: ${props.eventData.tag_color};`" class="type">
+      {{ props.eventData.type }}
     </div>
     <div class="meta_area">
       <h2>
@@ -17,17 +33,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "EventTile",
-  props: {
-    eventData: {
-      type: Object,
-      required: true
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .event_widget {
@@ -47,6 +52,7 @@ export default {
   }
 
   > img {
+    aspect-ratio: 1;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
     width: 100%;
