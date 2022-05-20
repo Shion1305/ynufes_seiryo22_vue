@@ -18,7 +18,7 @@ function moveGForm() {
 
 </script>
 <template>
-  <div class="main-container">
+  <div class="main-container fadeUp">
     <div class="head-area">
       <h1>はまキャラグランプリ</h1>
       <div>
@@ -140,6 +140,7 @@ function moveGForm() {
 .main-container {
   width: unquote("min(100% - 2rem, 70rem)");
   font-size: 12px;
+  animation-delay: 0.5s;
 
   .characters-detail-holder {
     display: flex;
