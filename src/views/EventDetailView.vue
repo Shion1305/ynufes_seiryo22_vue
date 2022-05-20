@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 }
 let previewPDF = ref(true)
 
-function pdfLoaded(){
+function pdfLoaded() {
   console.log("PDFLOADED")
 }
 
@@ -59,19 +59,31 @@ function pdfError() {
           {{ eventData.event_description }}
         </div>
         <div id="contents-area-pdf">
-          <a href="/data/test.pdf" class="download-button hover-to-shrink1" target="_blank" rel="noopener noreferer">
+          <a href="/data/test.pdf" class="standard-button hover-to-shrink1" target="_blank" rel="noopener noreferer">
             <div>企画コンテンツ<br>(PDF)をみる!</div>
           </a>
-          <object id="pdf-preview" v-if="previewPDF" @load="pdfLoaded" @error="pdfError" type="application/pdf" data="/data/test.pdf" width="100%" height="500">
+          <object id="pdf-preview" v-if="previewPDF" @load="pdfLoaded" @error="pdfError" type="application/pdf"
+                  data="/data/test.pdf" width="100%" height="500">
             <p></p>
           </object>
         </div>
-        <div>
+        <div id="contents-area-youtube">
+          <iframe id="youtube-iframe" width="100%" height="auto" src="https://www.youtube.com/embed/tDZVSm2bv-E"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+          <div>動画の公開期間は</div>
+        </div>
+        <div id="contents-area-link">
+          <a href="/data/test.pdf" class="standard-button hover-to-shrink1" target="_blank" rel="noopener noreferer">
+            <div>企画ページを<br>みる!(外部サイト)</div>
+          </a>
+        </div>
+        <div v-if="eventData.org_description!=''">
           <h1>団体紹介</h1>
           {{ eventData.org_description }}
         </div>
       </div>
-      <div class="willBeHere">企画コンテンツは<br>順次公開されます</div>
       <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
       <!--      <h3 style="text-align: center">(↓Youtube(WEB展示)の場合)</h3>-->
       <!--      <div class="youtube_area">-->
@@ -103,7 +115,7 @@ function pdfError() {
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  padding: 0 2rem;
+  padding: 0 1rem;
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 140px - 220px);
@@ -245,25 +257,38 @@ function pdfError() {
     width: 100%;
     height: 500px;
   }
+}
 
-  .download-button {
-    margin: 1em auto;
-    text-decoration: none;
+.standard-button {
+  margin: 1em auto;
+  text-decoration: none;
 
-    > div {
-      border-radius: 1em;
-      text-align: center;
-      padding: 1em;
-      font-size: 1.2em;
-      color: white;
-      background: linear-gradient(120deg, #ff5ecc, #ff75a8);
-      box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
-      0 5px 6.1px rgba(0, 0, 0, 0.076),
-      0 10.1px 11.4px rgba(0, 0, 0, 0.086);
-    }
+  > div {
+    width: fit-content;
+    border-radius: 1em;
+    text-align: center;
+    padding: 1em;
+    color: white;
+    font-size: 1.5em;
+    background: linear-gradient(120deg, #ff5ecc, #ff75a8);
+    box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
+    0 5px 6.1px rgba(0, 0, 0, 0.076),
+    0 10.1px 11.4px rgba(0, 0, 0, 0.086);
   }
 }
 
+#contents-area-youtube {
+  #youtube-iframe {
+    aspect-ratio: 1.78;
+  }
+}
+
+#contents-area-link {
+  margin: 2em 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .top_area {
   animation-delay: 0.4s;
