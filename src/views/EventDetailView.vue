@@ -82,8 +82,8 @@ function pdfError() {
             <div>企画ページを<br>みる!(外部サイト)</div>
           </a>
         </div>
-        <div v-if="eventData.org_description!=''">
-          <div id="org_title">団体紹介
+        <div v-if="eventData.org_name!=='清陵祭実行委員会'">
+          <div id="org_title"><p>団体紹介</p>
             <div>{{ eventData.org_name }}</div>
           </div>
           {{ eventData.org_description }}
@@ -94,18 +94,6 @@ function pdfError() {
 </template>
 
 <style lang="scss" scoped>
-.willBeHere {
-  margin: auto;
-  width: fit-content;
-  padding: 13px;
-  border-radius: 30px;
-  font-size: 1.5rem;
-  color: white;
-  border: solid white 3px;
-  text-align: center;
-  background: #ff5ecc;
-}
-
 .content-frame {
   width: 100%;
   box-sizing: border-box;
@@ -114,6 +102,13 @@ function pdfError() {
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 140px - 220px);
+  font-size: 14px;
+  @media screen and (max-width: 500px){
+    font-size: 12px;
+  }
+  @media screen and (max-width: 400px){
+    font-size: 10px;
+  }
 }
 
 .content-block {
@@ -168,24 +163,24 @@ function pdfError() {
   margin-top: 10px;
 
   .title {
-    font-size: 3rem;
+    font-size: 3em;
     margin: 0;
     padding: 0;
-    min-height: 3rem;
+    min-height: 3em;
     @media screen and (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 2em;
     }
     right: 0;
   }
 
   .organization_name {
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 
   .tag_frame {
     display: flex;
     flex-wrap: wrap;
-    font-size: 1rem;
+    font-size: 1em;
     gap: 5px 5px;
     box-sizing: border-box;
 
@@ -232,7 +227,7 @@ function pdfError() {
   white-space: pre-wrap;
   box-sizing: border-box;
   width: 100%;
-  font-size: large;
+  font-size: 1.5em;
 
   h1 {
     background: #EF60A3;
@@ -252,10 +247,20 @@ function pdfError() {
   padding: 0.3em;
   border-radius: 0.3em;
   margin: 1em auto 0.5em auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+  align-items: center;
+
+  p{
+    margin: 0 auto;
+  }
   > div {
+    margin: 0 auto;
     border-radius: 0.3em;
     color: #EF60A3;
-    font-size: 0.9em;
+    font-size: 0.8em;
     background: white;
     padding: 0.1em;
   }
