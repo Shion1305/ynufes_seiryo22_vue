@@ -1,6 +1,6 @@
 <script setup>
 import sourceData from "@/assets/data.json"
-import {defineProps} from "vue";
+import {defineProps, ref} from "vue";
 import {useMeta} from "vue-meta";
 import {event} from 'vue-gtag';
 
@@ -16,6 +16,16 @@ if (process.env.NODE_ENV === "production") {
   event("page:event_detail", {
     event_id: props.eventId,
   });
+}
+let previewPDF = ref(true)
+
+function pdfLoaded(){
+  console.log("PDFLOADED")
+}
+
+function pdfError() {
+  console.log("error")
+  previewPDF.value = false;
 }
 </script>
 <template>
@@ -44,8 +54,22 @@ if (process.env.NODE_ENV === "production") {
         </div>
       </div>
       <div class="detail_block fadeLeft">
-        <h1>企画説明</h1>
-        {{ eventData.event_description }}
+        <div>
+          <h1>企画説明</h1>
+          {{ eventData.event_description }}
+        </div>
+        <div id="contents-area-pdf">
+          <a href="/data/test.pdf" class="download-button hover-to-shrink1" target="_blank" rel="noopener noreferer">
+            <div>企画コンテンツ<br>(PDF)をみる!</div>
+          </a>
+          <object id="pdf-preview" v-if="previewPDF" @load="pdfLoaded" @error="pdfError" type="application/pdf" data="/data/test.pdf" width="100%" height="500">
+            <p></p>
+          </object>
+        </div>
+        <div>
+          <h1>団体紹介</h1>
+          {{ eventData.org_description }}
+        </div>
       </div>
       <div class="willBeHere">企画コンテンツは<br>順次公開されます</div>
       <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
@@ -197,7 +221,8 @@ if (process.env.NODE_ENV === "production") {
 
 .detail_block {
   h1 {
-    width: 100%;
+    width: fit-content;
+    margin: 1em auto 0.5em auto;
   }
 
   animation-delay: 0.6s;
@@ -206,7 +231,39 @@ if (process.env.NODE_ENV === "production") {
   box-sizing: border-box;
   width: 100%;
   font-size: large;
+
+
 }
+
+#contents-area-pdf {
+  margin: 2em 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #preview {
+    width: 100%;
+    height: 500px;
+  }
+
+  .download-button {
+    margin: 1em auto;
+    text-decoration: none;
+
+    > div {
+      border-radius: 1em;
+      text-align: center;
+      padding: 1em;
+      font-size: 1.2em;
+      color: white;
+      background: linear-gradient(120deg, #ff5ecc, #ff75a8);
+      box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
+      0 5px 6.1px rgba(0, 0, 0, 0.076),
+      0 10.1px 11.4px rgba(0, 0, 0, 0.086);
+    }
+  }
+}
+
 
 .top_area {
   animation-delay: 0.4s;
