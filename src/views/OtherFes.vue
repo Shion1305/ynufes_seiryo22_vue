@@ -1,4 +1,14 @@
 <script setup>
+import {useMeta} from "vue-meta";
+import {event} from "vue-gtag";
+
+useMeta({
+  title: "他大学祭のご紹介",
+  description: "本大学祭と提携している大学祭について紹介しています"
+});
+if (process.env.NODE_ENV === "production") {
+  event("page:OtherFes");
+}
 
 </script>
 <template>
@@ -47,12 +57,13 @@
 
 <style lang="scss" scoped>
 
-#page-title{
+#page-title {
   background: linear-gradient(90deg, #ff7cd3, #ff6498);
   border-radius: 1em;
   padding: 1em;
   color: white;
 }
+
 .cell-holder {
   width: unquote("min(100% - 1rem, 80rem)");
   justify-content: center;
