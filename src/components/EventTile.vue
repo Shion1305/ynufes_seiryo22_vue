@@ -65,8 +65,8 @@ const showNoImage = function (e) {
 
     h2 {
       display: -webkit-box;
+      height: 3.0rem;
       -webkit-line-clamp: 2;
-      max-height: 2.8rem;
       overflow: hidden;
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
