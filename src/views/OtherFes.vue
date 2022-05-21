@@ -12,9 +12,9 @@ if (process.env.NODE_ENV === "production") {
 
 </script>
 <template>
-  <h1 id="page-title">他大学祭のご紹介</h1>
+  <h1 id="page-title" class="fadeUp">他大学祭のご紹介</h1>
   <div class="cell-holder">
-    <a href="https://ohdaisai.jp" rel="noopener" target="_blank" class="fes-cell">
+    <a href="https://ohdaisai.jp" rel="noopener" target="_blank" class="fes-cell fadeLeft">
       <img src="@/assets/other_fes/taisho_univ.webp"/>
       <div class="text-area">
         <div class="info-area">
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === "production") {
         </div>
       </div>
     </a>
-    <a href="https://yokohama-fest.com/2022/" rel="noopener" target="_blank" class="fes-cell">
+    <a href="https://yokohama-fest.com/2022/" rel="noopener" target="_blank" class="fes-cell fadeLeft">
       <img src="@/assets/other_fes/tokyocity_univ.webp"/>
       <div class="text-area">
         <div class="info-area">
@@ -62,6 +62,7 @@ if (process.env.NODE_ENV === "production") {
   border-radius: 1em;
   padding: 1em;
   color: white;
+  animation-delay: 0.4s;
 }
 
 .cell-holder {
@@ -178,6 +179,14 @@ if (process.env.NODE_ENV === "production") {
       }
     }
   }
+
+  &:nth-child(1){
+    animation-delay: .5s;
+  }
+  &:nth-child(2){
+    animation-delay: .7s;
+  }
+
 
   @media screen and (max-width: 530px) {
     font-size: 13px;
