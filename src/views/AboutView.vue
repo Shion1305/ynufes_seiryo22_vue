@@ -1,4 +1,4 @@
-<script setup>
+  <script setup>
 import {useMeta} from "vue-meta";
 import FlowerFrame from "@/components/FlowerFrame";
 import {Swiper, SwiperSlide} from "swiper/vue";
@@ -158,9 +158,12 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
   display: flex;
   z-index: 10;
   padding: 0;
+  justify-content: center;
 
   .about-head {
-    animation: 0.5s ease-in-out 0.9s forwards running head-extract, 0.5s ease-in-out forwards 0.3s fadeUpAnime;
+    animation:
+        0.5s ease-in-out forwards 0.9s head-extract,
+        0.5s ease-in-out forwards 0.3s fadeUpAnime;
     flex-shrink: 0;
     border-radius: 2.5rem;
     aspect-ratio: 1;
@@ -173,7 +176,6 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
     0 19.2px 19.8px rgba(0, 0, 0, 0.092),
     0 38.4px 34.8px rgba(0, 0, 0, 0.1);
     display: flex;
-    margin: auto;
 
     .about-head-text {
       z-index: 200;
@@ -308,16 +310,16 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
     @keyframes head-extract {
       from {
         aspect-ratio: 1;
+        height: unquote("max(65vw,300px)");
       }
       to {
         aspect-ratio: 0.5;
+        height: unquote("max(130vw,600px)");
       }
     }
     .about-head {
       flex-direction: column;
-      height: auto;
-      min-width: 300px;
-      width: 65vw;
+      width: unquote("max(65vw,300px)");;
       background: linear-gradient(180deg, #ffd9f2, #ffffff);
 
       .about-head-text {
@@ -341,6 +343,7 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
           justify-content: center;
           opacity: 0;
           animation: 0.4s ease-out 2.15s forwards running itemSlideIn;
+          -webkit-animation: 0.4s ease-out 2.15s forwards running itemSlideIn;
           flex-direction: row;
           gap: 1em;
 
