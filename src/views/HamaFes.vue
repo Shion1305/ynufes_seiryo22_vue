@@ -8,33 +8,64 @@ useMeta({
 })
 
 if (process.env.NODE_ENV === "production") {
-  event("page:sponsors");
+  event("page:hama_fes");
 }
+
+function moveGForm() {
+  const el = document.getElementById("gform_iframe");
+  el.scrollIntoView({behavior: "smooth"})
+}
+
 </script>
 <template>
-  <div class="main-container">
+  <div class="main-container fadeUp">
     <div class="head-area">
       <h1>はまキャラグランプリ</h1>
       <div>
-        「はまフェス」とは、横浜にキャンパスを持つ神奈川大学、慶應義塾大学、フェリス女学院大学、横浜市立大学、横浜国立大学の大学祭実行委員会で構成された団体です。
-
-        約3年間活動ができなかった「はまフェス」の新たな幕開けとして、公式キャラクターを作成することになりました！
-
-        各大学からノミネートされたキャラクターのなかから、投票で公式キャラクターが決定します。
-        皆さんの投票お待ちしております！！
+        <div id="head-frame">
+          <img alt="キャラクター候補1" src="/image/hamafes/character1.webp"/>
+          <img alt="キャラクター候補2" src="/image/hamafes/character2.webp"/>
+          <img alt="キャラクター候補3" src="/image/hamafes/character3.webp"/>
+          <img alt="キャラクター候補4" src="/image/hamafes/character4.webp"/>
+        </div>
+        横浜市内の大学祭の集まり「はまフェス」のキャラクターを決めることになりました！各大学からノミネートされたキャラクターのなかから、投票で公式キャラクターが決定します。<br>
+        あなたのお好きなキャラクターに一票を！皆さんの投票お待ちしております！！<br>
+        投票締め切り：2022年5月28日 23時59分<br>
       </div>
-    </div>
-    <div id="head-frame">
-      <img src="/image/hamafes/character1.webp"/>
-      <img src="/image/hamafes/character2.webp"/>
-      <img src="/image/hamafes/character3.webp"/>
-      <img src="/image/hamafes/character4.webp"/>
+      <div>
+        <h2>【結果発表について】</h2>
+        清陵祭HP内特設ページ、はまフェス公式SNSにて行います！<br>
+        日時：2022年6月2日(予定)<br>
+        <div class="sns_area">
+          <a class="sns_block hover-to-shrink1" href="https://twitter.com/hamafes_univ" target="_blank">
+            <img src="@/assets/sns/twitter_logo.webp" alt="twitter_logo"/>
+            @hamafes_univ
+          </a>
+          <a class="sns_block hover-to-shrink1" href="https://www.instagram.com/hamafes_univ/" target="_blank">
+            <img src="@/assets/sns/instagram_logo.webp" alt="instagram_logo"/>
+            @hamafes_univ
+          </a>
+        </div>
+      </div>
+      <div>
+        <h2>【はまフェスとは？】</h2>
+        「はまフェス」とは、横浜にキャンパスを持つ神奈川大学、慶應義塾大学、フェリス女学院大学、横浜市立大学、横浜国立大学の大学祭実行委員会で構成された団体です。これから様々な企画を各大学祭で開催する予定です。ぜひご注目ください！<br>
+        &emsp;[横国] 清陵祭/常盤祭<br>
+        &emsp;[神大] 神大フェスタ<br>
+        &emsp;[フェリス] Ferris Festival<br>
+        &emsp;[横市] 浜大祭<br>
+        &emsp;[慶應] 矢上祭
+      </div>
+      <div style="text-align: center">
+        <h2>【お問い合わせ】</h2>
+        メール(hamafes.univ@gmail.com)<br>または、はまフェス公式SNSから!
+      </div>
     </div>
     <div class="characters-detail-holder">
       <div class="character-detail">
         <div class="character-icon">
           エントリー①
-          <img src="/image/hamafes/character1.webp"/>
+          <img src="/image/hamafes/character1.webp" alt="キャラクター候補1"/>
         </div>
         <div class="description-area">
           <div>
@@ -44,13 +75,13 @@ if (process.env.NODE_ENV === "production") {
               <li>横浜の街を散歩するのが趣味という設定</li>
             </ul>
           </div>
-          <div class="vote-button">投票期間は5/21～です。</div>
+          <div class="vote-button" @click="moveGForm">投票する!</div>
         </div>
       </div>
       <div class="character-detail">
         <div class="character-icon">
           エントリー②
-          <img src="/image/hamafes/character2-2.webp"/>
+          <img src="/image/hamafes/character2-2.webp" alt="キャラクター候補2"/>
         </div>
         <div class="description-area">
           <div>
@@ -61,13 +92,13 @@ if (process.env.NODE_ENV === "production") {
               <li>チャームポイントは笑顔</li>
             </ul>
           </div>
-          <div class="vote-button">投票期間は5/21～です。</div>
+          <div class="vote-button" @click="moveGForm">投票する!</div>
         </div>
       </div>
       <div class="character-detail">
         <div class="character-icon">
           エントリー③
-          <img src="/image/hamafes/character3.webp"/>
+          <img src="/image/hamafes/character3.webp" alt="キャラクター候補3"/>
         </div>
         <div class="description-area">
           <div>
@@ -77,13 +108,13 @@ if (process.env.NODE_ENV === "production") {
               <li>胸ポケットに現れるコラボ大学のマスコット人形は手作り（実は手先が器用なんです）</li>
             </ul>
           </div>
-          <div class="vote-button">投票期間は5/21～です。</div>
+          <div class="vote-button" @click="moveGForm">投票する!</div>
         </div>
       </div>
       <div class="character-detail">
         <div class="character-icon">
           エントリー④
-          <img src="/image/hamafes/character4.webp"/>
+          <img src="/image/hamafes/character4.webp" alt="キャラクター候補4"/>
         </div>
         <div class="description-area">
           <div>
@@ -93,10 +124,15 @@ if (process.env.NODE_ENV === "production") {
               <li>横浜に住む人たちと海を守ってくれています！</li>
             </ul>
           </div>
-          <div class="vote-button">投票期間は5/21～です。</div>
+          <div class="vote-button" @click="moveGForm">投票する!</div>
         </div>
       </div>
     </div>
+    <iframe
+        id="gform_iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe-48A5DAbCP9HtUCbQYIELyAZFUZE55GyKLQ-OUfrX6Tuzow/viewform?embedded=true"
+        width="100%" height="600">Loading…
+    </iframe>
   </div>
 </template>
 
@@ -104,7 +140,7 @@ if (process.env.NODE_ENV === "production") {
 .main-container {
   width: unquote("min(100% - 2rem, 70rem)");
   font-size: 12px;
-
+  animation-delay: 0.5s;
 
   .characters-detail-holder {
     display: flex;
@@ -112,16 +148,18 @@ if (process.env.NODE_ENV === "production") {
   }
 
   .head-area {
+    box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
+    0 5px 6.1px rgba(0, 0, 0, 0.076),
+    0 10.1px 11.4px rgba(0, 0, 0, 0.086);
     background: #fff5;
-    box-sizing: border-box;
     border-radius: 3rem;
     overflow: hidden;
     color: black;
     margin-bottom: 1rem;
+    background: linear-gradient(120deg, #ff5ecc, #ff75a8);
 
     h1 {
       color: white;
-      background: linear-gradient(120deg, #ff5ecc, #ff75a8);
       padding: 0.5em 0 0 0;
       text-align: center;
       margin: 0;
@@ -129,16 +167,49 @@ if (process.env.NODE_ENV === "production") {
     }
 
     > div {
+      background: #fffe;
+      margin: 1em;
       padding: 1em;
+      border-radius: 1em;
       font-size: 2em;
+
+      .sns_area {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        gap: 5px;
+
+        .sns_block {
+          border: solid 4px #ff7cd3;
+          padding: 1em;
+          border-radius: 1em;
+          display: flex;
+          flex-direction: column;
+          font-size: unquote("min(3vw,15px)");
+
+          img {
+            margin: auto;
+            width: 80px;
+            object-fit: cover;
+          }
+        }
+      }
+
+      h2 {
+        margin: 0 auto;
+        width: fit-content;
+        color: #ff5ecc;
+        white-space: nowrap;
+      }
     }
   }
 
   #head-frame {
-    width: 100%;
+    background: white;
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
+    box-sizing: border-box;
 
     img {
       width: 25%;
@@ -180,6 +251,7 @@ if (process.env.NODE_ENV === "production") {
     }
 
     .vote-button {
+      cursor: pointer;
       color: #ff5ecc;
       padding: 0.5rem;
       border-radius: 0.5rem;

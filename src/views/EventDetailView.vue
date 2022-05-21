@@ -1,6 +1,6 @@
 <script setup>
 import sourceData from "@/assets/data.json"
-import {defineProps} from "vue";
+import {defineProps, ref} from "vue";
 import {useMeta} from "vue-meta";
 import {event} from 'vue-gtag';
 
@@ -16,6 +16,16 @@ if (process.env.NODE_ENV === "production") {
   event("page:event_detail", {
     event_id: props.eventId,
   });
+}
+let previewPDF = ref(true)
+
+function pdfLoaded() {
+  console.log("PDFLOADED")
+}
+
+function pdfError() {
+  console.log("error")
+  previewPDF.value = false;
 }
 </script>
 <template>
@@ -44,45 +54,75 @@ if (process.env.NODE_ENV === "production") {
         </div>
       </div>
       <div class="detail_block fadeLeft">
-        <h1>企画説明</h1>
-        {{ eventData.event_description }}
+        <div>
+          <h1>企画説明</h1>
+          {{ eventData.event_description }}
+        </div>
+        <div id="contents-area-pdf" v-if="eventData.event_type===1">
+          <a :href="`/data/${eventData.pdf}`" class="standard-button hover-to-shrink1" target="_blank"
+             rel="noopener noreferer">
+            <div>企画コンテンツ<br>(PDF)をみる!</div>
+          </a>
+          <object id="pdf-preview" v-if="previewPDF" @load="pdfLoaded" @error="pdfError" type="application/pdf"
+                  :data="`/data/${eventData.pdf}`" width="100%" height="500">
+            <p></p>
+          </object>
+        </div>
+        <div id="contents-area-youtube" v-if="eventData.event_type===2">
+          <iframe id="youtube-iframe" width="100%" height="auto"
+                  :src="`https://www.youtube.com/embed/${eventData.youtube}`"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+          <div>一部動画は公開まで非公開の状態となっております。<br>動画の公開期間は6/12(日)24:00までです。</div>
+        </div>
+        <div id="contents-area-link" v-if="eventData.event_type===3">
+          <a :href="`${eventData.link}`" class="standard-button hover-to-shrink1" target="_blank"
+             rel="noopener noreferer">
+            <div>企画ページを<br>みる!(外部サイト)</div>
+          </a>
+        </div>
+        <div v-if="eventData.org_name!=='清陵祭実行委員会'">
+          <div id="org_title"><p>団体紹介</p>
+            <div>{{ eventData.org_name }}</div>
+          </div>
+          {{ eventData.org_description }}
+          <div id="sns-area">
+            <a class="sns_block hover-to-shrink1" :href="`https://twitter.com/${eventData.twitter.replace('@','')}`" target="_blank"
+               v-if="eventData.twitter!==''">
+              <img src="@/assets/sns/twitter_logo.webp" alt="twitter_logo"/>
+            </a>
+            <a class="sns_block hover-to-shrink1" :href="`https://instagram.com/${eventData.instagram.replace('@','')}`" target="_blank"
+            v-if="eventData.instagram!==''">
+              <img src="@/assets/sns/instagram_logo.webp" alt="twitter_logo"/>
+            </a>
+            <a class="sns_block hover-to-shrink1" :href="`${eventData.website}`" target="_blank"
+               v-if="eventData.website!==''">
+              <img src="/icon/icon_link.png" alt="twitter_logo"/>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="willBeHere">企画コンテンツは<br>順次公開されます</div>
-      <!--      <h3 style="text-align: center">(リンク(WEB展示)の場合についてはプレビュー未対応です。)</h3>-->
-      <!--      <h3 style="text-align: center">(↓Youtube(WEB展示)の場合)</h3>-->
-      <!--      <div class="youtube_area">-->
-      <!--        <iframe width="560" height="315" src="https://www.youtube.com/embed/S-s4LtLFQEo"-->
-      <!--                title="YouTube video player"-->
-      <!--                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
-      <!--                allowfullscreen></iframe>-->
-      <!--      </div>-->
-      <!--      <h3 style="text-align: center">(↓PDF(Web展示)の場合)</h3>-->
-      <!--      <iframe src="/test_pdf.pdf" class="pdf_area"></iframe>-->
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.willBeHere {
-  margin: auto;
-  width: fit-content;
-  padding: 13px;
-  border-radius: 30px;
-  font-size: 1.5rem;
-  color: white;
-  border: solid white 3px;
-  text-align: center;
-  background: #ff5ecc;
-}
-
 .content-frame {
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  padding: 0 2rem;
+  padding: 0 1rem;
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 140px - 220px);
+  font-size: 14px;
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 10px;
+  }
 }
 
 .content-block {
@@ -137,24 +177,26 @@ if (process.env.NODE_ENV === "production") {
   margin-top: 10px;
 
   .title {
-    font-size: 3rem;
+    font-size: 3em;
     margin: 0;
     padding: 0;
-    min-height: 3rem;
+    min-height: 3em;
+    font-weight: bold;
     @media screen and (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 2em;
+      min-height: 0;
     }
     right: 0;
   }
 
   .organization_name {
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 
   .tag_frame {
     display: flex;
     flex-wrap: wrap;
-    font-size: 1rem;
+    font-size: 1em;
     gap: 5px 5px;
     box-sizing: border-box;
 
@@ -196,16 +238,95 @@ if (process.env.NODE_ENV === "production") {
 }
 
 .detail_block {
-  h1 {
-    width: 100%;
-  }
-
   animation-delay: 0.6s;
   padding-bottom: 2rem;
   white-space: pre-wrap;
   box-sizing: border-box;
   width: 100%;
-  font-size: large;
+  font-size: 1.5em;
+
+  h1 {
+    background: #EF60A3;
+    color: white;
+    padding: 0.3em 1em;
+    border-radius: 0.3em;
+    width: fit-content;
+    margin: 1em auto 0.5em auto;
+  }
+}
+
+#org_title {
+  font-size: 2em;
+  background: #EF60A3;
+  color: white;
+  width: fit-content;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  margin: 1em auto 0.5em auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+  align-items: center;
+
+  p {
+    margin: 0 auto;
+  }
+
+  > div {
+    margin: 0 auto;
+    border-radius: 0.3em;
+    color: #EF60A3;
+    font-size: 0.8em;
+    background: white;
+    padding: 0.1em;
+  }
+}
+
+#contents-area-pdf {
+  margin: 2em 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #preview {
+    width: 100%;
+    height: 500px;
+  }
+}
+
+.standard-button {
+  margin: 1em auto;
+  text-decoration: none;
+
+  > div {
+    width: fit-content;
+    border-radius: 1em;
+    text-align: center;
+    padding: 1em;
+    color: white;
+    font-size: 1.5em;
+    background: linear-gradient(120deg, #ff5ecc, #ff75a8);
+    box-shadow: 0 1.9px 2.5px rgba(0, 0, 0, 0.057),
+    0 5px 6.1px rgba(0, 0, 0, 0.076),
+    0 10.1px 11.4px rgba(0, 0, 0, 0.086);
+  }
+}
+
+#contents-area-youtube {
+  text-align: center;
+  margin: 3em 0;
+
+  #youtube-iframe {
+    aspect-ratio: 1.78;
+  }
+}
+
+#contents-area-link {
+  margin: 2em 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .top_area {
@@ -227,4 +348,23 @@ if (process.env.NODE_ENV === "production") {
   }
 }
 
+#sns-area {
+  display: flex;
+  justify-content: center;
+  font-size: unquote("min(1vw,15px)");
+
+  .sns_block {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+
+    img {
+      margin: auto;
+      width: unquote("min(80px,25vw)");
+      object-fit: cover;
+    }
+
+  }
+}
 </style>

@@ -76,9 +76,6 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
       </router-link>
       <router-link id="hama_fes" class="hover-to-shrink1" to="/hama_fes">
         <img alt="浜フェス" src="@/assets/home/hama_fes.jpg"/>
-        <div>
-          <div>はまフェス投票</div>
-        </div>
       </router-link>
     </div>
     <div class="fadeUp update_block">
@@ -468,7 +465,6 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
 
 #hama_fes {
   flex-basis: 50%;
-  position: relative;
   padding-right: 3px;
   box-sizing: border-box;
   font-size: 3rem;
@@ -476,37 +472,8 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
   > img {
     object-fit: cover;
     width: 100%;
-    position: relative;
-  }
-
-  > div {
-    color: white;
-    text-decoration: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    left: 0;
-    bottom: 0;
-
-    > div {
-      padding-top: 15%;
-      box-sizing: border-box;
-      text-align: center;
-    }
-  }
-
-
-  @media screen and (max-width: 900px) {
-    font-size: 40px;
-  }
-  @media screen and (max-width: 700px) {
-    font-size: 30px;
-  }
-  @media screen and (max-width: 550px) {
-    font-size: 20px;
   }
 }
-
 
 .update_block {
   animation-delay: 1.3s;
@@ -562,8 +529,12 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         justify-content: center;
         align-items: center;
         color: #EF60A3;
-        font-size: 1.6rem;
+        font-size: 1.6em;
         padding: 0 1.5rem;
+        white-space: nowrap;
+        @media screen and (max-width: 350px){
+          font-size: 17px;
+        }
       }
     }
   }

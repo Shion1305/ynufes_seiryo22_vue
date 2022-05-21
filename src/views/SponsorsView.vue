@@ -195,7 +195,7 @@ if (process.env.NODE_ENV === "production") {
   width: unquote("min(100% - 1rem, 70rem)");
   margin-inline: auto;
   position: relative;
-  overflow: clip;
+  overflow: hidden;
   border-radius: 3rem;
 
   > img {

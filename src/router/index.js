@@ -22,13 +22,19 @@ const routes = [
         props: (route) => ({...route.params, type: parseInt(route.params.type)})
     },
     {
-        path: '/events/type/:type',
-        name: 'event_list',
+        path: '/events/:type',
+        name: 'event_list_with_type',
         component: () => import(/* webpackChunkName: "events" */ '../views/EventListView'),
         props: (route) => ({...route.params, type: parseInt(route.params.type)})
     },
+    // {
+    //     path: '/events/type/:type',
+    //     name: 'event_list_select',
+    //     component: () => import(/* webpackChunkName: "events" */ '../views/EventListView'),
+    //     props: (route) => ({...route.params, type: parseInt(route.params.type)})
+    // },
     {
-        path: '/events/:id',
+        path: '/events/detail/:id',
         name: 'event_detail',
         component: () => import(/* webpackChunkName: "event_detail" */ '../views/EventDetailView'),
         props: (route) => ({...route.params, eventId: parseInt(route.params.id)})
@@ -60,8 +66,8 @@ const routes = [
     },
     {
         path: '/others',
-        name: 'other',
-        component: () => import(/* webpackChunkName: "others" */ '../views/UnderConstruction'),
+        name: 'other_fes',
+        component: () => import(/* webpackChunkName: "others" */ '../views/OtherFes'),
     },
     {
         path: '/hama_fes',

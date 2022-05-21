@@ -16,7 +16,7 @@
             <router-link to="/sponsors">ご協賛について</router-link>
           </li>
           <li>
-            <router-link to="/others">相互リンク</router-link>
+            <router-link to="/others">他大学祭の紹介</router-link>
           </li>
         </ul>
       </nav>
