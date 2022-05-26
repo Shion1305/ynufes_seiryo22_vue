@@ -38,11 +38,11 @@ function moveGForm() {
         日時：2022年6月2日(予定)<br>
         <div class="sns_area">
           <a class="sns_block hover-to-shrink1" href="https://twitter.com/hamafes_univ" target="_blank">
-            <img src="@/assets/sns/twitter_logo.webp" alt="twitter_logo"/>
+            <img alt="twitter_logo" src="@/assets/sns/twitter_logo.webp"/>
             @hamafes_univ
           </a>
           <a class="sns_block hover-to-shrink1" href="https://www.instagram.com/hamafes_univ/" target="_blank">
-            <img src="@/assets/sns/instagram_logo.webp" alt="instagram_logo"/>
+            <img alt="instagram_logo" src="@/assets/sns/instagram_logo.webp"/>
             @hamafes_univ
           </a>
         </div>
@@ -65,7 +65,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー①
-          <img src="/image/hamafes/character1.webp" alt="キャラクター候補1"/>
+          <img alt="キャラクター候補1" src="/image/hamafes/character1.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -81,7 +81,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー②
-          <img src="/image/hamafes/character2-2.webp" alt="キャラクター候補2"/>
+          <img alt="キャラクター候補2" src="/image/hamafes/character2-2.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -98,7 +98,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー③
-          <img src="/image/hamafes/character3.webp" alt="キャラクター候補3"/>
+          <img alt="キャラクター候補3" src="/image/hamafes/character3.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -114,7 +114,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー④
-          <img src="/image/hamafes/character4.webp" alt="キャラクター候補4"/>
+          <img alt="キャラクター候補4" src="/image/hamafes/character4.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -130,8 +130,8 @@ function moveGForm() {
     </div>
     <iframe
         id="gform_iframe"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSe-48A5DAbCP9HtUCbQYIELyAZFUZE55GyKLQ-OUfrX6Tuzow/viewform?embedded=true"
-        width="100%" height="600">Loading…
+        height="600"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe-48A5DAbCP9HtUCbQYIELyAZFUZE55GyKLQ-OUfrX6Tuzow/viewform?embedded=true" width="100%">Loading…
     </iframe>
   </div>
 </template>

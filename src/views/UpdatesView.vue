@@ -24,8 +24,8 @@ function getTime(d) {
 <template>
   <div id="content-frame">
     <h1 class="fadeUp">更新情報一覧</h1>
-    <div v-for="update in getUpdate()"  :key="update.id" class="updateItem fadeUp">
-      <a class="anchor" :id="`${update.id.toString()}`"/>
+    <div v-for="update in getUpdate()" :key="update.id" class="updateItem fadeUp">
+      <a :id="`${update.id.toString()}`" class="anchor"/>
       <h1>{{ update.title }}</h1>
       <div>{{ getDate(update.date) }} {{ getTime(update.date) }}</div>
       <hr>
@@ -41,13 +41,14 @@ function getTime(d) {
 
 
 <style lang="scss" scoped>
-.anchor{
+.anchor {
   position: absolute;
   width: 0;
   height: 0;
   top: -150px;
   visibility: hidden;
 }
+
 #content-frame {
   width: unquote("min(100% - 2rem, 50rem)");
   margin-inline: auto;

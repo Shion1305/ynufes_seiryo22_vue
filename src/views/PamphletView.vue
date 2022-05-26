@@ -16,9 +16,10 @@ function downloadL() {
 }
 </script>
 <template>
-  <div class="fadeUp" style="background: #fff6; padding: 1rem; border-radius: 3rem; text-align: center; animation-delay: 0.3s">
+  <div class="fadeUp"
+       style="background: #fff6; padding: 1rem; border-radius: 3rem; text-align: center; animation-delay: 0.3s">
     <div id="section-title">
-      <img alt="section background" id="section-back" src="@/assets/home/section_min.webp"/>
+      <img id="section-back" alt="section background" src="@/assets/home/section_min.webp"/>
       <h1>パンフレット</h1>
     </div>
     2022/05/16更新 Ver. 2.0<br>
@@ -26,13 +27,13 @@ function downloadL() {
     <div id="download-area">
       <a class="hover-to-shrink1"
          href="/data/22清陵祭_パンフレット_軽量版.pdf"
-         target="_blank" rel="noreferrer noopener"
+         rel="noreferrer noopener" target="_blank"
          @click="downloadL">
         <div>PDF<br>軽量版<br>8.9MB</div>
       </a>
       <a class="hover-to-shrink1"
          href="/data/22清陵祭_パンフレット.pdf"
-         target="_blank" rel="noreferrer noopener"
+         rel="noreferrer noopener" target="_blank"
          @click="download">
         <div>PDF<br>標準版<br>16.4MB</div>
       </a>
@@ -153,16 +154,20 @@ function downloadL() {
     width: 100%;
     object-fit: cover;
   }
-  &:nth-child(1){
+
+  &:nth-child(1) {
     animation-delay: 0.4s;
   }
-  &:nth-child(2){
+
+  &:nth-child(2) {
     animation-delay: 0.48s;
   }
-  &:nth-child(3){
+
+  &:nth-child(3) {
     animation-delay: 0.56s;
   }
-  &:nth-child(4){
+
+  &:nth-child(4) {
     animation-delay: 0.64s;
   }
 }

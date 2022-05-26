@@ -80,7 +80,7 @@ document.querySelector("[name='description']").remove()
       </div>
     </div>
     <img alt="" class="background_img" src="@/assets/background_img-1.webp"/>
-    <Header v-show="loaded" class="fadeUp" id="header"/>
+    <Header v-show="loaded" id="header" class="fadeUp"/>
     <div v-show="loaded" id="body-frame">
       <router-view/>
       <Footer/>

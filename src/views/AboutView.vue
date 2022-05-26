@@ -1,4 +1,4 @@
-  <script setup>
+<script setup>
 import {useMeta} from "vue-meta";
 import FlowerFrame from "@/components/FlowerFrame";
 import {Swiper, SwiperSlide} from "swiper/vue";
@@ -161,9 +161,8 @@ useMeta({title: '清陵祭とは', description: "「22清陵祭」を開催す�
   justify-content: center;
 
   .about-head {
-    animation:
-        0.5s ease-in-out forwards 0.9s head-extract,
-        0.5s ease-in-out forwards 0.3s fadeUpAnime;
+    animation: 0.5s ease-in-out forwards 0.9s head-extract,
+    0.5s ease-in-out forwards 0.3s fadeUpAnime;
     flex-shrink: 0;
     border-radius: 2.5rem;
     aspect-ratio: 1;

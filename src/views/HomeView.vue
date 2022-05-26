@@ -92,7 +92,7 @@ const showTwitter = computed(() => {
           </router-link>
         </div>
       </div>
-      <div class="twitter_embeds" v-if="showTwitter">
+      <div v-if="showTwitter" class="twitter_embeds">
         <TwitterTimeline/>
       </div>
     </div>
