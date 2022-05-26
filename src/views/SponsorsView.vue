@@ -39,6 +39,7 @@ if (process.env.NODE_ENV === "production") {
             <li>株式会社マンナンライフ</li>
             <li>株式会社らしんばん</li>
             <li>鎌倉まめや</li>
+            <li>玉露園食品工業株式会社</li>
             <li>ケンミン食品株式会社</li>
             <li>スカイスパYOKOHAMA</li>
             <li>セイコーモータースクール</li>
