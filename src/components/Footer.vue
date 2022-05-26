@@ -118,6 +118,7 @@ footer {
       align-items: center;
 
       > img {
+        aspect-ratio: 1;
         margin-left: 0.3rem;
         width: 10rem;
         border-radius: 10px;
@@ -132,6 +133,7 @@ footer {
         gap: 0.3rem;
 
         img {
+          aspect-ratio: 1;
           height: 3rem;
         }
       }
