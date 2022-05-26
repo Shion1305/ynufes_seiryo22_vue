@@ -7,6 +7,7 @@ import UpdateElement from "@/components/UpdateElement";
 import store from "@/store";
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+import {computed} from "vue";
 
 const getNewestUpdate = function () {
   return store.state.updates.slice(0, 3);
@@ -15,6 +16,9 @@ if (process.env.NODE_ENV === "production") {
   event("page:home");
 }
 useMeta({title: '', description: '横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'});
+const showTwitter = computed(() => {
+  return window.innerWidth > 700;
+})
 </script>
 
 <template>
@@ -88,7 +92,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           </router-link>
         </div>
       </div>
-      <div class="twitter_embeds">
+      <div class="twitter_embeds" v-if="showTwitter">
         <TwitterTimeline/>
       </div>
     </div>
