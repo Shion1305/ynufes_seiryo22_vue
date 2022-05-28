@@ -379,7 +379,6 @@ const showTwitter = computed(() => {
     }
 
     .pamphlet_block {
-      aspect-ratio: 2.5;
       position: relative;
       flex-basis: 50%;
       display: flex;
@@ -387,6 +386,7 @@ const showTwitter = computed(() => {
       color: #940168;
 
       > img {
+        aspect-ratio: 2.5;
         box-sizing: border-box;
         padding: 0.5rem;
         width: 100%;
