@@ -56,20 +56,22 @@ function pdfError() {
       <div class="detail_block fadeLeft">
         <div>
           <h1>企画説明</h1>
-          {{ eventData.event_description }}
+          <div v-html="`${eventData.event_description}`"/>
         </div>
         <div v-if="eventData.event_type===1" id="contents-area-pdf">
           <a :href="`/data/${eventData.pdf}`" class="standard-button hover-to-shrink1" rel="noopener noreferer"
              target="_blank">
             <div>企画コンテンツ<br>(PDF)をみる!</div>
           </a>
-          <object v-if="previewPDF" id="pdf-preview" :data="`/data/${eventData.pdf}`" height="500" type="application/pdf"
+          <object v-if="previewPDF" id="pdf-preview" :data="`/data/${eventData.pdf}`" height="500"
+                  type="application/pdf"
                   width="100%" @error="pdfError" @load="pdfLoaded">
             <p></p>
           </object>
         </div>
         <div v-if="eventData.event_type===2" id="contents-area-youtube">
-          <iframe id="youtube-iframe" :src="`https://www.youtube.com/embed/${eventData.youtube}`" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          <iframe id="youtube-iframe" :src="`https://www.youtube.com/embed/${eventData.youtube}`"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                   height="auto"
                   title="YouTube video player"
