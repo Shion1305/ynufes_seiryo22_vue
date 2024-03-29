@@ -1,6 +1,7 @@
 <script setup>
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+import {ref} from "vue";
 
 useMeta({
   title: "はまキャラグランプリ",
@@ -16,8 +17,24 @@ function moveGForm() {
   el.scrollIntoView({behavior: "smooth"})
 }
 
+const showResult = ref(true)
 </script>
 <template>
+  <div class="result-background" v-show="showResultd">
+    <div class="result fadeUp">
+      <div class="title">結果発表
+        <img @click="showResult=false" id="cross" src="@/assets/cross.png"/>
+      </div>
+      <div id="content-text1">約3年ぶりのはまフェス再始動企画第1弾として行われた『はまキャラグランプリ』の最終結果を発表させていただきます！</div>
+      <img alt="キャラクター候補1" src="/image/hamafes/character1.webp"/>
+      <div id="content-text2"> 投票の結果、エントリー①がはまフェス公式キャラクターに就任いたします。
+        名前は【ばらら】に決定いたしました！
+        皆さんに愛されるキャラクターとなりますよう願っております。
+        はまフェス公式SNS（Twitter、Instagram）では、ばららのプロフィールを順次公開していきますので、そちらも是非お楽しみください！
+        多数のご投票ありがとうございました。
+      </div>
+    </div>
+  </div>
   <div class="main-container fadeUp">
     <div class="head-area">
       <h1>はまキャラグランプリ</h1>
@@ -38,11 +55,11 @@ function moveGForm() {
         日時：2022年6月2日(予定)<br>
         <div class="sns_area">
           <a class="sns_block hover-to-shrink1" href="https://twitter.com/hamafes_univ" target="_blank">
-            <img src="@/assets/sns/twitter_logo.webp" alt="twitter_logo"/>
+            <img alt="twitter_logo" src="@/assets/sns/twitter_logo.webp"/>
             @hamafes_univ
           </a>
           <a class="sns_block hover-to-shrink1" href="https://www.instagram.com/hamafes_univ/" target="_blank">
-            <img src="@/assets/sns/instagram_logo.webp" alt="instagram_logo"/>
+            <img alt="instagram_logo" src="@/assets/sns/instagram_logo.webp"/>
             @hamafes_univ
           </a>
         </div>
@@ -65,7 +82,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー①
-          <img src="/image/hamafes/character1.webp" alt="キャラクター候補1"/>
+          <img alt="キャラクター候補1" src="/image/hamafes/character1.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -81,7 +98,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー②
-          <img src="/image/hamafes/character2-2.webp" alt="キャラクター候補2"/>
+          <img alt="キャラクター候補2" src="/image/hamafes/character2-2.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -98,7 +115,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー③
-          <img src="/image/hamafes/character3.webp" alt="キャラクター候補3"/>
+          <img alt="キャラクター候補3" src="/image/hamafes/character3.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -114,7 +131,7 @@ function moveGForm() {
       <div class="character-detail">
         <div class="character-icon">
           エントリー④
-          <img src="/image/hamafes/character4.webp" alt="キャラクター候補4"/>
+          <img alt="キャラクター候補4" src="/image/hamafes/character4.webp"/>
         </div>
         <div class="description-area">
           <div>
@@ -130,13 +147,73 @@ function moveGForm() {
     </div>
     <iframe
         id="gform_iframe"
+        height="600"
         src="https://docs.google.com/forms/d/e/1FAIpQLSe-48A5DAbCP9HtUCbQYIELyAZFUZE55GyKLQ-OUfrX6Tuzow/viewform?embedded=true"
-        width="100%" height="600">Loading…
+        width="100%">Loading…
     </iframe>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.result-background {
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  z-index: 10;
+  background: #131516aa;
+  position: fixed;
+  display: flex;
+  top: 0;
+  transition: all 0.1s ease-in-out ;
+
+  .result {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px auto 0 auto;
+    width: calc(100% - 2rem);
+    height: fit-content;
+    max-width: 50rem;
+    box-sizing: border-box;
+    background: white;
+
+    .title {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      line-height: 1;
+      text-align: center;
+      padding: 10px 0;
+      color: white;
+      font-size: 1.5em;
+      background: #EF60A3;
+      width: 100%;
+    }
+
+    #cross {
+      position: absolute;
+      height: 1.5rem;
+      right: 10px;
+    }
+
+    #content-text1 {
+      padding: 1em;
+    }
+
+    #content-text2 {
+      padding: 1em;
+    }
+
+    img {
+      max-width: 50%;
+      aspect-ratio: 1;
+      max-height: 40vh;
+    }
+  }
+}
+
+
 .main-container {
   width: unquote("min(100% - 2rem, 70rem)");
   font-size: 12px;
@@ -273,6 +350,7 @@ function moveGForm() {
 }
 
 @media screen and (max-width: 800px) {
+
   .main-container {
     font-size: 10px;
 
@@ -287,6 +365,14 @@ function moveGForm() {
       .description-area {
         width: 100%;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .result-background {
+    .result {
+      margin-top: 100px;
     }
   }
 }

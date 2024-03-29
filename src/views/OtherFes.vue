@@ -14,8 +14,8 @@ if (process.env.NODE_ENV === "production") {
 <template>
   <h1 id="page-title" class="fadeUp">他大学祭のご紹介</h1>
   <div class="cell-holder">
-    <a href="https://ohdaisai.jp" rel="noopener" target="_blank" class="fes-cell fadeLeft">
-      <img src="@/assets/other_fes/taisho_univ.webp"/>
+    <a class="fes-cell fadeLeft" href="https://ohdaisai.jp" rel="noopener" target="_blank">
+      <img alt="大正大学の紹介写真" src="@/assets/other_fes/taisho_univ.webp"/>
       <div class="text-area">
         <div class="info-area">
           <div class="info-upper">
@@ -33,8 +33,8 @@ if (process.env.NODE_ENV === "production") {
         </div>
       </div>
     </a>
-    <a href="https://yokohama-fest.com/2022/" rel="noopener" target="_blank" class="fes-cell fadeLeft">
-      <img src="@/assets/other_fes/tokyocity_univ.webp"/>
+    <a class="fes-cell fadeLeft" href="https://yokohama-fest.com/2022/" rel="noopener" target="_blank">
+      <img alt="東京都市大学祭の紹介写真" src="@/assets/other_fes/tokyocity_univ.webp"/>
       <div class="text-area">
         <div class="info-area">
           <div class="info-upper">
@@ -180,10 +180,11 @@ if (process.env.NODE_ENV === "production") {
     }
   }
 
-  &:nth-child(1){
+  &:nth-child(1) {
     animation-delay: .5s;
   }
-  &:nth-child(2){
+
+  &:nth-child(2) {
     animation-delay: .7s;
   }
 

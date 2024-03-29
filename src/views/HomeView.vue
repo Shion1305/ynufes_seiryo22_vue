@@ -7,6 +7,7 @@ import UpdateElement from "@/components/UpdateElement";
 import store from "@/store";
 import {useMeta} from "vue-meta";
 import {event} from "vue-gtag";
+import {computed} from "vue";
 
 const getNewestUpdate = function () {
   return store.state.updates.slice(0, 3);
@@ -15,6 +16,9 @@ if (process.env.NODE_ENV === "production") {
   event("page:home");
 }
 useMeta({title: '', description: '横浜国立大学オンライン大学祭「22清陵祭」公式HPです。今年のテーマは『花笑み』! 楽しいオンライン企画が満載！'});
+const showTwitter = computed(() => {
+  return window.innerWidth > 700;
+})
 </script>
 
 <template>
@@ -38,7 +42,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           name: 'event_list',
           params: { type: 1 },
         }" class="button_events_all hover-to-shrink1">
-            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.png"/>
+            <img alt="全ての企画を見る" src="@/assets/home/event-button-1-min.webp"/>
             <div><p>全ての<br>企画</p></div>
           </router-link>
           <div class="button_events_other">
@@ -46,7 +50,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           name: 'event_list',
           params: { type: 2 },
         }" class="button_events_part hover-to-shrink1">
-              <img alt="本部企画" src="@/assets/home/event-button-2-min.png"/>
+              <img alt="本部企画" src="@/assets/home/event-button-2-min.webp"/>
               <div>
                 <p>本部企画</p>
               </div>
@@ -55,7 +59,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           name: 'event_list',
           params: { type: 3 },
         }" class="button_events_part hover-to-shrink1">
-              <img alt="団体企画" src="@/assets/home/event-button-3-min.png"/>
+              <img alt="団体企画" src="@/assets/home/event-button-3-min.webp"/>
               <div><p>団体企画</p></div>
             </router-link>
           </div>
@@ -71,11 +75,11 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
     </div>
     <div class="fadeUp button_section_1">
       <router-link id="poster_button" class="hover-to-shrink1" to="/poster">
-        <img alt="ポスター展覧会" src="@/assets/home/poster.webp"/>
+        <img alt="ポスター展覧会" src="@/assets/home/poster-light.webp"/>
         <div>ポスター展覧会</div>
       </router-link>
       <router-link id="hama_fes" class="hover-to-shrink1" to="/hama_fes">
-        <img alt="浜フェス" src="@/assets/home/hama_fes.jpg"/>
+        <img alt="浜フェス" src="@/assets/home/hama_fes.webp"/>
       </router-link>
     </div>
     <div class="fadeUp update_block">
@@ -88,7 +92,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           </router-link>
         </div>
       </div>
-      <div class="twitter_embeds">
+      <div v-if="showTwitter" class="twitter_embeds">
         <TwitterTimeline/>
       </div>
     </div>
@@ -167,6 +171,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
     border-radius: 20px;
 
     > img {
+      aspect-ratio: 3;
       margin-left: 2rem;
       max-width: 35rem;
       width: 100%;
@@ -225,6 +230,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         position: relative;
 
         > img {
+          aspect-ratio: 1/1.1;
           width: 100%;
           position: relative;
         }
@@ -258,6 +264,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
           box-sizing: border-box;
 
           > img {
+            aspect-ratio: 300/161;
             height: 100%;
             position: relative;
           }
@@ -379,6 +386,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
       color: #940168;
 
       > img {
+        aspect-ratio: 2.5;
         box-sizing: border-box;
         padding: 0.5rem;
         width: 100%;
@@ -433,6 +441,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
   font-size: 3rem;
 
   > img {
+    aspect-ratio: 2.5;
     object-fit: cover;
     width: 100%;
     position: relative;
@@ -470,6 +479,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
   font-size: 3rem;
 
   > img {
+    aspect-ratio: 3;
     object-fit: cover;
     width: 100%;
   }
@@ -532,7 +542,7 @@ useMeta({title: '', description: '横浜国立大学オンライン大学祭「2
         font-size: 1.6em;
         padding: 0 1.5rem;
         white-space: nowrap;
-        @media screen and (max-width: 350px){
+        @media screen and (max-width: 350px) {
           font-size: 17px;
         }
       }

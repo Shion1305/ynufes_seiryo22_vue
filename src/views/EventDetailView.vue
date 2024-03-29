@@ -56,29 +56,31 @@ function pdfError() {
       <div class="detail_block fadeLeft">
         <div>
           <h1>企画説明</h1>
-          {{ eventData.event_description }}
+          <div v-html="`${eventData.event_description}`"/>
         </div>
-        <div id="contents-area-pdf" v-if="eventData.event_type===1">
-          <a :href="`/data/${eventData.pdf}`" class="standard-button hover-to-shrink1" target="_blank"
-             rel="noopener noreferer">
+        <div v-if="eventData.event_type===1" id="contents-area-pdf">
+          <a :href="`/data/${eventData.pdf}`" class="standard-button hover-to-shrink1" rel="noopener noreferer"
+             target="_blank">
             <div>企画コンテンツ<br>(PDF)をみる!</div>
           </a>
-          <object id="pdf-preview" v-if="previewPDF" @load="pdfLoaded" @error="pdfError" type="application/pdf"
-                  :data="`/data/${eventData.pdf}`" width="100%" height="500">
+          <object v-if="previewPDF" id="pdf-preview" :data="`/data/${eventData.pdf}`" height="500"
+                  type="application/pdf"
+                  width="100%" @error="pdfError" @load="pdfLoaded">
             <p></p>
           </object>
         </div>
-        <div id="contents-area-youtube" v-if="eventData.event_type===2">
-          <iframe id="youtube-iframe" width="100%" height="auto"
-                  :src="`https://www.youtube.com/embed/${eventData.youtube}`"
-                  title="YouTube video player"
+        <div v-if="eventData.event_type===2" id="contents-area-youtube">
+          <iframe id="youtube-iframe" :src="`https://www.youtube.com/embed/${eventData.youtube}`"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
+                  allowfullscreen
+                  height="auto"
+                  title="YouTube video player"
+                  width="100%"></iframe>
           <div>一部動画は公開まで非公開の状態となっております。<br>動画の公開期間は6/12(日)24:00までです。</div>
         </div>
-        <div id="contents-area-link" v-if="eventData.event_type===3">
-          <a :href="`${eventData.link}`" class="standard-button hover-to-shrink1" target="_blank"
-             rel="noopener noreferer">
+        <div v-if="eventData.event_type===3" id="contents-area-link">
+          <a :href="`${eventData.link}`" class="standard-button hover-to-shrink1" rel="noopener noreferer"
+             target="_blank">
             <div>企画ページを<br>みる!(外部サイト)</div>
           </a>
         </div>
@@ -88,17 +90,19 @@ function pdfError() {
           </div>
           {{ eventData.org_description }}
           <div id="sns-area">
-            <a class="sns_block hover-to-shrink1" :href="`https://twitter.com/${eventData.twitter.replace('@','')}`" target="_blank"
-               v-if="eventData.twitter!==''">
-              <img src="@/assets/sns/twitter_logo.webp" alt="twitter_logo"/>
+            <a v-if="eventData.twitter!==''" :href="`https://twitter.com/${eventData.twitter.replace('@','')}`"
+               class="sns_block hover-to-shrink1"
+               target="_blank">
+              <img alt="twitter_logo" src="@/assets/sns/twitter_logo.webp"/>
             </a>
-            <a class="sns_block hover-to-shrink1" :href="`https://instagram.com/${eventData.instagram.replace('@','')}`" target="_blank"
-            v-if="eventData.instagram!==''">
-              <img src="@/assets/sns/instagram_logo.webp" alt="twitter_logo"/>
+            <a v-if="eventData.instagram!==''" :href="`https://instagram.com/${eventData.instagram.replace('@','')}`"
+               class="sns_block hover-to-shrink1"
+               target="_blank">
+              <img alt="twitter_logo" src="@/assets/sns/instagram_logo.webp"/>
             </a>
-            <a class="sns_block hover-to-shrink1" :href="`${eventData.website}`" target="_blank"
-               v-if="eventData.website!==''">
-              <img src="/icon/icon_link.png" alt="twitter_logo"/>
+            <a v-if="eventData.website!==''" :href="`${eventData.website}`" class="sns_block hover-to-shrink1"
+               target="_blank">
+              <img alt="twitter_logo" src="/icon/icon_link.png"/>
             </a>
           </div>
         </div>

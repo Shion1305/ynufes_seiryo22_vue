@@ -45,10 +45,10 @@ watch(route, () => {
           <router-link active-class="header_active" to="/about">
             <li class="hover-underline-animation">清陵祭とは</li>
           </router-link>
-          <router-link active-class="header_active" routerLinkActive="" :to="{
+          <router-link :to="{
             name:'event_list',
             params:{type:1}
-          }">
+          }" active-class="header_active" routerLinkActive="">
             <li class="hover-underline-animation">企画を見る</li>
           </router-link>
           <router-link active-class="header_active" to="/pamphlet">
@@ -61,11 +61,11 @@ watch(route, () => {
       </nav>
     </header>
     <transition name="mobileMenu">
-      <div id="mobile_menu" v-show="mToggled">
+      <div v-show="mToggled" id="mobile_menu">
         <router-link active-class="selected" to="/" @click="closeMenu">ホーム</router-link>
         <router-link active-class="selected" to="/about" @click="closeMenu">清陵祭とは</router-link>
         <router-link active-class="selected" to="/update" @click="closeMenu">更新情報</router-link>
-        <router-link active-class="selected" :to="{name:'event_list',params:{type:1}}" @click="closeMenu">企画を見る
+        <router-link :to="{name:'event_list',params:{type:1}}" active-class="selected" @click="closeMenu">企画を見る
         </router-link>
         <router-link active-class="selected" to="/pamphlet" @click="closeMenu">パンフレット</router-link>
         <router-link active-class="selected" to="/sponsors" @click="closeMenu">ご協賛について</router-link>
@@ -85,7 +85,7 @@ watch(route, () => {
       </div>
     </transition>
     <transition name="mobileBack">
-      <div class="header-back" v-show="mToggled" @click="closeMenu"/>
+      <div v-show="mToggled" class="header-back" @click="closeMenu"/>
     </transition>
   </div>
 </template>
